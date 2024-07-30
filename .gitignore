@@ -33,3 +33,7 @@ Thumbs.db
 # Ignore sensitive or private information
 secrets.txt
 credentials.json
+
+# Backend
+./backend/src/resources/application-dev.properties
+./backend/src/resources/application-prod.properties
