@@ -18,6 +18,8 @@ import java.util.UUID;
 @Getter
 @Setter
 public class Payment {
+    @Id
+    @GeneratedValue
     private UUID id;
     private String receipt;
     private double value;
