@@ -35,5 +35,5 @@ secrets.txt
 credentials.json
 
 # Backend
-./backend/src/resources/application-dev.properties
-./backend/src/resources/application-prod.properties
+backend/src/main/resources/application-dev.properties
+backend/src/main/resources/application-prod.properties
