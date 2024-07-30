@@ -5,6 +5,7 @@ import com.garcia.splitpal.domain.user.UpdateUserDTO;
 import com.garcia.splitpal.domain.user.User;
 import com.garcia.splitpal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +17,12 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
     public UUID createUser(CreateUserDTO user){
         User entity = new User();
         entity.setUsername(user.username());
-        entity.setPassword(user.password());
+        entity.setPassword(passwordEncoder.encode(user.password()));
 
         entity = userRepository.save(entity);
         return entity.getId();
