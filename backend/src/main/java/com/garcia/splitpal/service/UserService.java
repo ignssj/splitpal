@@ -16,13 +16,13 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
-    public User createUser(CreateUserDTO user){
+    public UUID createUser(CreateUserDTO user){
         User entity = new User();
         entity.setUsername(user.username());
         entity.setPassword(user.password());
 
-        userRepository.save(entity);
-        return entity;
+        entity = userRepository.save(entity);
+        return entity.getId();
     }
 
     public Optional<User> getUserById(String id){
