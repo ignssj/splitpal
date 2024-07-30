@@ -1,6 +1,6 @@
 package com.garcia.splitpal.domain.user;
 
-import com.garcia.splitpal.domain.SplitParticipant.SplitParticipant;
+import com.garcia.splitpal.domain.splitParticipant.SplitParticipant;
 import com.garcia.splitpal.domain.payment.Payment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,8 +22,8 @@ public class User {
     @GeneratedValue
     @Id
     private UUID id;
-    private String name;
-    private String email;
+    private String username;
+    private String password;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SplitParticipant> splits;

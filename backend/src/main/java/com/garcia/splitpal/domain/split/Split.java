@@ -1,6 +1,6 @@
 package com.garcia.splitpal.domain.split;
 
-import com.garcia.splitpal.domain.SplitParticipant.SplitParticipant;
+import com.garcia.splitpal.domain.splitParticipant.SplitParticipant;
 import com.garcia.splitpal.domain.payment.Payment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
