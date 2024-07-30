@@ -8,7 +8,7 @@ CREATE TABLE users (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE split (
+CREATE TABLE splits (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
     category VARCHAR(15) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE split (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE split_has_participants (
+CREATE TABLE split_has_participant (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     organizer BOOLEAN DEFAULT false,
     split_id UUID,
