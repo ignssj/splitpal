@@ -23,7 +23,7 @@ CREATE TABLE split_has_participant (
     organizer BOOLEAN DEFAULT false,
     split_id UUID,
     user_id UUID,
-    FOREIGN KEY (split_id) REFERENCES split(id),
+    FOREIGN KEY (split_id) REFERENCES splits(id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -35,7 +35,7 @@ CREATE TABLE payments (
     value INTEGER NOT NULL,
     split_id UUID,
     user_id UUID,
-    FOREIGN KEY (split_id) REFERENCES split(id),
+    FOREIGN KEY (split_id) REFERENCES splits(id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
