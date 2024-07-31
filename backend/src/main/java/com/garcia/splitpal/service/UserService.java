@@ -3,6 +3,7 @@ package com.garcia.splitpal.service;
 import com.garcia.splitpal.domain.user.CreateUserDTO;
 import com.garcia.splitpal.domain.user.UpdateUserDTO;
 import com.garcia.splitpal.domain.user.User;
+import com.garcia.splitpal.exception.UsernameAlreadyExistsException;
 import com.garcia.splitpal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,6 +21,12 @@ public class UserService {
     @Autowired
     PasswordEncoder passwordEncoder;
     public UUID createUser(CreateUserDTO user){
+        var userWithSameUsername = userRepository.findByUsername(user.username());
+        if (userWithSameUsername.isPresent()){
+            throw new UsernameAlreadyExistsException("User with email " + user.username()+ " already exists");
+        }
+
+
         User entity = new User();
         entity.setUsername(user.username());
         entity.setPassword(passwordEncoder.encode(user.password()));
