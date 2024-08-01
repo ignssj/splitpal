@@ -1,7 +1,7 @@
 package com.garcia.splitpal.controller;
 
-import com.garcia.splitpal.domain.user.CreateUserDTO;
-import com.garcia.splitpal.domain.user.UpdateUserDTO;
+import com.garcia.splitpal.dto.CreateUserDTO;
+import com.garcia.splitpal.dto.UpdateUserDTO;
 import com.garcia.splitpal.domain.user.User;
 import com.garcia.splitpal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,6 @@ public class UserController {
 
     @Autowired
     UserService userService;
-
-    @PostMapping
-    public ResponseEntity<User> create(@RequestBody CreateUserDTO body){
-        var id = userService.createUser(body);
-        return ResponseEntity.created(URI.create("users/"+id.toString())).build();
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getById(@PathVariable("id") String id){

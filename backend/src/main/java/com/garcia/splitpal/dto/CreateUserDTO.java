@@ -1,3 +1,3 @@
-package com.garcia.splitpal.domain.user;
+package com.garcia.splitpal.dto;
 
 public record CreateUserDTO (String username, String password){}
