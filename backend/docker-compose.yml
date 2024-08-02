@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: splitpal_db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - splitpal_net
+
+  app:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    container_name: splitpal_app
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      SECRET: ${SECRET}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - splitpal_net
+
+volumes:
+  postgres_data:
+
+networks:
+  splitpal_net:
