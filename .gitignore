@@ -13,6 +13,9 @@ backend/target
 backend/build/
 backend/data
 
+# Frontend
+frontend/node_modules
+
 # Ignore system files
 .DS_Store
 Thumbs.db
