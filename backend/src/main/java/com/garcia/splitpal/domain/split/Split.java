@@ -7,12 +7,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name="splits")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,7 +37,9 @@ public class Split {
     @OneToMany(mappedBy = "split", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Payment> payments;
 
-    private Timestamp created_at;
-    private Timestamp updated_at;
+    @CreatedDate
+    private LocalDateTime created_at;
+    @LastModifiedDate
+    private LocalDateTime updated_at;
 
 }
