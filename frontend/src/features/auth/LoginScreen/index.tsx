@@ -2,10 +2,12 @@ import React from "react";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Screen from "../../../components/Screen";
-import styles from "./styles";
+import createStyle from "./styles";
+import useThemedStyles from "../../../hooks/useThemedStyles";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
+  const styles = useThemedStyles(createStyle);
 
   return (
     <Screen>
