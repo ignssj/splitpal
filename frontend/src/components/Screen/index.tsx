@@ -1,10 +1,17 @@
 import React from "react";
 import { IScreen } from "./types";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "./styles";
+import createStyle from "./styles";
+import useThemedStyles from "../../hooks/useThemedStyles";
+import View from "../View";
 
 const Screen: React.FC<IScreen> = ({ children }) => {
-  return <SafeAreaView style={styles.container}>{children}</SafeAreaView>;
+  const styles = useThemedStyles(createStyle);
+  return (
+    <View>
+      <SafeAreaView style={styles.container}>{children}</SafeAreaView>
+    </View>
+  );
 };
 
 export default Screen;
