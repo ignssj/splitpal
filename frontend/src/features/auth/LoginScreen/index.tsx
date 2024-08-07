@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, Image } from "react-native";
-import LoginButton from "../components/LoginButton";
+import LoginButton from "./components/LoginButton";
 import { useNavigation } from "@react-navigation/native";
 import Screen from "../../../components/Screen";
 import { UserForm } from "../components/UserForm";
 import stylesheet from "./styles";
 import useThemedStyles from "../../../hooks/useThemedStyles";
-import RegisterButton from "../components/RegisterButton";
+import RegisterButton from "./components/RegisterButton";
 import { PropsStack } from "../../../infra/navigation/models";
 
 const LoginScreen = () => {
