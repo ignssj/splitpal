@@ -1,13 +1,16 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import { Text, Image } from "react-native";
+import LoginButton from "../components/LoginButton";
 import { useNavigation } from "@react-navigation/native";
 import Screen from "../../../components/Screen";
-import createStyle from "./styles";
+import { UserForm } from "../components/UserForm";
+import stylesheet from "./styles";
 import useThemedStyles from "../../../hooks/useThemedStyles";
+import RegisterButton from "../components/RegisterButton";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-  const styles = useThemedStyles(createStyle);
+  const styles = useThemedStyles(stylesheet);
 
   return (
     <Screen>
@@ -15,30 +18,13 @@ const LoginScreen = () => {
         source={require("../../../../assets/logo.png")}
         style={styles.logo}
       />
-      <View style={styles.innerContainer}>
-        <View style={styles.formContainer}>
-          <Text style={styles.title}>Login</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            placeholderTextColor="#CCCCCC"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Senha"
-            secureTextEntry
-            placeholderTextColor="#CCCCCC"
-          />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Entrar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("RegisterScreen")}
-          >
-            <Text style={styles.linkText}>Não tem uma conta? Cadastre-se</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <Text style={styles.title}>Login</Text>
+      <UserForm.Root>
+        <UserForm.Email value="" onChange={() => null} />
+        <UserForm.Password value="" onChange={() => null} />
+        <LoginButton action={() => null} />
+        <RegisterButton action={() => navigation.navigate("RegisterScreen")} />
+      </UserForm.Root>
     </Screen>
   );
 };
