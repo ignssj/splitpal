@@ -1,21 +1,26 @@
+import { handleRequestError } from "../../helpers/ServiceHelper";
+import { HttpResponse } from "../types";
 import api from "..";
+import * as T from "./types";
 
 const useAuthService = () => {
-  const register = async (username: string, password: string) => {
+  const register = async (
+    body: T.RegisterRequest
+  ): HttpResponse<T.RegisterResponse> => {
     try {
-      const response = await api.post("/auth/register", { username, password });
+      const response = await api.post("/auth/register", body);
       return response.data;
     } catch (err) {
-      return err;
+      return handleRequestError(err);
     }
   };
 
-  const login = async (username: string, password: string) => {
+  const login = async (body: T.LoginRequest): HttpResponse<T.LoginResponse> => {
     try {
-      const response = await api.post("/auth/login", { username, password });
+      const response = await api.post("/auth/login", body);
       return response.data;
     } catch (err) {
-      return err;
+      return handleRequestError(err);
     }
   };
 
