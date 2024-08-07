@@ -1,16 +1,15 @@
 import React from "react";
+import Screen from "../../../components/Screen";
+import createStyle from "./styles";
+import useThemedStyles from "../../../hooks/useThemedStyles";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { TextInput } from "react-native-paper";
-import Screen from "../../../components/Screen";
-import useAuthService from "../../../services/auth";
-import createStyle from "./styles";
-import useThemedStyles from "../../../hooks/useThemedStyles";
+import { PropsStack } from "../../../infra/navigation/models";
 
 const RegisterScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<PropsStack>();
   const styles = useThemedStyles(createStyle);
-  const { register } = useAuthService();
 
   return (
     <Screen>

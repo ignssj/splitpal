@@ -7,9 +7,10 @@ import { UserForm } from "../components/UserForm";
 import stylesheet from "./styles";
 import useThemedStyles from "../../../hooks/useThemedStyles";
 import RegisterButton from "../components/RegisterButton";
+import { PropsStack } from "../../../infra/navigation/models";
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<PropsStack>();
   const styles = useThemedStyles(stylesheet);
 
   return (
