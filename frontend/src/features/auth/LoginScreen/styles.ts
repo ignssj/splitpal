@@ -14,7 +14,7 @@ const stylesheet = (theme: MD3Theme) =>
     title: {
       fontSize: 24,
       fontWeight: "bold",
-      color: "#66B2FF",
+      color: theme.colors.primary,
       marginBottom: 10,
       textAlign: "center",
     },

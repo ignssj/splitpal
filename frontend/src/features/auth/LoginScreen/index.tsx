@@ -6,8 +6,9 @@ import Screen from "../../../components/Screen";
 import { UserForm } from "../components/UserForm";
 import stylesheet from "./styles";
 import useThemedStyles from "../../../hooks/useThemedStyles";
-import RegisterButton from "./components/RegisterButton";
+import RegisterButton from "./components/RegisterNavigation";
 import { PropsStack } from "../../../infra/navigation/models";
+import RegisterNavigation from "./components/RegisterNavigation";
 
 const LoginScreen = () => {
   const navigation = useNavigation<PropsStack>();
@@ -24,7 +25,9 @@ const LoginScreen = () => {
         <UserForm.Email value="" onChange={() => null} />
         <UserForm.Password value="" onChange={() => null} />
         <LoginButton action={() => null} />
-        <RegisterButton action={() => navigation.navigate("RegisterScreen")} />
+        <RegisterNavigation
+          action={() => navigation.navigate("RegisterScreen")}
+        />
       </UserForm.Root>
     </Screen>
   );

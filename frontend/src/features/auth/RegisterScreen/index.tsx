@@ -2,10 +2,12 @@ import React from "react";
 import Screen from "../../../components/Screen";
 import createStyle from "./styles";
 import useThemedStyles from "../../../hooks/useThemedStyles";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import LoginNavigation from "./components/LoginNavigation";
+import { Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { TextInput } from "react-native-paper";
 import { PropsStack } from "../../../infra/navigation/models";
+import { UserForm } from "../components/UserForm";
+import RegisterButton from "./components/RegisterButton";
 
 const RegisterScreen = () => {
   const navigation = useNavigation<PropsStack>();
@@ -17,18 +19,13 @@ const RegisterScreen = () => {
         source={require("../../../../assets/logo.png")}
         style={styles.logo}
       />
-      <View style={styles.innerContainer}>
-        <View style={styles.formContainer}>
-          <Text style={styles.title}>Cadastro</Text>
-          <TextInput label="Email" mode="flat" style={styles.input} />
-          <TouchableOpacity style={styles.button} onPress={() => null}>
-            <Text style={styles.buttonText}>Cadastrar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-            <Text style={styles.linkText}>Já tem uma conta? Faça login</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <Text style={styles.title}>Cadastro</Text>
+      <UserForm.Root>
+        <UserForm.Email value="" onChange={() => null} />
+        <UserForm.Password value="" onChange={() => null} />
+        <RegisterButton action={() => null} />
+        <LoginNavigation action={() => navigation.navigate("LoginScreen")} />
+      </UserForm.Root>
     </Screen>
   );
 };
