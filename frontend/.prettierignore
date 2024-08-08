@@ -5,3 +5,4 @@ node_modules
 babe.config.js
 *.json
 *.lock
+.expo

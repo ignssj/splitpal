@@ -15,10 +15,7 @@ const RegisterScreen = () => {
 
   return (
     <Screen>
-      <Image
-        source={require("../../../../assets/logo.png")}
-        style={styles.logo}
-      />
+      <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
       <Text style={styles.title}>Cadastro</Text>
       <UserForm.Root>
         <UserForm.Email value="" onChange={() => null} />

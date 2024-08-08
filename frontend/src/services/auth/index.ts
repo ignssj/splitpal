@@ -4,9 +4,7 @@ import api from "..";
 import * as T from "./types";
 
 const useAuthService = () => {
-  const register = async (
-    body: T.RegisterRequest
-  ): HttpResponse<T.RegisterResponse> => {
+  const register = async (body: T.RegisterRequest): HttpResponse<T.RegisterResponse> => {
     try {
       const response = await api.post("/auth/register", body);
       return response.data;

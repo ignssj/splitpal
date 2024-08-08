@@ -5,14 +5,7 @@ import useThemedStyles from "../../../../../hooks/useThemedStyles";
 import { IUserFormInput } from "../types";
 
 const UserEmail: React.FC<IUserFormInput> = ({ value, onChange }) => {
-  return (
-    <Input
-      style={styles.input}
-      label="Email"
-      value={value}
-      onChangeText={onChange}
-    />
-  );
+  return <Input style={styles.input} label="Email" value={value} onChangeText={onChange} />;
 };
 
 export default UserEmail;

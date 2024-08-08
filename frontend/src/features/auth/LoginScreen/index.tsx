@@ -16,18 +16,13 @@ const LoginScreen = () => {
 
   return (
     <Screen>
-      <Image
-        source={require("../../../../assets/logo.png")}
-        style={styles.logo}
-      />
+      <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
       <Text style={styles.title}>Login</Text>
       <UserForm.Root>
-        <UserForm.Email value="" onChange={() => null} />
-        <UserForm.Password value="" onChange={() => null} />
+        <UserForm.Email value='' onChange={() => null} />
+        <UserForm.Password value='' onChange={() => null} />
         <LoginButton action={() => null} />
-        <RegisterNavigation
-          action={() => navigation.navigate("RegisterScreen")}
-        />
+        <RegisterNavigation action={() => navigation.navigate("RegisterScreen")} />
       </UserForm.Root>
     </Screen>
   );
