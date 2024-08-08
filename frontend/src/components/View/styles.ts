@@ -5,7 +5,7 @@ const createStyle = (theme: MD3Theme) =>
   StyleSheet.create({
     root: {
       flex: 1,
-      backgroundColor: theme.colors.surface,
+      backgroundColor: theme.colors.background,
     },
   });
 

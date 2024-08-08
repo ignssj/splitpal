@@ -4,7 +4,7 @@ import { ILoginButton } from "./types";
 
 const LoginButton: React.FC<ILoginButton> = ({ action }) => {
   return (
-    <Button mode="contained-tonal" onPress={action}>
+    <Button mode="contained" onPress={action}>
       Entrar
     </Button>
   );
