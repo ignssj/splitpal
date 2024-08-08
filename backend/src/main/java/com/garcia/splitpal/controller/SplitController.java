@@ -5,6 +5,7 @@ import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.dto.split.UpdateSplitDTO;
 import com.garcia.splitpal.service.SplitService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
+@Tag(name = "Split")
 @RequestMapping("/api/splits")
 public class SplitController {
 
