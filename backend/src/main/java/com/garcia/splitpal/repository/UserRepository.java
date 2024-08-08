@@ -1,6 +1,6 @@
 package com.garcia.splitpal.repository;
 
-import com.garcia.splitpal.domain.user.User;
+import com.garcia.splitpal.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

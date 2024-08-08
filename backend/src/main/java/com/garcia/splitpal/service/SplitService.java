@@ -1,7 +1,7 @@
 package com.garcia.splitpal.service;
 
-import com.garcia.splitpal.domain.split.Split;
-import com.garcia.splitpal.dto.CreateSplitDTO;
+import com.garcia.splitpal.domain.Split;
+import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.repository.SplitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

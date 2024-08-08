@@ -1,7 +1,8 @@
 package com.garcia.splitpal.controller;
 
-import com.garcia.splitpal.dto.CreateSplitDTO;
+import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.service.SplitService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ public class SplitController {
 
     @Autowired
     SplitService splitService;
+    @Operation(summary = "Create a split", description = "Creates a split and returns its id")
     @PostMapping
     public ResponseEntity<String> create(@Valid @RequestBody CreateSplitDTO body){
         UUID id = splitService.create(body);

@@ -1,12 +1,9 @@
 package com.garcia.splitpal.service;
 
-import com.garcia.splitpal.dto.CreateUserDTO;
-import com.garcia.splitpal.dto.UpdateUserDTO;
-import com.garcia.splitpal.domain.user.User;
-import com.garcia.splitpal.exception.ConflictException;
+import com.garcia.splitpal.dto.user.UpdateUserDTO;
+import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

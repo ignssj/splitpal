@@ -1,4 +1,4 @@
-package com.garcia.splitpal.dto;
+package com.garcia.splitpal.dto.split;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

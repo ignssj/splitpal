@@ -1,7 +1,5 @@
-package com.garcia.splitpal.domain.splitParticipant;
+package com.garcia.splitpal.domain;
 
-import com.garcia.splitpal.domain.split.Split;
-import com.garcia.splitpal.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

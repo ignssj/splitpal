@@ -1,19 +1,16 @@
 package com.garcia.splitpal.service;
 
-import com.garcia.splitpal.domain.user.User;
-import com.garcia.splitpal.dto.AuthenticateUserDTO;
-import com.garcia.splitpal.dto.AuthenticationResponseDTO;
-import com.garcia.splitpal.dto.CreateUserDTO;
+import com.garcia.splitpal.domain.User;
+import com.garcia.splitpal.dto.auth.AuthenticateUserDTO;
+import com.garcia.splitpal.dto.user.CreateUserDTO;
 import com.garcia.splitpal.exception.ConflictException;
 import com.garcia.splitpal.exception.NotFoundException;
 import com.garcia.splitpal.infra.security.TokenService;
 import com.garcia.splitpal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -35,15 +32,15 @@ public class AuthService {
     }
 
     public UUID register(CreateUserDTO user){
-        var userWithSameUsername = userRepository.findByUsername(user.username());
+        var userWithSameUsername = userRepository.findByUsername(user.getUsername());
         if (userWithSameUsername.isPresent()){
-            throw new ConflictException("User with email " + user.username()+ " already exists");
+            throw new ConflictException("User with email " + user.getUsername()+ " already exists");
         }
 
 
         User entity = new User();
-        entity.setUsername(user.username());
-        entity.setPassword(passwordEncoder.encode(user.password()));
+        entity.setUsername(user.getUsername());
+        entity.setPassword(passwordEncoder.encode(user.getPassword()));
 
         entity = userRepository.save(entity);
         return entity.getId();
