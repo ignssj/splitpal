@@ -17,8 +17,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@Tag(name = "Split")
 @RequestMapping("/api/splits")
+@Tag(name = "Split")
 public class SplitController {
 
     @Autowired
@@ -54,7 +54,7 @@ public class SplitController {
         return ResponseEntity.ok(updated);
     }
 
-    @Operation(summary = "Deletes a split by id", description = "Deletes a split by its id if it exists")
+    @Operation(summary = "Removes a split by id", description = "Removes a split by its id if it exists")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable("id") String id){
         this.splitService.deleteById(id);

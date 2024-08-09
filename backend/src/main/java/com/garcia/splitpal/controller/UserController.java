@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@Tag(name = "User")
 @RequestMapping("/api/users")
+@Tag(name = "User")
 public class UserController {
 
     @Autowired
