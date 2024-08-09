@@ -8,6 +8,8 @@ import lombok.Getter;
 
 @Getter
 public class CreateSplitDTO{
+    @NotBlank(message = "userId is mandatory")
+    private String userId;
     @NotBlank(message = "Split name is mandatory")
     @Size(min = 5, max = 30, message = "Name must have 5~30 characters")
     private String name;

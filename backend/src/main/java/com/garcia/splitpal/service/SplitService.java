@@ -1,9 +1,13 @@
 package com.garcia.splitpal.service;
 
 import com.garcia.splitpal.domain.Split;
+import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.dto.split.UpdateSplitDTO;
+import com.garcia.splitpal.repository.SplitParticipantRepository;
 import com.garcia.splitpal.repository.SplitRepository;
+import com.garcia.splitpal.repository.UserRepository;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +20,31 @@ public class SplitService {
     @Autowired
     SplitRepository splitRepository;
 
+    @Autowired
+    SplitParticipantRepository splitParticipantRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
     public UUID create(CreateSplitDTO split){
-        var splitEntity = new Split();
+        var user = this.userRepository.findById(UUID.fromString(split.getUserId()));
+        if (user.isEmpty()) new BadRequestException("Invalid userId");
+
+        Split splitEntity = new Split();
         splitEntity.setName(split.getName());
         splitEntity.setCategory(split.getCategory());
         splitEntity.setTotal(split.getTotal());
         splitEntity.setQrcode(split.getQrcode());
 
-        var createdSplit = this.splitRepository.save(splitEntity);
-        return createdSplit.getId();
+        this.splitRepository.save(splitEntity);
+
+        SplitParticipant splitParticipant = new SplitParticipant();
+        splitParticipant.setSplit(splitEntity);
+        splitParticipant.setUser(user.get());
+        splitParticipant.setOrganizer(true);
+        splitParticipantRepository.save(splitParticipant);
+
+        return splitEntity.getId();
     }
 
     public Optional<Split> getSplitById(String id){
