@@ -20,22 +20,22 @@ const LoginScreen = () => {
 
   const handleEmailChange = (string: string) => {
     setEmail(string);
-  }
+  };
   const handlePasswordChange = (string: string) => {
     setPassword(string);
-  }
+  };
 
   const handleLogin = async () => {
-    const authResponse = await login({username: email, password: password});
-    if (!authResponse){
+    const authResponse = await login({ username: email, password: password });
+    if (!authResponse) {
       return alert("Email ou senha incorretos!");
     }
-    // navigation.navigate("homeScreen");
-  }
+    navigation.navigate("Tab");
+  };
 
   const navigateToRegister = () => {
     navigation.navigate("RegisterScreen");
-  }
+  };
 
   return (
     <Screen>
