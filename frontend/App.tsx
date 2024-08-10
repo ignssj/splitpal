@@ -3,6 +3,8 @@ import Routes from "./src/infra/navigation/stack";
 import { PaperProvider } from "react-native-paper";
 import { useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "./src/infra/theme";
+import { Provider } from "react-redux";
+import { store } from "./src/redux/store";
 
 const App = () => {
   const colorScheme = useColorScheme();
@@ -10,7 +12,9 @@ const App = () => {
 
   return (
     <PaperProvider theme={theme}>
-      <Routes />
+      <Provider store={store}>
+        <Routes />
+      </Provider>
     </PaperProvider>
   );
 };

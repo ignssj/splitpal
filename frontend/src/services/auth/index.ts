@@ -7,7 +7,7 @@ const useAuthService = () => {
   const register = async (body: T.RegisterRequest): HttpResponse<T.RegisterResponse> => {
     try {
       const response = await api.post("/auth/register", body);
-      return response.data;
+      return response;
     } catch (err) {
       return handleRequestError(err);
     }
@@ -16,7 +16,7 @@ const useAuthService = () => {
   const login = async (body: T.LoginRequest): HttpResponse<T.LoginResponse> => {
     try {
       const response = await api.post("/auth/login", body);
-      return response.data;
+      return response;
     } catch (err) {
       return handleRequestError(err);
     }

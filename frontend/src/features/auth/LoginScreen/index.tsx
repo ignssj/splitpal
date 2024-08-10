@@ -9,10 +9,15 @@ import useThemedStyles from "../../../hooks/useThemedStyles";
 import { PropsStack } from "../../../infra/navigation/models";
 import RegisterNavigation from "./components/RegisterNavigation";
 import useAuthService from "../../../services/auth";
+import { useAppDispatch } from "../../../redux/hooks";
+import { authenticate } from "../../../redux/slices/usersSlice";
+import { ErrorMessage } from "../../../services/types";
+import { isError } from "../../../helpers/ServiceHelper";
 
 const LoginScreen = () => {
-  const navigation = useNavigation<PropsStack>();
   const styles = useThemedStyles(stylesheet);
+  const navigation = useNavigation<PropsStack>();
+  const dispatch = useAppDispatch();
 
   const { login } = useAuthService();
   const [email, setEmail] = React.useState("");
@@ -27,9 +32,11 @@ const LoginScreen = () => {
 
   const handleLogin = async () => {
     const authResponse = await login({ username: email, password: password });
-    if (!authResponse) {
+    if (isError(authResponse)) {
       return alert("Email ou senha incorretos!");
     }
+
+    dispatch(authenticate(authResponse.data));
     navigation.navigate("Tab");
   };
 
