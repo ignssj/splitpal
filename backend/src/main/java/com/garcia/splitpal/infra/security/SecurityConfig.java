@@ -21,7 +21,7 @@ public class SecurityConfig {
     @Autowired
     private SecurityFilter securityFilter;
 
-    private static final String[] WHITE_LIST_URL = {"/v3/api-docs",
+    private static final String[] WHITE_LIST_URL = {"/v3/api-docs", "/h2-console/**",
             "/v3/api-docs/**", "/swagger-resources", "/swagger-resources/**", "/configuration/ui",
             "/configuration/security", "/swagger-ui/**", "/webjars/**", "/swagger-ui.html", "/api/auth/**"};
     @Bean
@@ -34,6 +34,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
+        http.headers().frameOptions().sameOrigin();
         return http.build();
     }
 
