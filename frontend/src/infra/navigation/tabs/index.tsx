@@ -10,6 +10,8 @@ const Tab = createBottomTabNavigator();
 export default function TabRoutes() {
   const theme = useColorScheme();
   const isDark = theme === "dark";
+  const colorOnFocus = isDark ? darkTheme.colors.tertiary : lightTheme.colors.tertiary;
+  const colorOnBlur = isDark ? darkTheme.colors.outline : lightTheme.colors.secondary;
   return (
     <Tab.Navigator
       screenOptions={{
@@ -22,10 +24,42 @@ export default function TabRoutes() {
         ],
       }}
     >
-      <Tab.Screen name='Home' component={HomeScreen} />
-      <Tab.Screen name='Search' component={HomeScreen} />
-      <Tab.Screen name='Profile' component={HomeScreen} />
-      <Tab.Screen name='Settings' component={HomeScreen} />
+      <Tab.Screen
+        name='Home'
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name='home' size={24} color={focused ? colorOnFocus : colorOnBlur} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name='Search'
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name='search' size={24} color={focused ? colorOnFocus : colorOnBlur} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name='Profile'
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name='person' size={24} color={focused ? colorOnFocus : colorOnBlur} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name='Settings'
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name='settings' size={24} color={focused ? colorOnFocus : colorOnBlur} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
