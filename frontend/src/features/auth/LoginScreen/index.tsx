@@ -1,18 +1,18 @@
 import React from "react";
-import { Text, Image } from "react-native";
 import LoginButton from "./components/LoginButton";
-import { useNavigation } from "@react-navigation/native";
-import Screen from "../../../components/Screen";
-import { UserForm } from "../components/UserForm";
-import stylesheet from "./styles";
-import useThemedStyles from "../../../hooks/useThemedStyles";
-import { PropsStack } from "../../../infra/navigation/models";
 import RegisterNavigation from "./components/RegisterNavigation";
 import useAuthService from "../../../services/auth";
+import useThemedStyles from "../../../hooks/useThemedStyles";
+import stylesheet from "./styles";
+import { Image } from "react-native";
+import { Text } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
+import { UserForm } from "../components/UserForm";
+import { PropsStack } from "../../../infra/navigation/models";
 import { useAppDispatch } from "../../../redux/hooks";
 import { authenticate } from "../../../redux/slices/usersSlice";
-import { ErrorMessage } from "../../../services/types";
 import { isError } from "../../../helpers/ServiceHelper";
+import { Screen } from "../../../components/Screen";
 
 const LoginScreen = () => {
   const styles = useThemedStyles(stylesheet);
@@ -45,16 +45,18 @@ const LoginScreen = () => {
   };
 
   return (
-    <Screen>
-      <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
-      <Text style={styles.title}>Login</Text>
-      <UserForm.Root>
-        <UserForm.Email value={email} onChange={handleEmailChange} />
-        <UserForm.Password value={password} onChange={handlePasswordChange} />
-        <LoginButton action={handleLogin} />
-        <RegisterNavigation action={navigateToRegister} />
-      </UserForm.Root>
-    </Screen>
+    <Screen.Root>
+      <Screen.Content>
+        <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
+        <Text style={styles.title}>Login</Text>
+        <UserForm.Root>
+          <UserForm.Email value={email} onChange={handleEmailChange} />
+          <UserForm.Password value={password} onChange={handlePasswordChange} />
+          <LoginButton action={handleLogin} />
+          <RegisterNavigation action={navigateToRegister} />
+        </UserForm.Root>
+      </Screen.Content>
+    </Screen.Root>
   );
 };
 
