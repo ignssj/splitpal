@@ -4,6 +4,7 @@ services:
   db:
     image: postgres:15
     container_name: splitpal_db
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
@@ -20,6 +21,7 @@ services:
       context: .
       dockerfile: ./dockerfile
     container_name: splitpal_app
+    restart: unless-stopped
     environment:
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
