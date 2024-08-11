@@ -5,6 +5,7 @@ import LoginScreen from "../../../features/auth/LoginScreen";
 import RegisterScreen from "../../../features/auth/RegisterScreen";
 import HomeScreen from "../../../features/home/HomeScreen";
 import TabRoutes from "../tabs";
+import CreateSplit from "../../../features/split/CreateSplit";
 
 const Stack = createNativeStackNavigator<PropsNavigationStack>();
 
@@ -20,6 +21,7 @@ export default function Routes() {
         <Stack.Screen name='Tab' component={TabRoutes} />
         <Stack.Screen name='RegisterScreen' component={RegisterScreen} />
         <Stack.Screen name='HomeScreen' component={HomeScreen} />
+        <Stack.Screen name='CreateSplit' component={CreateSplit} />
       </Stack.Navigator>
     </NavigationContainer>
   );

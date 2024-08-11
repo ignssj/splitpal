@@ -4,6 +4,7 @@ import HomeScreen from "../../../features/home/HomeScreen";
 import React from "react";
 import { useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "../../theme";
+import CreateSplit from "../../../features/split/CreateSplit";
 
 const Tab = createBottomTabNavigator();
 
@@ -35,7 +36,7 @@ export default function TabRoutes() {
       />
       <Tab.Screen
         name='Search'
-        component={HomeScreen}
+        component={CreateSplit}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons name='search' size={24} color={focused ? colorOnFocus : colorOnBlur} />
