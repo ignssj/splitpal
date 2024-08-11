@@ -6,6 +6,8 @@ const style = StyleSheet.create({
     marginHorizontal: "8%",
   },
   row: {
+    flex: 0.1,
+    alignItems: "center",
     justifyContent: "space-between",
   },
 });

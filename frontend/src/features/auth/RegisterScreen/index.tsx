@@ -16,16 +16,14 @@ const RegisterScreen = () => {
 
   return (
     <Screen.Root>
-      <Screen.Content>
-        <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
-        <Text style={styles.title}>Cadastro</Text>
-        <UserForm.Root>
-          <UserForm.Email value='' onChange={() => null} />
-          <UserForm.Password value='' onChange={() => null} />
-          <RegisterButton action={() => null} />
-          <LoginNavigation action={() => navigation.navigate("LoginScreen")} />
-        </UserForm.Root>
-      </Screen.Content>
+      <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
+      <Text style={styles.title}>Cadastro</Text>
+      <UserForm.Root>
+        <UserForm.Email value='' onChange={() => null} />
+        <UserForm.Password value='' onChange={() => null} />
+        <RegisterButton action={() => null} />
+        <LoginNavigation action={() => navigation.navigate("LoginScreen")} />
+      </UserForm.Root>
     </Screen.Root>
   );
 };

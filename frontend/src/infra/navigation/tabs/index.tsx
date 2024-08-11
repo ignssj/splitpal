@@ -1,10 +1,9 @@
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "../../../features/home/HomeScreen";
 import React from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import CreateSplit from "../../../features/split/CreateSplit";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "../../theme";
-import CreateSplit from "../../../features/split/CreateSplit";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,8 +25,8 @@ export default function TabRoutes() {
       }}
     >
       <Tab.Screen
-        name='Home'
-        component={HomeScreen}
+        name='Inicio'
+        component={CreateSplit}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons name='home' size={24} color={focused ? colorOnFocus : colorOnBlur} />
@@ -35,17 +34,17 @@ export default function TabRoutes() {
         }}
       />
       <Tab.Screen
-        name='Search'
+        name='Novo'
         component={CreateSplit}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Ionicons name='search' size={24} color={focused ? colorOnFocus : colorOnBlur} />
+            <Ionicons name='add' size={24} color={focused ? colorOnFocus : colorOnBlur} />
           ),
         }}
       />
       <Tab.Screen
-        name='Profile'
-        component={HomeScreen}
+        name='Perfil'
+        component={CreateSplit}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons name='person' size={24} color={focused ? colorOnFocus : colorOnBlur} />
@@ -53,8 +52,8 @@ export default function TabRoutes() {
         }}
       />
       <Tab.Screen
-        name='Settings'
-        component={HomeScreen}
+        name='Configurações'
+        component={CreateSplit}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons name='settings' size={24} color={focused ? colorOnFocus : colorOnBlur} />

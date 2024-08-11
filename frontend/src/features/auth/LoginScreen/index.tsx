@@ -46,16 +46,14 @@ const LoginScreen = () => {
 
   return (
     <Screen.Root>
-      <Screen.Content>
-        <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
-        <Text style={styles.title}>Login</Text>
-        <UserForm.Root>
-          <UserForm.Email value={email} onChange={handleEmailChange} />
-          <UserForm.Password value={password} onChange={handlePasswordChange} />
-          <LoginButton action={handleLogin} />
-          <RegisterNavigation action={navigateToRegister} />
-        </UserForm.Root>
-      </Screen.Content>
+      <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
+      <Text style={styles.title}>Login</Text>
+      <UserForm.Root>
+        <UserForm.Email value={email} onChange={handleEmailChange} />
+        <UserForm.Password value={password} onChange={handlePasswordChange} />
+        <LoginButton action={handleLogin} />
+        <RegisterNavigation action={navigateToRegister} />
+      </UserForm.Root>
     </Screen.Root>
   );
 };
