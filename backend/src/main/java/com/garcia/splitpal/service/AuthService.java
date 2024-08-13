@@ -2,6 +2,7 @@ package com.garcia.splitpal.service;
 
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.dto.auth.AuthenticateUserDTO;
+import com.garcia.splitpal.dto.auth.AuthenticatedUserDTO;
 import com.garcia.splitpal.dto.user.CreateUserDTO;
 import com.garcia.splitpal.exception.ConflictException;
 import com.garcia.splitpal.exception.NotFoundException;
@@ -22,21 +23,21 @@ public class AuthService {
     @Autowired
     TokenService tokenService;
 
-    public String authenticate(AuthenticateUserDTO user){
-        User authenticatedUser = userRepository.findByUsername(user.username()).orElseThrow(() -> new NotFoundException("User not found"));
-        if (!passwordEncoder.matches(user.password(), authenticatedUser.getPassword())){
+    public AuthenticatedUserDTO authenticate(AuthenticateUserDTO user) {
+        User authenticatedUser = userRepository.findByUsername(user.username())
+                .orElseThrow(() -> new NotFoundException("User not found"));
+        if (!passwordEncoder.matches(user.password(), authenticatedUser.getPassword())) {
             return null;
         }
         String token = tokenService.generatedToken(authenticatedUser);
-        return token;
+        return new AuthenticatedUserDTO(authenticatedUser.getId().toString(), authenticatedUser.getUsername(), token);
     }
 
-    public UUID register(CreateUserDTO user){
+    public UUID register(CreateUserDTO user) {
         var userWithSameUsername = userRepository.findByUsername(user.getUsername());
-        if (userWithSameUsername.isPresent()){
-            throw new ConflictException("User with email " + user.getUsername()+ " already exists");
+        if (userWithSameUsername.isPresent()) {
+            throw new ConflictException("User with email " + user.getUsername() + " already exists");
         }
-
 
         User entity = new User();
         entity.setUsername(user.getUsername());
