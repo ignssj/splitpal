@@ -8,4 +8,10 @@ export type Split = {
   updatedAt: string;
 };
 
-export type CreateSplitRequest = Omit<Split, "id" | "createdAt" | "updatedAt">;
+export type CreateSplitRequest = {
+  name: string;
+  category: string;
+  total: number;
+  qrcode: string;
+  userId: string;
+};

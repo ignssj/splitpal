@@ -1,9 +1,8 @@
 import { ErrorMessage } from "../services/types";
 
 export const handleRequestError = (err: unknown): ErrorMessage => {
-  console.error(err);
   return {
-    error: err instanceof Error ? err.message : "An error occurred",
+    error: (err as any).response.data ? (err as any).response.data : "An error occurred",
   };
 };
 

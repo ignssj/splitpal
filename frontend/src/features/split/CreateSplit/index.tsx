@@ -7,15 +7,19 @@ import useThemedStyles from "../../../hooks/useThemedStyles";
 import { Button } from "react-native-paper";
 import { Rounded } from "../../../components/Rounded";
 import { Screen } from "../../../components/Screen";
+import useSplitService from "../../../services/splits";
+import useStorage from "../../../hooks/useStorage";
+import { isError } from "../../../helpers/ServiceHelper";
 
 const CreateSplit = () => {
   const styles = useThemedStyles(stylesheet);
-
+  const { create } = useSplitService();
+  const { read } = useStorage();
   const [splitForm, setSplitForm] = React.useState({
     name: "",
     category: "",
-    value: "",
-    qrCode: "",
+    total: "",
+    qrcode: "",
   });
 
   const handleNameChange = (name: string) => {
@@ -26,12 +30,20 @@ const CreateSplit = () => {
     setSplitForm({ ...splitForm, category });
   };
 
-  const handleValueChange = (value: string) => {
-    setSplitForm({ ...splitForm, value });
+  const handleValueChange = (total: string) => {
+    setSplitForm({ ...splitForm, total });
   };
 
-  const handleQRCodeChange = (qrCode: string) => {
-    setSplitForm({ ...splitForm, qrCode });
+  const handleQRCodeChange = (qrcode: string) => {
+    setSplitForm({ ...splitForm, qrcode });
+  };
+
+  const handleCreate = async () => {
+    const userId = await read("id");
+    if (!userId) return;
+
+    const createdSplit = await create({ ...splitForm, userId, total: parseFloat(splitForm.total) });
+    if (isError(createdSplit)) return;
   };
 
   return (
@@ -43,9 +55,11 @@ const CreateSplit = () => {
       <SplitForm>
         <Input label='Nome' value={splitForm.name} onChangeText={handleNameChange} />
         <Input label='Categoria' value={splitForm.category} onChangeText={handleCategoryChange} />
-        <Input label='Valor' value={splitForm.value} keyboardType='decimal-pad' onChangeText={handleValueChange} />
-        <Input label='QR Code' value={splitForm.qrCode} onChangeText={handleQRCodeChange} />
-        <Button mode='contained'>Criar</Button>
+        <Input label='Valor' value={splitForm.total} keyboardType='decimal-pad' onChangeText={handleValueChange} />
+        <Input label='QR Code' value={splitForm.qrcode} onChangeText={handleQRCodeChange} />
+        <Button mode='contained' onPress={handleCreate}>
+          Criar
+        </Button>
       </SplitForm>
     </Screen.Root>
   );
