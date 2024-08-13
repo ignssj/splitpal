@@ -13,8 +13,10 @@ import { useAppDispatch } from "../../../redux/hooks";
 import { authenticate } from "../../../redux/slices/usersSlice";
 import { isError } from "../../../helpers/ServiceHelper";
 import { Screen } from "../../../components/Screen";
+import useStorage from "../../../hooks/useStorage";
 
 const LoginScreen = () => {
+  const { write } = useStorage();
   const styles = useThemedStyles(stylesheet);
   const navigation = useNavigation<PropsStack>();
   const dispatch = useAppDispatch();
@@ -37,6 +39,8 @@ const LoginScreen = () => {
     }
 
     dispatch(authenticate(authResponse.data));
+    write("id", authResponse.data.id);
+    write("token", authResponse.data.token);
     navigation.navigate("Tab");
   };
 
