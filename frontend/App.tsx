@@ -14,10 +14,12 @@ import {
   Outfit_600SemiBold,
   Outfit_700Bold,
 } from "@expo-google-fonts/outfit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const App = () => {
   const colorScheme = useColorScheme();
   const theme = colorScheme === "dark" ? darkTheme : lightTheme;
+  const queryClient = new QueryClient();
 
   const [fontsLoaded] = useFonts({
     Outfit_200ExtraLight,
@@ -35,7 +37,9 @@ const App = () => {
   return (
     <PaperProvider theme={theme}>
       <Provider store={store}>
-        <Routes />
+        <QueryClientProvider client={queryClient}>
+          <Routes />
+        </QueryClientProvider>
       </Provider>
     </PaperProvider>
   );

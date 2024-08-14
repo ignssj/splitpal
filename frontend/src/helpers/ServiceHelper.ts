@@ -9,3 +9,10 @@ export const handleRequestError = (err: unknown): ErrorMessage => {
 export const isError = (response: unknown): response is ErrorMessage => {
   return (response as ErrorMessage).error !== undefined;
 };
+
+export const createQueryString = (params?: Record<string, string | number | boolean>): string => {
+  if (!params) return "";
+  return Object.keys(params)
+    .map((key) => `${key}=${params[key]}`)
+    .join("&");
+};

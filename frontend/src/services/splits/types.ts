@@ -15,3 +15,5 @@ export type CreateSplitRequest = {
   qrcode: string;
   userId: string;
 };
+
+export type GetAllSplits = Partial<Split>;

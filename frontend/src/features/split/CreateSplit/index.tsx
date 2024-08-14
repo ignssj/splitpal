@@ -2,17 +2,14 @@ import React from "react";
 import SplitForm from "../components/SplitForm";
 import Title from "../../../components/Title";
 import Input from "../../../components/Input";
-import stylesheet from "./styles";
-import useThemedStyles from "../../../hooks/useThemedStyles";
+import useSplitService from "../../../services/splits";
+import useStorage from "../../../hooks/useStorage";
 import { Button } from "react-native-paper";
 import { Rounded } from "../../../components/Rounded";
 import { Screen } from "../../../components/Screen";
-import useSplitService from "../../../services/splits";
-import useStorage from "../../../hooks/useStorage";
 import { isError } from "../../../helpers/ServiceHelper";
 
 const CreateSplit = () => {
-  const styles = useThemedStyles(stylesheet);
   const { create } = useSplitService();
   const { read } = useStorage();
   const [splitForm, setSplitForm] = React.useState({
