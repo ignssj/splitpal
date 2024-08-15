@@ -7,33 +7,10 @@ const useAllSplits = () => {
   const { getAll } = useSplitService();
 
   const fetchData = async () => {
-    // const response = await getAll();
-    // if (isError(response)) return [];
+    const response = await getAll();
+    if (isError(response)) return [];
 
-    // return response.data;
-    return [
-      {
-        id: "479637bd",
-        name: "Futebol de quarta",
-        category: "Lazer",
-        total: 20.0,
-        qrcode: "1239139ai93293ia9",
-      },
-      {
-        id: "873128ta",
-        name: "Road to Floripa",
-        category: "Viagem",
-        total: 800.0,
-        qrcode: "1239139ai93293ia9",
-      },
-      {
-        id: "38159zo",
-        name: "Janta",
-        category: "Despesa",
-        total: 50.0,
-        qrcode: "1239139ai93293ia9",
-      },
-    ];
+    return response.data;
   };
 
   const query = useQuery({
