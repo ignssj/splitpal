@@ -1,7 +1,13 @@
-import { MD3LightTheme, MD3DarkTheme } from "react-native-paper";
+import { MD3LightTheme, MD3DarkTheme, configureFonts } from "react-native-paper";
+
+const fontConfig = {
+  fontFamily: "Outfit_400Regular",
+  fontSize: 15,
+};
 
 const lightTheme = {
   ...MD3LightTheme,
+  fonts: configureFonts({ config: fontConfig }),
   colors: {
     ...MD3LightTheme.colors,
     primary: "#006FDB",
@@ -40,6 +46,7 @@ const lightTheme = {
 
 const darkTheme = {
   ...MD3DarkTheme,
+  fonts: configureFonts({ config: fontConfig }),
   colors: {
     ...MD3DarkTheme.colors,
     primary: "#4D94FF",

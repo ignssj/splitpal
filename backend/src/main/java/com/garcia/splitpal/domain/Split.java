@@ -29,10 +29,12 @@ public class Split {
     private double total;
     private String qrcode;
 
-    @OneToMany(mappedBy = "split", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "split_id")
     private List<SplitParticipant> participants;
 
-    @OneToMany(mappedBy = "split", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "split_id")
     private List<Payment> payments;
 
     @CreatedDate

@@ -34,8 +34,6 @@ public class PaymentService {
         if (split.isEmpty()) new BadRequestException("Invalid splitId");
 
         Payment payment = new Payment();
-        payment.setUser(user.get());
-        payment.setSplit(split.get());
         payment.setReceipt(body.getReceipt());
         payment.setValue(body.getValue());
 

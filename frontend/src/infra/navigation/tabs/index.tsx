@@ -1,7 +1,8 @@
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "../../../features/home/HomeScreen";
 import React from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import CreateSplit from "../../../features/split/CreateSplit";
+import ListSplits from "../../../features/split/ListSplits";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "../../theme";
 
@@ -25,39 +26,31 @@ export default function TabRoutes() {
       }}
     >
       <Tab.Screen
-        name='Home'
-        component={HomeScreen}
+        name='Inicio'
+        component={ListSplits}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons name='home' size={24} color={focused ? colorOnFocus : colorOnBlur} />
-          ),
+          tabBarIcon: ({ focused }) => <Ionicons name='home' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
       />
       <Tab.Screen
-        name='Search'
-        component={HomeScreen}
+        name='Novo'
+        component={CreateSplit}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons name='search' size={24} color={focused ? colorOnFocus : colorOnBlur} />
-          ),
+          tabBarIcon: ({ focused }) => <Ionicons name='add' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
       />
       <Tab.Screen
-        name='Profile'
-        component={HomeScreen}
+        name='Perfil'
+        component={CreateSplit}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons name='person' size={24} color={focused ? colorOnFocus : colorOnBlur} />
-          ),
+          tabBarIcon: ({ focused }) => <Ionicons name='person' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
       />
       <Tab.Screen
-        name='Settings'
-        component={HomeScreen}
+        name='Configurações'
+        component={CreateSplit}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons name='settings' size={24} color={focused ? colorOnFocus : colorOnBlur} />
-          ),
+          tabBarIcon: ({ focused }) => <Ionicons name='settings' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
       />
     </Tab.Navigator>

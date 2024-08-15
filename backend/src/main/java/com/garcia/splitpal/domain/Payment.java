@@ -1,7 +1,5 @@
 package com.garcia.splitpal.domain;
 
-import com.garcia.splitpal.domain.Split;
-import com.garcia.splitpal.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity
-@Table(name="payments")
+@Table(name = "payments")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -25,11 +23,7 @@ public class Payment {
     private double value;
 
     @ManyToOne
-    @JoinColumn(name="split_id")
-    private Split split;
-
-    @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     private Timestamp created_at;

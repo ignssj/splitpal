@@ -5,6 +5,8 @@ export type PropsNavigationStack = {
   LoginScreen: undefined;
   HomeScreen: undefined;
   Tab: undefined;
+  CreateSplit: undefined;
+  ListSplits: undefined;
 };
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;

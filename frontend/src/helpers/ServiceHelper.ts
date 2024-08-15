@@ -1,12 +1,18 @@
 import { ErrorMessage } from "../services/types";
 
 export const handleRequestError = (err: unknown): ErrorMessage => {
-  console.error(err);
   return {
-    error: err instanceof Error ? err.message : "An error occurred",
+    error: (err as any).response.data ? (err as any).response.data : "An error occurred",
   };
 };
 
 export const isError = (response: unknown): response is ErrorMessage => {
   return (response as ErrorMessage).error !== undefined;
+};
+
+export const createQueryString = (params?: Record<string, string | number | boolean>): string => {
+  if (!params) return "";
+  return Object.keys(params)
+    .map((key) => `${key}=${params[key]}`)
+    .join("&");
 };
