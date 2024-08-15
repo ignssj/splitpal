@@ -2,6 +2,7 @@ import useSplitService from "../services/splits";
 import { useQuery } from "@tanstack/react-query";
 import { isError } from "../helpers/ServiceHelper";
 import { Split } from "../services/splits/types";
+import { useRefetchOnFocus } from "./useRefetchOnFocus";
 
 const useAllSplits = () => {
   const { getAll } = useSplitService();
@@ -18,6 +19,7 @@ const useAllSplits = () => {
     queryFn: fetchData,
   });
 
+  useRefetchOnFocus(query.refetch);
   return {
     ...query,
     data: query.data as Split[],
