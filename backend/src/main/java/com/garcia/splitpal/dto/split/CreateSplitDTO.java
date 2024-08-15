@@ -1,13 +1,12 @@
 package com.garcia.splitpal.dto.split;
 
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
 @Getter
-public class CreateSplitDTO{
+public class CreateSplitDTO {
     @NotBlank(message = "userId is mandatory")
     private String userId;
     @NotBlank(message = "Split name is mandatory")

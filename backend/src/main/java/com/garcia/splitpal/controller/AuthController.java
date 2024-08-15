@@ -1,6 +1,7 @@
 package com.garcia.splitpal.controller;
 
 import com.garcia.splitpal.dto.auth.AuthenticateUserDTO;
+import com.garcia.splitpal.dto.auth.AuthenticatedUserDTO;
 import com.garcia.splitpal.dto.user.CreateUserDTO;
 import com.garcia.splitpal.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,7 +22,7 @@ public class AuthController {
 
     @Operation(summary = "Authenticates an user", description = "Returns a JWT if the user is authenticated")
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody AuthenticateUserDTO body) {
+    public ResponseEntity<AuthenticatedUserDTO> login(@RequestBody AuthenticateUserDTO body) {
         var authenticatedUser = authService.authenticate(body);
         if (authenticatedUser == null) {
             return ResponseEntity.badRequest().build();
@@ -31,7 +32,7 @@ public class AuthController {
 
     @Operation(summary = "Register an user", description = "Creates an user and returns its id")
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody CreateUserDTO body) {
+    public ResponseEntity<Void> register(@RequestBody CreateUserDTO body) {
         var id = authService.register(body);
         return ResponseEntity.created(URI.create("users/" + id.toString())).build();
     }
