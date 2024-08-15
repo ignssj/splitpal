@@ -8,6 +8,6 @@ export interface IScreenHeader {
 }
 
 export interface IScreenContent {
-  style?: ViewStyle;
+  flex: number;
   children: React.ReactNode;
 }

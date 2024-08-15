@@ -8,6 +8,7 @@ import { Button } from "react-native-paper";
 import { Screen } from "../../../components/Screen";
 import { isError } from "../../../helpers/ServiceHelper";
 import { SplitInput } from "./types";
+import { View } from "react-native";
 
 const CreateSplit = () => {
   const { create } = useSplitService();
@@ -51,15 +52,17 @@ const CreateSplit = () => {
       <Screen.Header>
         <Title>Novo pagamento</Title>
       </Screen.Header>
-      <SplitForm>
-        <Input label='Nome' value={splitForm.name} onChangeText={handleNameChange} />
-        <Input label='Categoria' value={splitForm.category} onChangeText={handleCategoryChange} />
-        <Input label='Valor' value={splitForm.total} keyboardType='decimal-pad' onChangeText={handleValueChange} />
-        <Input label='QR Code' value={splitForm.qrcode} onChangeText={handleQRCodeChange} />
-        <Button mode='contained' onPress={handleCreate} loading={isLoading}>
-          Criar
-        </Button>
-      </SplitForm>
+      <Screen.Content flex={0.9}>
+        <SplitForm>
+          <Input label='Nome' value={splitForm.name} onChangeText={handleNameChange} />
+          <Input label='Categoria' value={splitForm.category} onChangeText={handleCategoryChange} />
+          <Input label='Valor' value={splitForm.total} keyboardType='decimal-pad' onChangeText={handleValueChange} />
+          <Input label='QR Code' value={splitForm.qrcode} onChangeText={handleQRCodeChange} />
+          <Button mode='contained' onPress={handleCreate} loading={isLoading}>
+            Criar
+          </Button>
+        </SplitForm>
+      </Screen.Content>
     </Screen.Root>
   );
 };

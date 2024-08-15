@@ -4,16 +4,18 @@ import Title from "../../../components/Title";
 import SplitList from "../components/SplitList";
 import useAllSplits from "../../../hooks/useAllSplits";
 
-const ListSplits = () => {
+const MySplits = () => {
   const { data } = useAllSplits();
   return (
     <Screen.Root>
       <Screen.Header>
         <Title>Meus pagamentos</Title>
       </Screen.Header>
-      <SplitList list={data} />
+      <Screen.Content flex={0.9}>
+        <SplitList list={data} />
+      </Screen.Content>
     </Screen.Root>
   );
 };
 
-export default ListSplits;
+export default MySplits;

@@ -1,7 +1,7 @@
 import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import CreateSplit from "../../../features/split/CreateSplit";
-import ListSplits from "../../../features/split/ListSplits";
+import MySplits from "../../../features/split/MySplits";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "../../theme";
@@ -27,7 +27,7 @@ export default function TabRoutes() {
     >
       <Tab.Screen
         name='Inicio'
-        component={ListSplits}
+        component={MySplits}
         options={{
           tabBarIcon: ({ focused }) => <Ionicons name='home' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
