@@ -22,17 +22,7 @@ public class SplitParticipant {
     @Id
     @GeneratedValue
     private UUID id;
-
     private boolean organizer;
-
-    @ManyToOne
-    @JoinColumn(name = "split_id")
-    private Split split;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @CreatedDate
     private LocalDateTime created_at;
     @LastModifiedDate

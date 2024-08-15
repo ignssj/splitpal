@@ -26,10 +26,10 @@ public class User {
     private String username;
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SplitParticipant> splits;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SplitParticipant> participations;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Payment> payments;
 
     @CreatedDate

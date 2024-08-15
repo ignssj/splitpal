@@ -39,8 +39,6 @@ public class SplitService {
         this.splitRepository.save(splitEntity);
 
         SplitParticipant splitParticipant = new SplitParticipant();
-        splitParticipant.setSplit(splitEntity);
-        splitParticipant.setUser(user.get());
         splitParticipant.setOrganizer(true);
         splitParticipantRepository.save(splitParticipant);
 

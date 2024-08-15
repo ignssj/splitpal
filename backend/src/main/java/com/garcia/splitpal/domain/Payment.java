@@ -25,11 +25,7 @@ public class Payment {
     private double value;
 
     @ManyToOne
-    @JoinColumn(name="split_id")
-    private Split split;
-
-    @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     private Timestamp created_at;
