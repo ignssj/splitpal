@@ -17,7 +17,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name="users")
+@Table(name = "users")
 
 public class User {
     @GeneratedValue
@@ -27,9 +27,11 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
     private List<SplitParticipant> participations;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
     private List<Payment> payments;
 
     @CreatedDate
