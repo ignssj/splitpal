@@ -15,6 +15,8 @@ import {
   Outfit_700Bold,
 } from "@expo-google-fonts/outfit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Toast from "react-native-toast-message";
+import { toastConfig } from "./src/components/ToastFeedback";
 
 const App = () => {
   const colorScheme = useColorScheme();
@@ -39,6 +41,7 @@ const App = () => {
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <Routes />
+          <Toast config={toastConfig} />
         </QueryClientProvider>
       </Provider>
     </PaperProvider>
