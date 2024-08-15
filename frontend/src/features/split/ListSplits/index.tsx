@@ -6,7 +6,6 @@ import useAllSplits from "../../../hooks/useAllSplits";
 
 const ListSplits = () => {
   const { data } = useAllSplits();
-
   return (
     <Screen.Root>
       <Screen.Header>
