@@ -7,6 +7,7 @@ export type PropsNavigationStack = {
   Tab: undefined;
   CreateSplit: undefined;
   MySplits: undefined;
+  SplitDetails: { splitId: string };
 };
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;

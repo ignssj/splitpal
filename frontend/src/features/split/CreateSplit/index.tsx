@@ -1,5 +1,4 @@
 import React from "react";
-import SplitForm from "../components/SplitForm";
 import Title from "../../../components/Title";
 import Input from "../../../components/Input";
 import useSplitService from "../../../services/splits";
@@ -8,8 +7,8 @@ import { Button } from "react-native-paper";
 import { Screen } from "../../../components/Screen";
 import { isError } from "../../../helpers/ServiceHelper";
 import { SplitInput } from "./types";
-import { View } from "react-native";
 import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
+import Card from "../../../components/Card";
 
 const CreateSplit = () => {
   const { create } = useSplitService();
@@ -56,7 +55,7 @@ const CreateSplit = () => {
         <Title>Novo pagamento</Title>
       </Screen.Header>
       <Screen.Content flex={0.9}>
-        <SplitForm>
+        <Card>
           <Input label='Nome' value={splitForm.name} onChangeText={handleNameChange} />
           <Input label='Categoria' value={splitForm.category} onChangeText={handleCategoryChange} />
           <Input label='Valor' value={splitForm.total} keyboardType='decimal-pad' onChangeText={handleValueChange} />
@@ -64,7 +63,7 @@ const CreateSplit = () => {
           <Button mode='contained' onPress={handleCreate} loading={isLoading}>
             Criar
           </Button>
-        </SplitForm>
+        </Card>
       </Screen.Content>
     </Screen.Root>
   );

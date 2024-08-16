@@ -1,4 +1,7 @@
-export type Split = {
+import { IPayment } from "../payments/types";
+import { IUser } from "../users/types";
+
+export interface Split {
   id: string;
   name: string;
   category: string;
@@ -6,7 +9,11 @@ export type Split = {
   qrcode: string;
   createdAt: string;
   updatedAt: string;
-};
+}
+export interface GetSplit extends Split {
+  participants: IUser[];
+  payments: IPayment[];
+}
 
 export type CreateSplitRequest = {
   name: string;
@@ -16,4 +23,4 @@ export type CreateSplitRequest = {
   userId: string;
 };
 
-export type GetAllSplits = Partial<Split>;
+export type SplitFilter = Partial<Split>;

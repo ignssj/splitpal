@@ -4,7 +4,7 @@ import { HttpResponse } from "../types";
 import * as T from "./types";
 
 const useSplitService = () => {
-  const create = async (body: T.CreateSplitRequest): HttpResponse<T.Split> => {
+  const create = async (body: T.CreateSplitRequest): HttpResponse<T.GetSplit> => {
     try {
       const response = await api.post("/splits", body);
       return response;
@@ -13,7 +13,7 @@ const useSplitService = () => {
     }
   };
 
-  const getAll = async (filter?: T.GetAllSplits): HttpResponse<T.Split[]> => {
+  const getAll = async (filter?: T.SplitFilter): HttpResponse<T.GetSplit[]> => {
     const query = createQueryString(filter);
     try {
       const response = await api.get(`/splits?${query}`);
@@ -23,9 +23,19 @@ const useSplitService = () => {
     }
   };
 
+  const getById = async (id: string): HttpResponse<T.GetSplit> => {
+    try {
+      const response = await api.get(`/splits/${id}`);
+      return response;
+    } catch (err) {
+      return handleRequestError(err);
+    }
+  };
+
   return {
     create,
     getAll,
+    getById,
   };
 };
 
