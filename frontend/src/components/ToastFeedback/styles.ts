@@ -2,21 +2,39 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   sucess: {
-    borderWidth: 4,
-    borderLeftWidth: 4,
-    borderColor: "green",
-    height: "120%",
-    width: "85%",
+    borderLeftWidth: 0,
+    marginTop: '5%',
+    height: 50,
     borderRadius: 15,
   },
   error: {
-    borderWidth: 4,
-    borderLeftWidth: 4,
-    backgroundColor: "red",
-    height: "120%",
-    width: "85%",
+    borderLeftWidth: 0,
+    marginTop: '5%',
+    height: 50,
     borderRadius: 15,
   },
+  containerSuccess: {
+    paddingHorizontal: '5%',
+    backgroundColor: '#12C06A',
+    borderRadius: 15
+  },
+  containerError: {
+    paddingHorizontal: '5%',
+    backgroundColor: '#f05545',
+    borderRadius: 15
+  },
+  text1: {
+    paddingHorizontal: '5%',
+    fontSize: 16,
+    color: 'white',
+    fontFamily: 'Outfit_600SemiBold'
+  },
+  text2: {
+    fontSize: 12,
+    paddingHorizontal: '5%',
+    color: 'white',
+    fontFamily: 'Outfit_400Regular'
+  }
 });
 
 export default styles;

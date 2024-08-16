@@ -9,6 +9,7 @@ import { Screen } from "../../../components/Screen";
 import { isError } from "../../../helpers/ServiceHelper";
 import { SplitInput } from "./types";
 import { View } from "react-native";
+import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
 
 const CreateSplit = () => {
   const { create } = useSplitService();
@@ -44,7 +45,9 @@ const CreateSplit = () => {
     setIsLoading(true);
     const createdSplit = await create({ ...splitForm, userId, total: parseFloat(splitForm.total) });
     setIsLoading(false);
-    if (isError(createdSplit)) return;
+    if (isError(createdSplit)) return ErrorToast("Erro ao criar pagamento", "Tente novamente");
+
+    SuccessToast("Pagamento criado", "O pagamento foi criado com sucesso");
   };
 
   return (
