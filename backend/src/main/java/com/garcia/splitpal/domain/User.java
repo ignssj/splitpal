@@ -32,10 +32,6 @@ public class User {
     @JoinColumn(name = "user_id")
     private List<SplitParticipant> participations;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_id")
-    private List<Payment> payments;
-
     @CreatedDate
     private LocalDateTime created_at;
     @LastModifiedDate

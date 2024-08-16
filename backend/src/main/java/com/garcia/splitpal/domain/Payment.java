@@ -26,10 +26,8 @@ public class Payment {
     private UUID id;
     private String receipt;
     private double value;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private UUID user_id;
+    private UUID split_id;
 
     @CreatedDate
     private Timestamp created_at;
