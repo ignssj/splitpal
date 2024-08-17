@@ -1,8 +1,6 @@
 package com.garcia.splitpal.service;
 
 import com.garcia.splitpal.domain.Payment;
-import com.garcia.splitpal.domain.Split;
-import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.dto.payment.CreatePaymentDTO;
 import com.garcia.splitpal.dto.payment.UpdatePaymentDTO;
 import com.garcia.splitpal.exception.BadRequestException;
