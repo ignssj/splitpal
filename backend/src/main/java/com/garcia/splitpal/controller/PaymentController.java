@@ -2,7 +2,7 @@ package com.garcia.splitpal.controller;
 
 import com.garcia.splitpal.domain.Payment;
 import com.garcia.splitpal.dto.payment.CreatePaymentDTO;
-import com.garcia.splitpal.dto.payment.GetPaymentDTO;
+import com.garcia.splitpal.dto.payment.PaymentDTO;
 import com.garcia.splitpal.dto.payment.UpdatePaymentDTO;
 import com.garcia.splitpal.service.PaymentService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -43,8 +43,11 @@ public class PaymentController {
 
     @Operation(summary = "Get all payments", description = "Return an array containing all payments")
     @GetMapping
-    public ResponseEntity<List<Payment>> getAll() {
-        var list = this.paymentService.getAll();
+    public ResponseEntity<List<PaymentDTO>> getAll(
+            @RequestParam(required = false) String receipt,
+            @RequestParam(required = false) String user_id,
+            @RequestParam(required = false) String split_id) {
+        var list = this.paymentService.getAll(receipt, user_id, split_id);
         if (list.isEmpty())
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(list);

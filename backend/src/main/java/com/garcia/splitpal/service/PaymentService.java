@@ -2,13 +2,18 @@ package com.garcia.splitpal.service;
 
 import com.garcia.splitpal.domain.Payment;
 import com.garcia.splitpal.dto.payment.CreatePaymentDTO;
+import com.garcia.splitpal.dto.payment.PaymentDTO;
 import com.garcia.splitpal.dto.payment.UpdatePaymentDTO;
 import com.garcia.splitpal.exception.BadRequestException;
 import com.garcia.splitpal.exception.NotFoundException;
 import com.garcia.splitpal.repository.PaymentRepository;
 import com.garcia.splitpal.repository.SplitRepository;
 import com.garcia.splitpal.repository.UserRepository;
+import com.garcia.splitpal.repository.specification.PaymentSpecification;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,8 +52,15 @@ public class PaymentService {
         return this.paymentRepository.findById(UUID.fromString(id));
     }
 
-    public List<Payment> getAll() {
-        return this.paymentRepository.findAll();
+    public List<PaymentDTO> getAll(String receipt, String user_id, String split_id) {
+        Specification<Payment> spec = Specification.where(
+                PaymentSpecification.hasReceipt(receipt)
+                        .and(PaymentSpecification.hasSplitID(UUID.fromString(split_id))
+                                .and(PaymentSpecification.hasUserID(UUID.fromString(user_id)))));
+        List<Payment> payments = this.paymentRepository.findAll(spec);
+        return payments.stream()
+                .map(this::toPaymentDTO)
+                .collect(Collectors.toList());
     }
 
     public Payment updateById(String id, UpdatePaymentDTO body) {
@@ -64,6 +76,11 @@ public class PaymentService {
 
     public void deleteById(String id) {
         this.paymentRepository.deleteById(UUID.fromString(id));
+    }
+
+    private PaymentDTO toPaymentDTO(Payment payment) {
+        return new PaymentDTO(payment.getId(), payment.getReceipt(), payment.getTotal(), payment.getUser_id(),
+                payment.getSplit_id(), payment.getCreated_at(), payment.getUpdated_at());
     }
 
 }
