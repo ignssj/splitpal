@@ -34,7 +34,7 @@ public class PaymentService {
 
         Payment payment = new Payment();
         payment.setReceipt(body.getReceipt());
-        payment.setValue(body.getValue());
+        payment.setTotal(body.getTotal());
         payment.setSplit_id(UUID.fromString(body.getSplitId()));
         payment.setUser_id(UUID.fromString(body.getUserId()));
 
@@ -54,7 +54,7 @@ public class PaymentService {
     public Payment updateById(String id, UpdatePaymentDTO body) {
         Payment payment = paymentRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new NotFoundException("Payment not found"));
-        payment.setValue(body.getValue());
+        payment.setTotal(body.getTotal());
         payment.setReceipt(body.getReceipt());
 
         paymentRepository.save(payment);

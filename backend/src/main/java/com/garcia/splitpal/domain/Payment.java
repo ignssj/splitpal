@@ -25,7 +25,7 @@ public class Payment {
     @GeneratedValue
     private UUID id;
     private String receipt;
-    private double value;
+    private float total;
     private UUID user_id;
     private UUID split_id;
 

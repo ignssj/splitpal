@@ -1,3 +1,16 @@
 package com.garcia.splitpal.dto.payment;
 
-public record GetPaymentDTO(String id,String receipt, double value, String created_at, String updated_at) {}
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class GetPaymentDTO {
+    private String id;
+    private String receipt;
+    private float total;
+    private String user_id;
+    private String split_id;
+    private String created_at;
+    private String updated_at;
+}

@@ -10,8 +10,8 @@ public class CreatePaymentDTO {
     @NotBlank(message = "Recepit is mandatory")
     private String receipt;
 
-    @Min(value = 10, message = "Value must be greater than 10")
-    private float value;
+    @Min(value = 10, message = "Total must be greater than 10")
+    private float total;
 
     @NotBlank(message = "UserId is mandatory")
     @UUID

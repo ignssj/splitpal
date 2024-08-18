@@ -4,10 +4,10 @@ import com.garcia.splitpal.domain.Split;
 import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.dto.split.UpdateSplitDTO;
+import com.garcia.splitpal.exception.BadRequestException;
 import com.garcia.splitpal.repository.SplitParticipantRepository;
 import com.garcia.splitpal.repository.SplitRepository;
 import com.garcia.splitpal.repository.UserRepository;
-import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,10 +26,9 @@ public class SplitService {
     @Autowired
     UserRepository userRepository;
 
-    public UUID create(CreateSplitDTO split){
-        var user = this.userRepository.findById(UUID.fromString(split.getUserId()));
-        if (user.isEmpty()) new BadRequestException("Invalid userId");
-
+    public UUID create(CreateSplitDTO split) {
+        this.userRepository.findById(UUID.fromString(split.getUserId()))
+                .orElseThrow(() -> new BadRequestException("Invalid userId"));
         Split splitEntity = new Split();
         splitEntity.setName(split.getName());
         splitEntity.setCategory(split.getCategory());
@@ -45,17 +44,18 @@ public class SplitService {
         return splitEntity.getId();
     }
 
-    public Optional<Split> getSplitById(String id){
+    public Optional<Split> getSplitById(String id) {
         return this.splitRepository.findById(UUID.fromString(id));
     }
 
-    public List<Split> getAll(){
+    public List<Split> getAll() {
         return this.splitRepository.findAll();
     }
 
-    public Split updateById(String id, UpdateSplitDTO body){
+    public Split updateById(String id, UpdateSplitDTO body) {
         var splitEntity = this.splitRepository.findById(UUID.fromString(id));
-        if (splitEntity.isEmpty()) return null;
+        if (splitEntity.isEmpty())
+            return null;
 
         var split = splitEntity.get();
         split.setCategory(body.getCategory());
@@ -67,7 +67,7 @@ public class SplitService {
         return split;
     }
 
-    public void deleteById(String id){
+    public void deleteById(String id) {
         this.splitRepository.deleteById(UUID.fromString(id));
     }
 

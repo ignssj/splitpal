@@ -10,5 +10,5 @@ public class UpdatePaymentDTO {
     private String receipt;
 
     @Min(value = 10, message = "Value must be greater than 10")
-    private float value;
+    private float total;
 }
