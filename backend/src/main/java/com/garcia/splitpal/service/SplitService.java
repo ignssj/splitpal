@@ -3,12 +3,16 @@ package com.garcia.splitpal.service;
 import com.garcia.splitpal.domain.Split;
 import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.dto.split.CreateSplitDTO;
+import com.garcia.splitpal.dto.split.SplitDTO;
 import com.garcia.splitpal.dto.split.UpdateSplitDTO;
 import com.garcia.splitpal.exception.BadRequestException;
 import com.garcia.splitpal.repository.SplitParticipantRepository;
 import com.garcia.splitpal.repository.SplitRepository;
 import com.garcia.splitpal.repository.UserRepository;
+import com.garcia.splitpal.repository.specification.SplitSpecification;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,8 +52,16 @@ public class SplitService {
         return this.splitRepository.findById(UUID.fromString(id));
     }
 
-    public List<Split> getAll() {
-        return this.splitRepository.findAll();
+    public List<SplitDTO> getAll(String name, String category, String qrcode) {
+        Specification<Split> spec = Specification.where(
+                SplitSpecification.hasName(name)
+                        .and(SplitSpecification.hasCategory(category)
+                                .and(SplitSpecification.hasQRCode(qrcode))));
+
+        return this.splitRepository.findAll(spec)
+                .stream()
+                .map(this::toSplitDTO)
+                .toList();
     }
 
     public Split updateById(String id, UpdateSplitDTO body) {
@@ -69,6 +81,11 @@ public class SplitService {
 
     public void deleteById(String id) {
         this.splitRepository.deleteById(UUID.fromString(id));
+    }
+
+    private SplitDTO toSplitDTO(Split split) {
+        return new SplitDTO(split.getId(), split.getName(), split.getCategory(), split.getQrcode(), split.getTotal(),
+                split.getCreated_at(), split.getUpdated_at(), split.getParticipants(), split.getPayments());
     }
 
 }
