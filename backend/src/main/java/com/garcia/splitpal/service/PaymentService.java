@@ -55,8 +55,8 @@ public class PaymentService {
     public List<PaymentDTO> getAll(String receipt, String user_id, String split_id) {
         Specification<Payment> spec = Specification.where(
                 PaymentSpecification.hasReceipt(receipt)
-                        .and(PaymentSpecification.hasSplitID(UUID.fromString(split_id))
-                                .and(PaymentSpecification.hasUserID(UUID.fromString(user_id)))));
+                        .and(PaymentSpecification.hasSplitID((split_id))
+                                .and(PaymentSpecification.hasUserID((user_id)))));
         List<Payment> payments = this.paymentRepository.findAll(spec);
         return payments.stream()
                 .map(this::toPaymentDTO)
