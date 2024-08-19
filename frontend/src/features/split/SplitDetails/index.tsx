@@ -10,12 +10,14 @@ import { SplitDetailsRouteParams } from "./types";
 import Card from "../../../components/Card";
 import Spaced from "../../../components/Spaced";
 import PaymentList from "../components/PaymentList";
+import usePayments from "../../../hooks/usePayments";
 
 const SplitDetails = () => {
   const { splitId } = useRoute<SplitDetailsRouteParams>().params;
-  const { data: split, isLoading } = useSplit(splitId);
+  const { data: split, isLoading: isLoadingSplits } = useSplit(splitId);
+  const { data: payments, isLoading: isLoadingPayments } = usePayments({ split_id: splitId });
 
-  if (isLoading) return <View />;
+  if (isLoadingSplits || isLoadingPayments) return <View />;
 
   return (
     <Screen.Root>
@@ -33,7 +35,7 @@ const SplitDetails = () => {
           </Card>
           <Card>
             <Title>Pagamentos</Title>
-            <PaymentList />
+            <PaymentList data={payments} />
           </Card>
         </Spaced>
       </Screen.Content>
