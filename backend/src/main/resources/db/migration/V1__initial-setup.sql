@@ -32,7 +32,7 @@ CREATE TABLE split_has_participant (
 CREATE TABLE payments (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     receipt VARCHAR(255) NOT NULL,
-    value INTEGER NOT NULL,
+    total INTEGER NOT NULL,
     split_id UUID,
     user_id UUID,
     FOREIGN KEY (split_id) REFERENCES splits(id),
