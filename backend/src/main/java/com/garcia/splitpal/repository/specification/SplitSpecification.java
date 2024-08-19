@@ -1,7 +1,5 @@
 package com.garcia.splitpal.repository.specification;
 
-import java.util.UUID;
-
 import org.springframework.data.jpa.domain.Specification;
 
 import com.garcia.splitpal.domain.Split;
