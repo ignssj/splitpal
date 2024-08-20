@@ -1,9 +1,10 @@
 import React from "react";
-import { View } from "react-native";
 import { IScreenContent } from "../types";
+import ScreenLoading from "../Loading";
+import View from "../../View";
 
-const ScreenContent: React.FC<IScreenContent> = ({ flex, children }) => {
-  return <View style={{ flex }}>{children}</View>;
+const ScreenContent: React.FC<IScreenContent> = ({ flex, children, loading }) => {
+  return <View style={{ flex }}>{loading ? <ScreenLoading /> : children}</View>;
 };
 
 export default ScreenContent;

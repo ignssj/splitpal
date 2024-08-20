@@ -9,5 +9,6 @@ export interface IScreenHeader {
 
 export interface IScreenContent {
   flex: number;
+  loading?: boolean;
   children: React.ReactNode;
 }

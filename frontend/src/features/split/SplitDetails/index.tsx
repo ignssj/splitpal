@@ -1,7 +1,6 @@
 import React from "react";
 import Title from "../../../components/Title";
 import useSplit from "../../../hooks/useSplit";
-import { View } from "react-native";
 import { Text } from "react-native-paper";
 import { Screen } from "../../../components/Screen";
 import { Rounded } from "../../../components/Rounded";
@@ -14,10 +13,8 @@ import usePayments from "../../../hooks/usePayments";
 
 const SplitDetails = () => {
   const { splitId } = useRoute<SplitDetailsRouteParams>().params;
-  const { data: split, isLoading: isLoadingSplits } = useSplit(splitId);
-  const { data: payments, isLoading: isLoadingPayments } = usePayments({ split_id: splitId });
-
-  if (isLoadingSplits || isLoadingPayments) return <View />;
+  const { data: split, isFetching: isFetchingSplits } = useSplit(splitId);
+  const { data: payments, isFetching: isFetchingPayments } = usePayments({ split_id: splitId });
 
   return (
     <Screen.Root>
@@ -25,7 +22,7 @@ const SplitDetails = () => {
         <Rounded.Back />
         <Title>Detalhes do pagamento</Title>
       </Screen.Header>
-      <Screen.Content flex={1}>
+      <Screen.Content flex={1} loading={isFetchingPayments || isFetchingSplits}>
         <Spaced gap={15}>
           <Card>
             <Title>Informações</Title>
