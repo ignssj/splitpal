@@ -1,7 +1,8 @@
 import { Split } from "../../../../services/splits/types";
 
 export interface ISplitList {
-  list: Split[];
+  data: Split[];
+  loading: boolean;
 }
 
 export interface ISplitItem {

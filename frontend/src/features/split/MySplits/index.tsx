@@ -5,14 +5,14 @@ import SplitList from "../components/SplitList";
 import useAllSplits from "../../../hooks/useAllSplits";
 
 const MySplits = () => {
-  const { data } = useAllSplits();
+  const { data, isFetching } = useAllSplits();
   return (
     <Screen.Root>
       <Screen.Header>
         <Title>Meus pagamentos</Title>
       </Screen.Header>
       <Screen.Content flex={0.9}>
-        <SplitList list={data} />
+        <SplitList data={data} loading={isFetching} />
       </Screen.Content>
     </Screen.Root>
   );
