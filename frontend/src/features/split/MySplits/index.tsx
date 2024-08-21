@@ -1,8 +1,8 @@
 import React from "react";
-import { Screen } from "../../../components/Screen";
 import Title from "../../../components/Title";
-import SplitList from "../components/SplitList";
 import useAllSplits from "../../../hooks/useAllSplits";
+import { Screen } from "../../../components/Screen";
+import { Split } from "../components/Split";
 
 const MySplits = () => {
   const { data, isLoading } = useAllSplits();
@@ -14,7 +14,7 @@ const MySplits = () => {
         <Title>Meus pagamentos</Title>
       </Screen.Header>
       <Screen.Content flex={0.9} loading={isLoading}>
-        <SplitList data={data} />
+        <Split.List data={data} />
       </Screen.Content>
     </Screen.Root>
   );
