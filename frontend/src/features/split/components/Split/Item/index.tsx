@@ -6,9 +6,9 @@ import { Text } from "react-native-paper";
 import { ISplitItem } from "../types";
 import { formatValue } from "../../../../../helpers/FormatHelper";
 
-const SplitItem: React.FC<ISplitItem> = ({ split }) => {
+const SplitItem: React.FC<ISplitItem> = ({ split, title }) => {
   return (
-    <Card>
+    <Card title={title}>
       <Row style={styles.row}>
         <Text style={styles.title}>Nome: </Text>
         <Text>{split.name}</Text>

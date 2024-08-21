@@ -28,11 +28,11 @@ const RegisterScreen = () => {
 
   const handlePress = async () => {
     const response = await register({ username: email, password });
-    if(isError(response)) return ErrorToast("Problema ao cadastrar usuário!");
+    if (isError(response)) return ErrorToast("Problema ao cadastrar usuário!");
 
     SuccessToast("Usuário cadastrado com sucesso!");
     navigation.goBack();
-  }
+  };
 
   return (
     <Screen.Root>

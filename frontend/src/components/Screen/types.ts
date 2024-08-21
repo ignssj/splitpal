@@ -10,7 +10,7 @@ export interface IScreenLoading {
   style?: ViewStyle;
 }
 export interface IScreenContent {
-  flex: number;
+  style?: ViewStyle;
   loading?: boolean;
   children: React.ReactNode;
 }

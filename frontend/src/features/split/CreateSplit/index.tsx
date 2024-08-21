@@ -54,7 +54,7 @@ const CreateSplit = () => {
       <Screen.Header>
         <Title>Novo pagamento</Title>
       </Screen.Header>
-      <Screen.Content flex={0.9}>
+      <Screen.Content>
         <Card>
           <Input label='Nome' value={splitForm.name} onChangeText={handleNameChange} />
           <Input label='Categoria' value={splitForm.category} onChangeText={handleCategoryChange} />

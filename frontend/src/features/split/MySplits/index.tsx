@@ -13,7 +13,7 @@ const MySplits = () => {
       <Screen.Header>
         <Title>Meus pagamentos</Title>
       </Screen.Header>
-      <Screen.Content flex={0.9} loading={isLoading}>
+      <Screen.Content loading={isLoading}>
         <Split.List data={data} />
       </Screen.Content>
     </Screen.Root>

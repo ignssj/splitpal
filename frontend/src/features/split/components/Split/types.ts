@@ -6,4 +6,5 @@ export interface ISplitList {
 
 export interface ISplitItem {
   split: Split;
+  title?: string;
 }

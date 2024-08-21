@@ -3,8 +3,8 @@ import { IScreenContent } from "../types";
 import ScreenLoading from "../Loading";
 import View from "../../View";
 
-const ScreenContent: React.FC<IScreenContent> = ({ flex, children, loading }) => {
-  return <View style={{ flex }}>{loading ? <ScreenLoading /> : children}</View>;
+const ScreenContent: React.FC<IScreenContent> = ({ style, children, loading }) => {
+  return <View style={style}>{loading ? <ScreenLoading /> : children}</View>;
 };
 
 export default ScreenContent;
