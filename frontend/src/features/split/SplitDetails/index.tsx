@@ -26,9 +26,9 @@ const SplitDetails = () => {
         <Spaced gap={15}>
           <Card>
             <Title>Informações</Title>
-            <Text>{split.name}</Text>
-            <Text>{split.category}</Text>
-            <Text>{split.total}</Text>
+            <Text>{split?.name}</Text>
+            <Text>{split?.category}</Text>
+            <Text>{split?.total}</Text>
           </Card>
           <Card>
             <Title>Pagamentos</Title>

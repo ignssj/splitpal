@@ -23,7 +23,7 @@ const useSplit = (id: string) => {
   useRefetchOnFocus(query.refetch);
   return {
     ...query,
-    data: query.data as GetSplit,
+    data: query.data as GetSplit | undefined,
   };
 };
 
