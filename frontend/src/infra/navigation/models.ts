@@ -1,4 +1,5 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Split } from "../../services/splits/types";
 
 export type PropsNavigationStack = {
   RegisterScreen: undefined;
@@ -7,7 +8,7 @@ export type PropsNavigationStack = {
   Tab: undefined;
   CreateSplit: undefined;
   MySplits: undefined;
-  SplitDetails: { splitId: string };
+  SplitDetails: { split: Split };
 };
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;

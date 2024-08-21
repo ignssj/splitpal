@@ -13,7 +13,7 @@ const SplitItem: React.FC<ISplitItem> = ({ split }) => {
   const navigation = useNavigation<PropsStack>();
 
   const navigateToSplitDetails = () => {
-    navigation.navigate("SplitDetails", { splitId: split.id });
+    navigation.navigate("SplitDetails", { split });
   };
 
   return (

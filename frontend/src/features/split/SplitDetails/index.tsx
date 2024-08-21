@@ -12,9 +12,8 @@ import PaymentList from "../components/PaymentList";
 import usePayments from "../../../hooks/usePayments";
 
 const SplitDetails = () => {
-  const { splitId } = useRoute<SplitDetailsRouteParams>().params;
-  const { data: split, isFetching: isFetchingSplits } = useSplit(splitId);
-  const { data: payments, isFetching: isFetchingPayments } = usePayments({ split_id: splitId });
+  const { split } = useRoute<SplitDetailsRouteParams>().params;
+  const { data: payments, isFetching: isFetchingPayments } = usePayments({ split_id: split.id });
 
   return (
     <Screen.Root>
@@ -22,17 +21,17 @@ const SplitDetails = () => {
         <Rounded.Back />
         <Title>Detalhes do pagamento</Title>
       </Screen.Header>
-      <Screen.Content flex={1} loading={isFetchingPayments || isFetchingSplits}>
+      <Screen.Content flex={1}>
         <Spaced gap={15}>
           <Card>
             <Title>Informações</Title>
-            <Text>{split?.name}</Text>
-            <Text>{split?.category}</Text>
-            <Text>{split?.total}</Text>
+            <Text>{split.name}</Text>
+            <Text>{split.category}</Text>
+            <Text>{split.total}</Text>
           </Card>
           <Card>
             <Title>Pagamentos</Title>
-            <PaymentList data={payments} />
+            <PaymentList data={payments} loading={isFetchingPayments} />
           </Card>
         </Spaced>
       </Screen.Content>
