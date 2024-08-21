@@ -6,9 +6,9 @@ import { useRoute } from "@react-navigation/native";
 import { SplitDetailsRouteParams } from "./types";
 import Card from "../../../components/Card";
 import Spaced from "../../../components/Spaced";
-import PaymentList from "../components/PaymentList";
 import usePayments from "../../../hooks/usePayments";
 import { Split } from "../components/Split";
+import { Payment } from "../components/Payment";
 
 const SplitDetails = () => {
   const { split } = useRoute<SplitDetailsRouteParams>().params;
@@ -25,7 +25,7 @@ const SplitDetails = () => {
           <Split.Item title='Informações' split={split} />
           <Card>
             <Title>Pagamentos</Title>
-            <PaymentList data={payments} loading={isFetchingPayments} />
+            <Payment.List data={payments} loading={isFetchingPayments} />
           </Card>
         </Spaced>
       </Screen.Content>
