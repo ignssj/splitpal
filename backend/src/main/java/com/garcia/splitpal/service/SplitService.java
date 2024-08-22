@@ -43,6 +43,9 @@ public class SplitService {
 
         SplitParticipant splitParticipant = new SplitParticipant();
         splitParticipant.setOrganizer(true);
+        splitParticipant.setSplit_id(splitEntity.getId());
+        splitParticipant.setUser_id(UUID.fromString(split.getUserId()));
+
         splitParticipantRepository.save(splitParticipant);
 
         return splitEntity.getId();
