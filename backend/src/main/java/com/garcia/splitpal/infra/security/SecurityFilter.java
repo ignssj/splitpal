@@ -24,14 +24,16 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     UserRepository userRepository;
 
+    @SuppressWarnings("null")
     @Override
-    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain)
+            throws ServletException, IOException {
         var token = this.recoverToken(req);
         var login = tokenService.validateToken(token);
 
-        if (login != null){
+        if (login != null) {
             var user = userRepository.findByUsername(login);
-            if (user.isEmpty()){
+            if (user.isEmpty()) {
                 new NotFoundException("Invalid username or password");
             }
             var roles = Collections.singletonList(new SimpleGrantedAuthority("USER"));
@@ -41,9 +43,10 @@ public class SecurityFilter extends OncePerRequestFilter {
         filterChain.doFilter(req, res);
     }
 
-    private String recoverToken(HttpServletRequest req){
+    private String recoverToken(HttpServletRequest req) {
         var authHeader = req.getHeader("Authorization");
-        if (authHeader == null) return null;
+        if (authHeader == null)
+            return null;
         return authHeader.replace("Bearer ", "");
     }
 }

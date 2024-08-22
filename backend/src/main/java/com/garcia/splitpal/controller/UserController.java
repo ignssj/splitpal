@@ -1,6 +1,7 @@
 package com.garcia.splitpal.controller;
 
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
+import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,18 +23,19 @@ public class UserController {
 
     @Operation(summary = "Get user by id", description = "Return an user by its id")
     @GetMapping("/{id}")
-    public ResponseEntity<User> getById(@PathVariable("id") String id){
+    public ResponseEntity<User> getById(@PathVariable("id") String id) {
         var user = this.userService.getUserById(id);
-        if (user.isEmpty()){
+        if (user.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(user.get());
     }
+
     @Operation(summary = "Get all users", description = "Returns an array with all users")
     @GetMapping
-    public ResponseEntity<List<User>> getAll(){
+    public ResponseEntity<List<User>> getAll() {
         var users = this.userService.getAllUsers();
-        if (users.isEmpty()){
+        if (users.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(users);
@@ -42,17 +44,28 @@ public class UserController {
     @Operation(summary = "Update user by id", description = "Update and returns an user")
     @PutMapping("/{id}")
     public ResponseEntity<Optional<User>> updateById(@PathVariable("id") String id,
-                                                     @RequestBody UpdateUserDTO body){
+            @RequestBody UpdateUserDTO body) {
         var user = this.userService.updateUserById(id, body);
-        if (user == null){
+        if (user == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(user);
     }
+
     @Operation(summary = "Remove user by id", description = "Deletes an user by its id")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable("id") String id){
+    public ResponseEntity<Void> deleteById(@PathVariable("id") String id) {
         this.userService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "Get participations from user", description = "Returns an array with all participations in splits of an user")
+    @GetMapping("/{id}/participations")
+    public ResponseEntity<List<SplitParticipant>> getParticipations(@PathVariable("id") String id) {
+        var participations = this.userService.getParticipations(id);
+        if (participations.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(participations);
     }
 }

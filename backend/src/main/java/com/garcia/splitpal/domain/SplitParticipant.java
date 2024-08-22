@@ -24,6 +24,10 @@ public class SplitParticipant {
     @GeneratedValue
     private UUID id;
     private boolean organizer;
+
+    UUID user_id;
+    UUID split_id;
+
     @CreatedDate
     private LocalDateTime created_at;
     @LastModifiedDate
