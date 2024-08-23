@@ -6,6 +6,7 @@ import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.dto.split.SplitDTO;
 import com.garcia.splitpal.dto.split.UpdateSplitDTO;
 import com.garcia.splitpal.exception.BadRequestException;
+import com.garcia.splitpal.mapper.SplitMapper;
 import com.garcia.splitpal.repository.SplitParticipantRepository;
 import com.garcia.splitpal.repository.SplitRepository;
 import com.garcia.splitpal.repository.UserRepository;
@@ -63,7 +64,7 @@ public class SplitService {
 
         return this.splitRepository.findAll(spec)
                 .stream()
-                .map(this::toSplitDTO)
+                .map(SplitMapper::toSplitDTO)
                 .toList();
     }
 
@@ -84,11 +85,6 @@ public class SplitService {
 
     public void deleteById(String id) {
         this.splitRepository.deleteById(UUID.fromString(id));
-    }
-
-    private SplitDTO toSplitDTO(Split split) {
-        return new SplitDTO(split.getId(), split.getName(), split.getCategory(), split.getQrcode(), split.getTotal(),
-                split.getCreated_at(), split.getUpdated_at(), split.getParticipants(), split.getPayments());
     }
 
 }

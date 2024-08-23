@@ -3,7 +3,7 @@ package com.garcia.splitpal.service;
 import com.garcia.splitpal.dto.split.SplitSummaryDTO;
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
 import com.garcia.splitpal.exception.NotFoundException;
-import com.garcia.splitpal.domain.Split;
+import com.garcia.splitpal.mapper.SplitMapper;
 import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.repository.UserRepository;
@@ -66,16 +66,10 @@ public class UserService {
             throw new NotFoundException("No participations found");
         List<SplitSummaryDTO> userSplits = participations.stream()
                 .map(SplitParticipant::getSplit)
-                .map(this::toSplitSummaryDTO)
+                .map(SplitMapper::toSplitSummaryDTO)
                 .collect(Collectors.toList());
 
         return userSplits;
-    }
-
-    private SplitSummaryDTO toSplitSummaryDTO(Split split) {
-        return new SplitSummaryDTO(split.getId(), split.getName(), split.getCategory(), split.getQrcode(),
-                split.getTotal(),
-                split.getCreated_at(), split.getUpdated_at(), split.getPayments());
     }
 
 }
