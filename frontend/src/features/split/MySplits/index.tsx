@@ -1,11 +1,11 @@
 import React from "react";
 import Title from "../../../components/Title";
-import useAllSplits from "../../../hooks/useAllSplits";
+import useMySplits from "../../../hooks/useMySplits";
 import { Screen } from "../../../components/Screen";
 import { Split } from "../components/Split";
 
 const MySplits = () => {
-  const { data, isLoading } = useAllSplits();
+  const { data, isLoading } = useMySplits();
 
   if (isLoading) return <Screen.Loading />;
   return (

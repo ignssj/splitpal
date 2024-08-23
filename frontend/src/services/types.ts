@@ -1,8 +1,4 @@
-export type HttpResponse<T> = Promise<SuccessMessage<T> | ErrorMessage>;
-
-export type SuccessMessage<T> = {
-  data: T;
-};
+export type HttpResponse<T> = Promise<T | ErrorMessage>;
 
 export type ErrorMessage = {
   error: string;
