@@ -1,7 +1,7 @@
 package com.garcia.splitpal.controller;
 
+import com.garcia.splitpal.dto.split.SplitSummaryDTO;
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
-import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -61,7 +61,7 @@ public class UserController {
 
     @Operation(summary = "Get participations from user", description = "Returns an array with all participations in splits of an user")
     @GetMapping("/{id}/participations")
-    public ResponseEntity<List<SplitParticipant>> getParticipations(@PathVariable("id") String id) {
+    public ResponseEntity<List<SplitSummaryDTO>> getParticipations(@PathVariable("id") String id) {
         var participations = this.userService.getParticipations(id);
         if (participations.isEmpty()) {
             return ResponseEntity.noContent().build();

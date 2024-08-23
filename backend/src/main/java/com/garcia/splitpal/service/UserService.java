@@ -1,12 +1,15 @@
 package com.garcia.splitpal.service;
 
+import com.garcia.splitpal.dto.split.SplitSummaryDTO;
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
 import com.garcia.splitpal.exception.NotFoundException;
+import com.garcia.splitpal.domain.Split;
 import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.stream.Collectors;
 
 import java.util.List;
 import java.util.Optional;
@@ -54,12 +57,25 @@ public class UserService {
         }
     }
 
-    public List<SplitParticipant> getParticipations(String id) {
-        var participations = this.userRepository.findById(UUID.fromString(id))
+    public List<SplitSummaryDTO> getParticipations(String id) {
+        User user = this.userRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new NotFoundException("User not found"));
 
-        return participations.getParticipations();
+        List<SplitParticipant> participations = user.getParticipations();
+        if (participations.isEmpty())
+            throw new NotFoundException("No participations found");
+        List<SplitSummaryDTO> userSplits = participations.stream()
+                .map(SplitParticipant::getSplit)
+                .map(this::toSplitSummaryDTO)
+                .collect(Collectors.toList());
 
+        return userSplits;
+    }
+
+    private SplitSummaryDTO toSplitSummaryDTO(Split split) {
+        return new SplitSummaryDTO(split.getId(), split.getName(), split.getCategory(), split.getQrcode(),
+                split.getTotal(),
+                split.getCreated_at(), split.getUpdated_at(), split.getPayments());
     }
 
 }

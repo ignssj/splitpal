@@ -25,6 +25,10 @@ public class SplitParticipant {
     private UUID id;
     private boolean organizer;
 
+    @ManyToOne
+    @JoinColumn(name = "split_id", insertable = false, updatable = false)
+    private Split split;
+
     UUID user_id;
     UUID split_id;
 
