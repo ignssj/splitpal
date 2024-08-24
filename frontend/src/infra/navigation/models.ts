@@ -10,7 +10,7 @@ export type PropsNavigationStack = {
   CreateSplit: undefined;
   MySplits: undefined;
   SplitDetails: { split: Split };
-  MyData: { user: User };
+  MyData: undefined;
 };
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;

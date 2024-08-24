@@ -3,6 +3,7 @@ import LoginButton from "./components/LoginButton";
 import RegisterNavigation from "./components/RegisterNavigation";
 import useAuthService from "../../../services/auth";
 import useThemedStyles from "../../../hooks/useThemedStyles";
+import useStorage from "../../../hooks/useStorage";
 import stylesheet from "./styles";
 import { Image } from "react-native";
 import { Text } from "react-native-paper";
@@ -13,7 +14,6 @@ import { useAppDispatch } from "../../../redux/hooks";
 import { authenticate } from "../../../redux/slices/usersSlice";
 import { isError } from "../../../helpers/ServiceHelper";
 import { Screen } from "../../../components/Screen";
-import useStorage from "../../../hooks/useStorage";
 
 const LoginScreen = () => {
   const { write } = useStorage();
@@ -38,9 +38,9 @@ const LoginScreen = () => {
       return alert("Email ou senha incorretos!");
     }
 
-    dispatch(authenticate(authResponse.data));
-    write("id", authResponse.data.id);
-    write("token", authResponse.data.token);
+    dispatch(authenticate(authResponse));
+    write("id", authResponse.id);
+    write("token", authResponse.token);
     navigation.navigate("Tab");
   };
 
