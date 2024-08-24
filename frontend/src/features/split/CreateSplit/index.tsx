@@ -46,6 +46,7 @@ const CreateSplit = () => {
     setIsLoading(false);
     if (isError(createdSplit)) return ErrorToast("Erro ao criar pagamento", "Tente novamente");
 
+    setSplitForm({ name: "", category: "", total: "", qrcode: "" });
     SuccessToast("Pagamento criado", "O pagamento foi criado com sucesso");
   };
 
