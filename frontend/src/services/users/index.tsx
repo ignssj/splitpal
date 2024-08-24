@@ -13,8 +13,18 @@ const useUserService = () => {
     }
   };
 
+  const updateMyData = async (req: T.UpdateMyDataRequest): HttpResponse<T.UpdateMyDataResponse> => {
+    try {
+      const response = await api.put(`/users/${req.userId}`, req.body);
+      return response;
+    } catch (err) {
+      return handleRequestError(err);
+    }
+  };
+
   return {
     getMyParticipations,
+    updateMyData,
   };
 };
 

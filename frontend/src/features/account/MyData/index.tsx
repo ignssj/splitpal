@@ -5,6 +5,9 @@ import Spaced from "../../../components/Spaced";
 import { Screen } from "../../../components/Screen";
 import { useAppSelector } from "../../../redux/hooks";
 import { Button } from "react-native-paper";
+import useUserService from "../../../services/users";
+import { isError } from "../../../helpers/ServiceHelper";
+import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
 
 const MyData = () => {
   const user = useAppSelector((state) => state.user);
@@ -12,6 +15,7 @@ const MyData = () => {
   const [newEmail, setNewEmail] = React.useState<string>(user.username);
   const [password, setPassword] = React.useState<string>("");
   const [passwordConfirmation, setPasswordConfirmation] = React.useState<string>("");
+  const { updateMyData } = useUserService();
 
   const handleEmailChange = (email: string) => {
     setNewEmail(email);
@@ -27,11 +31,21 @@ const MyData = () => {
 
   const isButtonDisabled = (): boolean => {
     if (!newEmail || !password || !passwordConfirmation) return true;
-    if (newEmail.length < 5) return true;
     if (password !== passwordConfirmation) return true;
-    if (password.length < 6) return true;
+    if (newEmail.length < 5 || password.length < 5) return true;
 
     return false;
+  };
+
+  const handleUpdate = () => {
+    const updatedData = updateMyData({ userId: user.id, body: { username: newEmail, password } });
+    if (isError(updatedData)) return ErrorToast("Erro ao atualizar dados", "Tente novamente");
+
+    setNewEmail("");
+    setPassword("");
+    setPasswordConfirmation("");
+
+    SuccessToast("Dados atualizados", "Seus dados foram atualizados com sucesso");
   };
 
   return (
@@ -44,7 +58,7 @@ const MyData = () => {
           <Input label='Email' value={newEmail} onChangeText={handleEmailChange} />
           <Input label='Senha' value={password} onChangeText={handlePasswordChange} />
           <Input label='Confirmar senha' value={passwordConfirmation} onChangeText={handlePasswordConfirmationChange} />
-          <Button mode='contained' disabled={isButtonDisabled()}>
+          <Button mode='contained' disabled={isButtonDisabled()} onPress={handleUpdate}>
             Atualizar dados
           </Button>
         </Spaced>

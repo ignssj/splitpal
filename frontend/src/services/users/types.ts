@@ -4,6 +4,7 @@ import { Split } from "../splits/types";
 export interface User {
   id: string;
   username: string;
+  password: string;
 }
 
 export interface GetParticipationsRequest {
@@ -16,4 +17,13 @@ export interface GetParticipationsResponse {
 
 export interface UserParticipation extends Split {
   payments: Payment[];
+}
+
+export interface UpdateMyDataRequest {
+  userId: string;
+  body: Omit<User, "id">;
+}
+
+export interface UpdateMyDataResponse {
+  data: User;
 }
