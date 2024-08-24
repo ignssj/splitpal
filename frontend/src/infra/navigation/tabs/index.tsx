@@ -2,9 +2,12 @@ import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import CreateSplit from "../../../features/split/CreateSplit";
 import MySplits from "../../../features/split/MySplits";
+import LoginScreen from "../../../features/auth/LoginScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useColorScheme } from "react-native";
+import { Alert, useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "../../theme";
+import { useAppDispatch } from "../../../redux/hooks";
+import { logout } from "../../../redux/slices/usersSlice";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,6 +16,8 @@ export default function TabRoutes() {
   const isDark = theme === "dark";
   const colorOnFocus = isDark ? darkTheme.colors.tertiary : lightTheme.colors.tertiary;
   const colorOnBlur = isDark ? darkTheme.colors.outline : lightTheme.colors.secondary;
+  const dispatch = useAppDispatch();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -36,21 +41,44 @@ export default function TabRoutes() {
         name='Novo'
         component={CreateSplit}
         options={{
-          tabBarIcon: ({ focused }) => <Ionicons name='add' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
+          tabBarIcon: ({ focused }) => <Ionicons name='add-circle-sharp' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
       />
       <Tab.Screen
-        name='Perfil'
+        name='Meus dados'
         component={CreateSplit}
         options={{
           tabBarIcon: ({ focused }) => <Ionicons name='person' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
       />
       <Tab.Screen
-        name='Configurações'
-        component={CreateSplit}
+        name='Logout'
+        component={LoginScreen}
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            Alert.alert("Sair da conta", "Deseja realmente sair da conta?", [
+              {
+                text: "Cancelar",
+                onPress: () => {},
+                style: "cancel",
+              },
+              {
+                text: "Sair",
+                onPress: () => {
+                  dispatch(logout());
+                  navigation.reset({
+                    index: 0,
+                    routes: [{ name: "LoginScreen" }],
+                  });
+                },
+                style: "destructive",
+              },
+            ]);
+          },
+        })}
         options={{
-          tabBarIcon: ({ focused }) => <Ionicons name='settings' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
+          tabBarIcon: ({ focused }) => <Ionicons name='log-out' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
       />
     </Tab.Navigator>
