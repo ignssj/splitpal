@@ -3,6 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import CreateSplit from "../../../features/split/CreateSplit";
 import MySplits from "../../../features/split/MySplits";
 import LoginScreen from "../../../features/auth/LoginScreen";
+import MyData from "../../../features/account/MyData";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Alert, useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "../../theme";
@@ -46,7 +47,7 @@ export default function TabRoutes() {
       />
       <Tab.Screen
         name='Meus dados'
-        component={CreateSplit}
+        component={MyData}
         options={{
           tabBarIcon: ({ focused }) => <Ionicons name='person' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}
