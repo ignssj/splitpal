@@ -2,8 +2,10 @@ package com.garcia.splitpal.service;
 
 import com.garcia.splitpal.dto.split.SplitSummaryDTO;
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
+import com.garcia.splitpal.dto.user.UserDTO;
 import com.garcia.splitpal.exception.NotFoundException;
 import com.garcia.splitpal.mapper.SplitMapper;
+import com.garcia.splitpal.mapper.UserMapper;
 import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.repository.UserRepository;
@@ -28,8 +30,11 @@ public class UserService {
         return this.userRepository.findById(UUID.fromString(id));
     }
 
-    public List<User> getAllUsers() {
-        return this.userRepository.findAll();
+    public List<UserDTO> getAllUsers() {
+        var entities = this.userRepository.findAll();
+        return entities.stream()
+                .map(UserMapper::toUserDTO)
+                .collect(Collectors.toList());
     }
 
     public Optional<User> updateUserById(String id, UpdateUserDTO data) {

@@ -2,6 +2,7 @@ package com.garcia.splitpal.controller;
 
 import com.garcia.splitpal.dto.split.SplitSummaryDTO;
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
+import com.garcia.splitpal.dto.user.UserDTO;
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -33,7 +34,7 @@ public class UserController {
 
     @Operation(summary = "Get all users", description = "Returns an array with all users")
     @GetMapping
-    public ResponseEntity<List<User>> getAll() {
+    public ResponseEntity<List<UserDTO>> getAll() {
         var users = this.userService.getAllUsers();
         if (users.isEmpty()) {
             return ResponseEntity.noContent().build();
