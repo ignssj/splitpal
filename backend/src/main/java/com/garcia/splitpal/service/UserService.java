@@ -1,6 +1,6 @@
 package com.garcia.splitpal.service;
 
-import com.garcia.splitpal.dto.split.SplitSummaryDTO;
+import com.garcia.splitpal.dto.split.SplitDTO;
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
 import com.garcia.splitpal.dto.user.UserDTO;
 import com.garcia.splitpal.exception.NotFoundException;
@@ -65,16 +65,16 @@ public class UserService {
         }
     }
 
-    public List<SplitSummaryDTO> getParticipations(String id) {
+    public List<SplitDTO> getParticipations(String id) {
         User user = this.userRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new NotFoundException("User not found"));
 
         List<SplitParticipant> participations = user.getParticipations();
         if (participations.isEmpty())
             throw new NotFoundException("No participations found");
-        List<SplitSummaryDTO> userSplits = participations.stream()
+        List<SplitDTO> userSplits = participations.stream()
                 .map(SplitParticipant::getSplit)
-                .map(SplitMapper::toSplitSummaryDTO)
+                .map(SplitMapper::toSplitDTO)
                 .collect(Collectors.toList());
 
         return userSplits;
