@@ -8,6 +8,7 @@ import com.garcia.splitpal.domain.SplitParticipant;
 import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 
@@ -20,6 +21,8 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     public Optional<User> getUserById(String id) {
         return this.userRepository.findById(UUID.fromString(id));
@@ -42,7 +45,7 @@ public class UserService {
             user.setUsername(data.username());
         }
         if (data.password() != null) {
-            user.setPassword(data.password());
+            user.setPassword(passwordEncoder.encode(data.password()));
         }
 
         this.userRepository.save(user);
