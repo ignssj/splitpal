@@ -11,10 +11,6 @@ export interface GetParticipationsRequest {
   userId: string;
 }
 
-export interface GetParticipationsResponse {
-  data: UserParticipation[];
-}
-
 export interface UserParticipation extends Split {
   payments: Payment[];
 }
@@ -22,8 +18,4 @@ export interface UserParticipation extends Split {
 export interface UpdateMyDataRequest {
   userId: string;
   body: Omit<User, "id">;
-}
-
-export interface UpdateMyDataResponse {
-  data: User;
 }

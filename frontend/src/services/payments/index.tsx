@@ -8,7 +8,7 @@ const usePaymentService = () => {
     const query = createQueryString(filter);
     try {
       const response = await api.get(`/payments?${query}`);
-      return response;
+      return response.data;
     } catch (err) {
       return handleRequestError(err);
     }

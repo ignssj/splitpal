@@ -11,7 +11,7 @@ const useSplit = (id: string) => {
     const response = await getById(id);
     if (isError(response)) return null;
 
-    return response.data;
+    return response;
   };
 
   const query = useQuery({

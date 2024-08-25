@@ -4,19 +4,19 @@ import api from "..";
 import { HttpResponse } from "../types";
 
 const useUserService = () => {
-  const getMyParticipations = async (req: T.GetParticipationsRequest): HttpResponse<T.GetParticipationsResponse> => {
+  const getMyParticipations = async (req: T.GetParticipationsRequest): HttpResponse<T.UserParticipation[]> => {
     try {
       const response = await api.get(`/users/${req.userId}/participations`);
-      return response;
+      return response.data;
     } catch (err) {
       return handleRequestError(err);
     }
   };
 
-  const updateMyData = async (req: T.UpdateMyDataRequest): HttpResponse<T.UpdateMyDataResponse> => {
+  const updateMyData = async (req: T.UpdateMyDataRequest): HttpResponse<T.User> => {
     try {
       const response = await api.put(`/users/${req.userId}`, req.body);
-      return response;
+      return response.data;
     } catch (err) {
       return handleRequestError(err);
     }

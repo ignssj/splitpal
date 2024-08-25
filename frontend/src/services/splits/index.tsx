@@ -7,7 +7,7 @@ const useSplitService = () => {
   const create = async (body: T.CreateSplitRequest): HttpResponse<T.GetSplit> => {
     try {
       const response = await api.post("/splits", body);
-      return response;
+      return response.data;
     } catch (err) {
       return handleRequestError(err);
     }
@@ -17,7 +17,7 @@ const useSplitService = () => {
     const query = createQueryString(filter);
     try {
       const response = await api.get(`/splits?${query}`);
-      return response;
+      return response.data;
     } catch (err) {
       return handleRequestError(err);
     }
@@ -26,7 +26,7 @@ const useSplitService = () => {
   const getById = async (id: string): HttpResponse<T.GetSplit> => {
     try {
       const response = await api.get(`/splits/${id}`);
-      return response;
+      return response.data;
     } catch (err) {
       return handleRequestError(err);
     }

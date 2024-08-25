@@ -13,7 +13,7 @@ const usePayments = (filter?: Omit<PaymentFilter, "user_id">) => {
     const response = await getAll({ ...filter, user_id: userId });
     if (isError(response)) return [];
 
-    return response.data;
+    return response;
   };
 
   const query = useQuery({

@@ -13,7 +13,7 @@ const useMySplits = () => {
     const response = await getMyParticipations({ userId: id });
     if (isError(response)) return [];
 
-    return response.data;
+    return response;
   };
 
   const query = useQuery({
