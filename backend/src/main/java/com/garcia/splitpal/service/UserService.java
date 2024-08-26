@@ -3,6 +3,7 @@ package com.garcia.splitpal.service;
 import com.garcia.splitpal.dto.split.SplitDTO;
 import com.garcia.splitpal.dto.user.UpdateUserDTO;
 import com.garcia.splitpal.dto.user.UserDTO;
+import com.garcia.splitpal.exception.BadRequestException;
 import com.garcia.splitpal.exception.NotFoundException;
 import com.garcia.splitpal.mapper.SplitMapper;
 import com.garcia.splitpal.mapper.UserMapper;
@@ -45,6 +46,10 @@ public class UserService {
         }
 
         var user = userEntity.get();
+
+        if (data.currentPassword() == null || !passwordEncoder.matches(data.currentPassword(), user.getPassword())) {
+            throw new BadRequestException("Current password is incorrect");
+        }
 
         if (data.username() != null) {
             user.setUsername(data.username());
