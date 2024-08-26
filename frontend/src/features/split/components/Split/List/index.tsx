@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../../../../infra/navigation/models";
 import { Text } from "react-native-paper";
 
-const SplitList: React.FC<ISplitList> = ({ data }) => {
+const SplitList: React.FC<ISplitList> = ({ data, messageOnEmpty }) => {
   const navigation = useNavigation<PropsStack>();
 
   const handlePress = (split: Split) => {
@@ -30,7 +30,7 @@ const SplitList: React.FC<ISplitList> = ({ data }) => {
       keyExtractor={(item) => item.id}
       renderItem={RenderItem}
       contentContainerStyle={styles.listContent}
-      ListEmptyComponent={<Text style={styles.centeredText}>Você ainda não possui nenhum pagamento</Text>}
+      ListEmptyComponent={<Text style={styles.centeredText}>{messageOnEmpty}</Text>}
     />
   );
 };
