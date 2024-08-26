@@ -44,7 +44,7 @@ public class UserController {
 
     @Operation(summary = "Update user by id", description = "Update and returns an user")
     @PutMapping("/{id}")
-    public ResponseEntity<Optional<User>> updateById(@PathVariable("id") String id,
+    public ResponseEntity<Optional<UserDTO>> updateById(@PathVariable("id") String id,
             @RequestBody UpdateUserDTO body) {
         var user = this.userService.updateUserById(id, body);
         if (user == null) {

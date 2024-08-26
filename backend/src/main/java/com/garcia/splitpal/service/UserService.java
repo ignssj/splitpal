@@ -37,7 +37,7 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<User> updateUserById(String id, UpdateUserDTO data) {
+    public Optional<UserDTO> updateUserById(String id, UpdateUserDTO data) {
         var userEntity = this.userRepository.findById(UUID.fromString(id));
 
         if (userEntity.isEmpty()) {
@@ -54,7 +54,7 @@ public class UserService {
         }
 
         this.userRepository.save(user);
-        return this.userRepository.findById(UUID.fromString(id));
+        return this.userRepository.findById(UUID.fromString(id)).map(UserMapper::toUserDTO);
     }
 
     public void deleteById(String id) {
