@@ -24,7 +24,7 @@ const SplitDetails = () => {
         <Spaced gap={15}>
           <Split.Item title='Informações' split={split} />
           <Card>
-            <Title>Pagamentos</Title>
+            <Title>Comprovantes</Title>
             <Payment.List data={payments} loading={isFetchingPayments} />
           </Card>
         </Spaced>

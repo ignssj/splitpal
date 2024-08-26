@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: "5%",
   },
+  centeredText: {
+    textAlign: "center",
+    fontFamily: "Outfit_300Light",
+  },
 });
 
 export default styles;
