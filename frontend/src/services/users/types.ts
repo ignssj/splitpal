@@ -17,5 +17,9 @@ export interface UserParticipation extends Split {
 
 export interface UpdateMyDataRequest {
   userId: string;
-  body: Omit<User, "id">;
+  body: UpdateForm;
+}
+
+export interface UpdateForm extends Omit<User, "id"> {
+  currentPassword: string;
 }
