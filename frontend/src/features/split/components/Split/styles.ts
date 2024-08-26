@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "Outfit_600SemiBold",
   },
+  centeredText: {
+    textAlign: "center",
+    fontFamily: "Outfit_300Light",
+  },
 });
 
 export default styles;

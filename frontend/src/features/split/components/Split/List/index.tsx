@@ -6,6 +6,7 @@ import { ISplitList } from "../types";
 import { Split } from "../../../../../services/splits/types";
 import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../../../../infra/navigation/models";
+import { Text } from "react-native-paper";
 
 const SplitList: React.FC<ISplitList> = ({ data }) => {
   const navigation = useNavigation<PropsStack>();
@@ -23,7 +24,15 @@ const SplitList: React.FC<ISplitList> = ({ data }) => {
     [data]
   );
 
-  return <FlatList data={data} keyExtractor={(item) => item.id} renderItem={RenderItem} contentContainerStyle={styles.listContent} />;
+  return (
+    <FlatList
+      data={data}
+      keyExtractor={(item) => item.id}
+      renderItem={RenderItem}
+      contentContainerStyle={styles.listContent}
+      ListEmptyComponent={<Text style={styles.centeredText}>Você ainda não possui nenhum pagamento</Text>}
+    />
+  );
 };
 
 export default SplitList;
