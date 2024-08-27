@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "Outfit_600SemiBold",
   },
+  titleContainer: {
+    marginVertical: "3%",
+  },
   centeredText: {
     textAlign: "center",
     fontFamily: "Outfit_300Light",

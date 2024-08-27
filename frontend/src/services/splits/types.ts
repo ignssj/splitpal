@@ -1,5 +1,5 @@
-import { IPayment } from "../payments/types";
-import { IUser } from "../users/types";
+import { Payment } from "../payments/types";
+import { User } from "../users/types";
 
 export interface Split {
   id: string;
@@ -11,8 +11,8 @@ export interface Split {
   updatedAt: string;
 }
 export interface GetSplit extends Split {
-  participants: IUser[];
-  payments: IPayment[];
+  participants: SplitParticipant[];
+  payments: Payment[];
 }
 
 export type CreateSplitRequest = {
@@ -24,3 +24,12 @@ export type CreateSplitRequest = {
 };
 
 export type SplitFilter = Partial<Split>;
+
+export interface SplitParticipant {
+  id: string;
+  organizer: boolean;
+  userId: string;
+  splitId: string;
+  createdAt: string;
+  updatedAt: string;
+}

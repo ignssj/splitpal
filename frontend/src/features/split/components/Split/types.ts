@@ -1,8 +1,7 @@
-import { ReactElement } from "react";
-import { Split } from "../../../../services/splits/types";
+import { GetSplit, Split } from "../../../../services/splits/types";
 
 export interface ISplitList {
-  data: Split[];
+  data: GetSplit[];
   messageOnEmpty: string;
 }
 

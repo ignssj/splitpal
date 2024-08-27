@@ -4,6 +4,7 @@ import { isError } from "../helpers/ServiceHelper";
 import { useRefetchOnFocus } from "./useRefetchOnFocus";
 import { useAppSelector } from "../redux/hooks";
 import { UserParticipation } from "../services/users/types";
+import { GetSplit } from "../services/splits/types";
 
 const useMySplits = () => {
   const { id } = useAppSelector((state) => state.user);
@@ -24,7 +25,7 @@ const useMySplits = () => {
   useRefetchOnFocus(query.refetch);
   return {
     ...query,
-    data: query.data as UserParticipation[],
+    data: query.data as GetSplit[],
   };
 };
 
