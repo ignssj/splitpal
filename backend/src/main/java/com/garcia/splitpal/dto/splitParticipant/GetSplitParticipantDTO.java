@@ -1,4 +1,8 @@
 package com.garcia.splitpal.dto.splitParticipant;
 
-public record GetSplitParticipantDTO(String id, boolean organizer, String created_at, String updated_at) {
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+public record GetSplitParticipantDTO(UUID id, boolean organizer, UUID userId, UUID splitId, LocalDateTime created_at,
+        LocalDateTime updated_at) {
 }
