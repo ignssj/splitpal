@@ -2,11 +2,14 @@ package com.garcia.splitpal.service;
 
 import com.garcia.splitpal.domain.Split;
 import com.garcia.splitpal.domain.SplitParticipant;
+import com.garcia.splitpal.domain.User;
 import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.dto.split.SplitDTO;
 import com.garcia.splitpal.dto.split.UpdateSplitDTO;
+import com.garcia.splitpal.dto.splitParticipant.GetSplitParticipantDTO;
 import com.garcia.splitpal.exception.BadRequestException;
 import com.garcia.splitpal.mapper.SplitMapper;
+import com.garcia.splitpal.mapper.SplitParticipantMapper;
 import com.garcia.splitpal.repository.SplitParticipantRepository;
 import com.garcia.splitpal.repository.SplitRepository;
 import com.garcia.splitpal.repository.UserRepository;
@@ -85,6 +88,22 @@ public class SplitService {
 
     public void deleteById(String id) {
         this.splitRepository.deleteById(UUID.fromString(id));
+    }
+
+    public GetSplitParticipantDTO joinSplit(String splitId, String userId) {
+        Split split = this.splitRepository.findById(UUID.fromString(splitId))
+                .orElseThrow(() -> new BadRequestException("Invalid splitId"));
+        User user = this.userRepository.findById(UUID.fromString(userId))
+                .orElseThrow(() -> new BadRequestException("Invalid userId"));
+
+        SplitParticipant splitParticipant = new SplitParticipant();
+        splitParticipant.setOrganizer(false);
+        splitParticipant.setSplit_id(split.getId());
+        splitParticipant.setUser_id(user.getId());
+        splitParticipantRepository.save(splitParticipant);
+
+        return SplitParticipantMapper.toSplitParticipantDTO(splitParticipant);
+
     }
 
 }

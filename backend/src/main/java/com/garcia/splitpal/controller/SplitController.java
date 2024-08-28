@@ -4,6 +4,7 @@ import com.garcia.splitpal.domain.Split;
 import com.garcia.splitpal.dto.split.CreateSplitDTO;
 import com.garcia.splitpal.dto.split.SplitDTO;
 import com.garcia.splitpal.dto.split.UpdateSplitDTO;
+import com.garcia.splitpal.dto.splitParticipant.GetSplitParticipantDTO;
 import com.garcia.splitpal.service.SplitService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -67,5 +68,13 @@ public class SplitController {
     public ResponseEntity<Void> deleteById(@PathVariable("id") String id) {
         this.splitService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "Join a split", description = "Join a split by its id and returns participant data")
+    @PostMapping("/{splitId}/join/{userId}")
+    public ResponseEntity<GetSplitParticipantDTO> joinSplit(
+            @PathVariable("splitId") String splitId,
+            @PathVariable("userId") String userId) {
+        return ResponseEntity.ok(this.splitService.joinSplit(splitId, userId));
     }
 }
