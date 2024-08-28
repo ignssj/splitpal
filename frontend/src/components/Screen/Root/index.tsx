@@ -4,10 +4,10 @@ import { IScreenRoot } from "../types";
 import styles from "../styles";
 import View from "../../View";
 
-const ScreenRoot: React.FC<IScreenRoot> = ({ children }) => {
+const ScreenRoot: React.FC<IScreenRoot> = ({ children, style }) => {
   return (
     <View>
-      <SafeAreaView style={styles.container}>{children}</SafeAreaView>
+      <SafeAreaView style={style || styles.container}>{children}</SafeAreaView>
     </View>
   );
 };

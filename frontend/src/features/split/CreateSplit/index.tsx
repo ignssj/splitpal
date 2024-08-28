@@ -1,18 +1,21 @@
 import React from "react";
 import Title from "../../../components/Title";
 import Input from "../../../components/Input";
+import Card from "../../../components/Card";
+import ModalJoinSplit from "../components/ModalJoinSplit";
 import useSplitService from "../../../services/splits";
 import useStorage from "../../../hooks/useStorage";
+import styles from "./styles";
 import { Button } from "react-native-paper";
 import { Screen } from "../../../components/Screen";
 import { isError } from "../../../helpers/ServiceHelper";
 import { SplitInput } from "./types";
 import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
-import Card from "../../../components/Card";
 
 const CreateSplit = () => {
   const { create } = useSplitService();
   const { read } = useStorage();
+  const [modalVisible, setModalVisible] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [code, setCode] = React.useState<string>("");
   const [splitForm, setSplitForm] = React.useState<SplitInput>({
@@ -60,11 +63,11 @@ const CreateSplit = () => {
   };
 
   return (
-    <Screen.Root>
+    <Screen.Root style={styles.root}>
       <Screen.Header>
         <Title>Novo pagamento</Title>
       </Screen.Header>
-      <Screen.Content style={{ justifyContent: "space-evenly" }}>
+      <Screen.Content style={styles.content}>
         <Card>
           <Title>Criar</Title>
           <Input label='Nome' value={splitForm.name} onChangeText={handleNameChange} />
@@ -75,14 +78,9 @@ const CreateSplit = () => {
             Salvar
           </Button>
         </Card>
-        <Card>
-          <Title>Participar</Title>
-          <Input label='Código' value={code} onChangeText={handleCodeChange} />
-          <Button mode='contained' onPress={handleJoin}>
-            Ingressar
-          </Button>
-        </Card>
+        <Button onPress={() => setModalVisible(true)}>Quero ingressar em um pagamento</Button>
       </Screen.Content>
+      <ModalJoinSplit code={code} visible={modalVisible} setVisible={setModalVisible} onCodeChange={handleCodeChange} onJoin={handleJoin} />
     </Screen.Root>
   );
 };
