@@ -7,6 +7,7 @@ import TabRoutes from "../tabs";
 import CreateSplit from "../../../features/split/CreateSplit";
 import MySplits from "../../../features/split/MySplits";
 import SplitDetails from "../../../features/split/SplitDetails";
+import AttachPayment from "../../../features/payment/AttachPayment";
 
 const Stack = createNativeStackNavigator<PropsNavigationStack>();
 
@@ -24,6 +25,7 @@ export default function Routes() {
         <Stack.Screen name='CreateSplit' component={CreateSplit} />
         <Stack.Screen name='MySplits' component={MySplits} />
         <Stack.Screen name='SplitDetails' component={SplitDetails} />
+        <Stack.Screen name='AttachPayment' component={AttachPayment} />
       </Stack.Navigator>
     </NavigationContainer>
   );

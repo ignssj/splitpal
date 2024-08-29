@@ -11,6 +11,7 @@ export type PropsNavigationStack = {
   MySplits: undefined;
   SplitDetails: { split: Split };
   MyData: undefined;
+  AttachPayment: undefined;
 };
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;
