@@ -32,10 +32,20 @@ const useSplitService = () => {
     }
   };
 
+  const join = async (splitId: string, userId: string): HttpResponse<T.SplitParticipant> => {
+    try {
+      const response = await api.post(`/splits/${splitId}/join/${userId}`);
+      return response.data;
+    } catch (err) {
+      return handleRequestError(err);
+    }
+  };
+
   return {
     create,
     getAll,
     getById,
+    join,
   };
 };
 

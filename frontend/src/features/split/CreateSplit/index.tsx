@@ -17,7 +17,6 @@ const CreateSplit = () => {
   const { read } = useStorage();
   const [modalVisible, setModalVisible] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [code, setCode] = React.useState<string>("");
   const [splitForm, setSplitForm] = React.useState<SplitInput>({
     name: "",
     category: "",
@@ -41,10 +40,6 @@ const CreateSplit = () => {
     setSplitForm({ ...splitForm, qrcode });
   };
 
-  const handleCodeChange = (code: string) => {
-    setCode(code);
-  };
-
   const handleCreate = async () => {
     const userId = await read("id");
     if (!userId) return;
@@ -58,10 +53,6 @@ const CreateSplit = () => {
     SuccessToast("Pagamento criado", "O pagamento foi criado com sucesso");
   };
 
-  const handleJoin = () => {
-    console.log("Joining split with code", code);
-  };
-
   return (
     <Screen.Root style={styles.root}>
       <Screen.Header>
@@ -69,18 +60,17 @@ const CreateSplit = () => {
       </Screen.Header>
       <Screen.Content style={styles.content}>
         <Card>
-          <Title>Criar</Title>
           <Input label='Nome' value={splitForm.name} onChangeText={handleNameChange} />
           <Input label='Categoria' value={splitForm.category} onChangeText={handleCategoryChange} />
           <Input label='Valor' value={splitForm.total} keyboardType='decimal-pad' onChangeText={handleValueChange} />
           <Input label='QR Code' value={splitForm.qrcode} onChangeText={handleQRCodeChange} />
           <Button mode='contained' onPress={handleCreate} loading={isLoading}>
-            Salvar
+            Criar
           </Button>
         </Card>
         <Button onPress={() => setModalVisible(true)}>Quero ingressar em um pagamento</Button>
       </Screen.Content>
-      <ModalJoinSplit code={code} visible={modalVisible} setVisible={setModalVisible} onCodeChange={handleCodeChange} onJoin={handleJoin} />
+      <ModalJoinSplit visible={modalVisible} setVisible={setModalVisible} />
     </Screen.Root>
   );
 };
