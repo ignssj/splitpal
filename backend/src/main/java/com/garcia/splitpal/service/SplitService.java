@@ -47,8 +47,8 @@ public class SplitService {
 
         SplitParticipant splitParticipant = new SplitParticipant();
         splitParticipant.setOrganizer(true);
-        splitParticipant.setSplit_id(splitEntity.getId());
-        splitParticipant.setUser_id(UUID.fromString(split.getUserId()));
+        splitParticipant.setSplitId(splitEntity.getId());
+        splitParticipant.setUserId(UUID.fromString(split.getUserId()));
 
         splitParticipantRepository.save(splitParticipant);
 
@@ -90,19 +90,23 @@ public class SplitService {
         this.splitRepository.deleteById(UUID.fromString(id));
     }
 
-    public GetSplitParticipantDTO joinSplit(String splitId, String userId) {
+    public Optional<GetSplitParticipantDTO> joinSplit(String splitId, String userId) {
         Split split = this.splitRepository.findById(UUID.fromString(splitId))
                 .orElseThrow(() -> new BadRequestException("Invalid splitId"));
         User user = this.userRepository.findById(UUID.fromString(userId))
                 .orElseThrow(() -> new BadRequestException("Invalid userId"));
 
+        var alreadyJoined = this.splitParticipantRepository.findBySplitIdAndUserId(split.getId(), user.getId());
+        if (alreadyJoined.isPresent())
+            return Optional.empty();
+
         SplitParticipant splitParticipant = new SplitParticipant();
         splitParticipant.setOrganizer(false);
-        splitParticipant.setSplit_id(split.getId());
-        splitParticipant.setUser_id(user.getId());
+        splitParticipant.setSplitId(split.getId());
+        splitParticipant.setUserId(user.getId());
         splitParticipantRepository.save(splitParticipant);
 
-        return SplitParticipantMapper.toSplitParticipantDTO(splitParticipant);
+        return Optional.of(SplitParticipantMapper.toSplitParticipantDTO(splitParticipant));
 
     }
 

@@ -7,7 +7,7 @@ public class SplitParticipantMapper {
 
     public static GetSplitParticipantDTO toSplitParticipantDTO(SplitParticipant splitParticipant) {
         return new GetSplitParticipantDTO(splitParticipant.getId(), splitParticipant.isOrganizer(),
-                splitParticipant.getUser_id(), splitParticipant.getSplit_id(), splitParticipant.getCreated_at(),
+                splitParticipant.getUserId(), splitParticipant.getSplitId(), splitParticipant.getCreated_at(),
                 splitParticipant.getUpdated_at());
     }
 }

@@ -70,11 +70,15 @@ public class SplitController {
         return ResponseEntity.noContent().build();
     }
 
-    @Operation(summary = "Join a split", description = "Join a split by its id and returns participant data")
+    @Operation(summary = "Join a split", description = "Join a split by its id and returns participant data. If the user is already in the split, returns no content")
     @PostMapping("/{splitId}/join/{userId}")
     public ResponseEntity<GetSplitParticipantDTO> joinSplit(
             @PathVariable("splitId") String splitId,
             @PathVariable("userId") String userId) {
-        return ResponseEntity.ok(this.splitService.joinSplit(splitId, userId));
+        var createdParticipation = this.splitService.joinSplit(splitId, userId);
+        if (createdParticipation.isEmpty())
+            return ResponseEntity.noContent().build();
+
+        return ResponseEntity.ok(createdParticipation.get());
     }
 }

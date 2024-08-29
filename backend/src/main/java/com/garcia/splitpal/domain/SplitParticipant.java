@@ -29,8 +29,10 @@ public class SplitParticipant {
     @JoinColumn(name = "split_id", insertable = false, updatable = false)
     private Split split;
 
-    UUID user_id;
-    UUID split_id;
+    @Column(name = "user_id")
+    UUID userId;
+    @Column(name = "split_id")
+    UUID splitId;
 
     @CreatedDate
     private LocalDateTime created_at;

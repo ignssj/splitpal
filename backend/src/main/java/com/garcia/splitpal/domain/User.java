@@ -28,7 +28,7 @@ public class User {
     private String username;
     private String password;
 
-    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SplitParticipant> participations;
 
     @CreatedDate
