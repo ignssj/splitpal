@@ -6,17 +6,23 @@ import stylesheet from "./styles";
 import useThemedStyles from "../../../../hooks/useThemedStyles";
 import { Button, Chip, Dialog, Text } from "react-native-paper";
 import { IModal } from "../../../../types";
+import * as DocumentPicker from "expo-document-picker";
 
 const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
   const styles = useThemedStyles(stylesheet);
-  const [attachmentName, setAttachmentName] = React.useState<string>("");
+  const [attachment, setAttachment] = React.useState<DocumentPicker.DocumentPickerAsset>();
   const [paymentValue, setPaymentValue] = React.useState<string>("");
 
   const handleValueChange = (value: string) => {
     setPaymentValue(value);
   };
 
-  const handleAttach = () => {};
+  const handleAttach = async () => {
+    const file = await DocumentPicker.getDocumentAsync({ type: "application/pdf", multiple: false });
+    if (file.canceled) return;
+
+    setAttachment(file.assets[0]);
+  };
 
   const handleSave = () => {};
 
@@ -34,16 +40,12 @@ const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
         <Spaced gap={20}>
           <Row style={styles.row}>
             <Text>Comprovante: </Text>
-            {attachmentName ? (
-              <Text>{attachmentName}</Text>
-            ) : (
-              <Chip icon='attachment' onPress={handleAttach}>
-                Clique para anexar
-              </Chip>
-            )}
+            <Chip icon='attachment' onPress={handleAttach}>
+              {attachment ? attachment.name : "Clique para anexar"}
+            </Chip>
           </Row>
           <Input label='Valor' value={paymentValue} onChangeText={handleValueChange} keyboardType='decimal-pad' />
-          <Button mode='contained' onPress={handleSave}>
+          <Button mode='contained' onPress={handleSave} disabled={!attachment || !paymentValue}>
             Salvar
           </Button>
         </Spaced>
