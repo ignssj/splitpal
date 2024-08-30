@@ -6,15 +6,22 @@ import stylesheet from "./styles";
 import useThemedStyles from "../../../../hooks/useThemedStyles";
 import { Button, Chip, Dialog, Text } from "react-native-paper";
 import { IModal } from "../../../../types";
+import { TextInputMask } from "react-native-masked-text";
 import * as DocumentPicker from "expo-document-picker";
 
 const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
   const styles = useThemedStyles(stylesheet);
   const [attachment, setAttachment] = React.useState<DocumentPicker.DocumentPickerAsset>();
-  const [paymentValue, setPaymentValue] = React.useState<string>("");
+  const [paymentValue, setPaymentValue] = React.useState({
+    masked: "",
+    raw: 0,
+  });
 
-  const handleValueChange = (value: string) => {
-    setPaymentValue(value);
+  const handleValueChange = (masked: string, raw?: string) => {
+    setPaymentValue({
+      masked,
+      raw: raw ? parseInt(raw) : 0,
+    });
   };
 
   const handleAttach = async () => {
@@ -44,8 +51,23 @@ const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
               {attachment ? attachment.name : "Clique para anexar"}
             </Chip>
           </Row>
-          <Input label='Valor' value={paymentValue} onChangeText={handleValueChange} keyboardType='decimal-pad' />
-          <Button mode='contained' onPress={handleSave} disabled={!attachment || !paymentValue}>
+          <TextInputMask
+            type='money'
+            value={paymentValue.masked}
+            onChangeText={handleValueChange}
+            keyboardType='decimal-pad'
+            customTextInput={Input}
+            customTextInputProps={{ label: "Valor" }}
+            includeRawValueInChangeText
+            options={{
+              precision: 2,
+              separator: ",",
+              delimiter: ".",
+              unit: "R$",
+              suffixUnit: "",
+            }}
+          />
+          <Button mode='contained' onPress={handleSave} disabled={!attachment || paymentValue.raw < 10}>
             Salvar
           </Button>
         </Spaced>
