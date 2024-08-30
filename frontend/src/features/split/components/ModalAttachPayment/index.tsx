@@ -1,12 +1,11 @@
 import React from "react";
-import Input from "../../../../components/Input";
 import Row from "../../../../components/Row";
 import Spaced from "../../../../components/Spaced";
+import MaskedValue from "../../../../components/MaskedValue";
 import stylesheet from "./styles";
 import useThemedStyles from "../../../../hooks/useThemedStyles";
 import { Button, Chip, Dialog, Text } from "react-native-paper";
 import { IModal } from "../../../../types";
-import { TextInputMask } from "react-native-masked-text";
 import * as DocumentPicker from "expo-document-picker";
 
 const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
@@ -51,22 +50,7 @@ const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
               {attachment ? attachment.name : "Clique para anexar"}
             </Chip>
           </Row>
-          <TextInputMask
-            type='money'
-            value={paymentValue.masked}
-            onChangeText={handleValueChange}
-            keyboardType='decimal-pad'
-            customTextInput={Input}
-            customTextInputProps={{ label: "Valor" }}
-            includeRawValueInChangeText
-            options={{
-              precision: 2,
-              separator: ",",
-              delimiter: ".",
-              unit: "R$",
-              suffixUnit: "",
-            }}
-          />
+          <MaskedValue onChangeText={handleValueChange} masked={paymentValue.masked} />
           <Button mode='contained' onPress={handleSave} disabled={!attachment || paymentValue.raw < 10}>
             Salvar
           </Button>
