@@ -11,23 +11,23 @@ import { Split } from "../components/Split";
 import { Payment } from "../components/Payment";
 import { FAB } from "../../../components/FAB";
 import { PropsStack } from "../../../infra/navigation/models";
+import ModalAttachPayment from "../components/ModalAttachPayment";
+import styles from "./styles";
 
 const SplitDetails = () => {
   const { split } = useRoute<SplitDetailsRouteParams>().params;
   const { data: payments, isFetching: isFetchingPayments } = usePayments({ split_id: split.id });
-  const navigation = useNavigation<PropsStack>();
+  const [modalVisible, setModalVisible] = React.useState<boolean>(false);
 
-  const navigateToAttachPayment = () => {
-    navigation.navigate("AttachPayment");
-  };
+  const openModal = () => setModalVisible(true);
 
   return (
-    <Screen.Root>
+    <Screen.Root style={styles.root}>
       <Screen.Header>
         <Rounded.Back />
         <Title>Detalhes do pagamento</Title>
       </Screen.Header>
-      <Screen.Content>
+      <Screen.Content style={styles.content}>
         <Spaced gap={15}>
           <Split.Item title='Informações' split={split} />
           <Card>
@@ -35,8 +35,9 @@ const SplitDetails = () => {
             <Payment.List data={payments} loading={isFetchingPayments} />
           </Card>
         </Spaced>
-        <FAB.New label='Adicionar comprovante' onPress={navigateToAttachPayment} visible />
+        <FAB.New label='Adicionar comprovante' onPress={openModal} visible />
       </Screen.Content>
+      <ModalAttachPayment visible={modalVisible} setVisible={setModalVisible} />
     </Screen.Root>
   );
 };

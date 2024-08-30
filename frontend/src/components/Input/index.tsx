@@ -5,15 +5,7 @@ import createStyle from "./styles";
 
 const Input: React.FC<TextInputProps> = (props) => {
   const styles = useThemedStyles(createStyle);
-  return (
-    <TextInput
-      style={[styles.container, props.style]}
-      {...props}
-      autoCorrect={false}
-      autoComplete='off'
-      autoCapitalize='none'
-    />
-  );
+  return <TextInput style={[styles.container, props.style]} {...props} autoCorrect={false} autoComplete='off' autoCapitalize='none' />;
 };
 
 export default Input;

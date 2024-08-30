@@ -4,13 +4,13 @@ import useSplitService from "../../../../services/splits";
 import useThemedStyles from "../../../../hooks/useThemedStyles";
 import stylesheet from "./styles";
 import { Button, Dialog, Text } from "react-native-paper";
-import { IModalJoinSplit } from "./types";
 import { useAppSelector } from "../../../../redux/hooks";
 import { isError } from "../../../../helpers/ServiceHelper";
 import { ErrorToast, SuccessToast } from "../../../../helpers/ToastHelper";
 import Spaced from "../../../../components/Spaced";
+import { IModal } from "../../../../types";
 
-const ModalJoinSplit: React.FC<IModalJoinSplit> = ({ visible, setVisible }) => {
+const ModalJoinSplit: React.FC<IModal> = ({ visible, setVisible }) => {
   const userId = useAppSelector((state) => state.user.id);
   const styles = useThemedStyles(stylesheet);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
