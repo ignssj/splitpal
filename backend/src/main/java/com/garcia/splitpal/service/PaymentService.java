@@ -1,7 +1,6 @@
 package com.garcia.splitpal.service;
 
 import com.garcia.splitpal.domain.Payment;
-import com.garcia.splitpal.dto.payment.CreatePaymentDTO;
 import com.garcia.splitpal.dto.payment.PaymentDTO;
 import com.garcia.splitpal.dto.payment.UpdatePaymentDTO;
 import com.garcia.splitpal.exception.BadRequestException;
@@ -15,6 +14,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,17 +31,17 @@ public class PaymentService {
     @Autowired
     SplitRepository splitRepository;
 
-    public UUID create(CreatePaymentDTO body) {
-        userRepository.findById(UUID.fromString(body.getUserId()))
+    public UUID create(MultipartFile receipt, String splitId, String userId, String total) {
+        userRepository.findById(UUID.fromString(userId))
                 .orElseThrow(() -> new BadRequestException("Invalid userId"));
-        splitRepository.findById(UUID.fromString(body.getSplitId()))
+        splitRepository.findById(UUID.fromString(splitId))
                 .orElseThrow(() -> new BadRequestException("Invalid splitId"));
 
         Payment payment = new Payment();
-        payment.setReceipt(body.getReceipt());
-        payment.setTotal(body.getTotal());
-        payment.setSplit_id(UUID.fromString(body.getSplitId()));
-        payment.setUser_id(UUID.fromString(body.getUserId()));
+        payment.setReceipt(receipt.getOriginalFilename());
+        payment.setTotal(Float.parseFloat(total));
+        payment.setSplit_id(UUID.fromString(splitId));
+        payment.setUser_id(UUID.fromString(userId));
 
         paymentRepository.save(payment);
 

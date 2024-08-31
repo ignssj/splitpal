@@ -20,7 +20,8 @@ public class SecurityConfig {
 
     private static final String[] WHITE_LIST_URL = { "/v3/api-docs", "/h2-console/**",
             "/v3/api-docs/**", "/swagger-resources", "/swagger-resources/**", "/configuration/ui",
-            "/configuration/security", "/swagger-ui/**", "/webjars/**", "/swagger-ui.html", "/api/auth/**" };
+            "/configuration/security", "/swagger-ui/**", "/webjars/**", "/swagger-ui.html", "/api/auth/**",
+            "/api/payments" };
 
     @Bean
     @SuppressWarnings("removal")

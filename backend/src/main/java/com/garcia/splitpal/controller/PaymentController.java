@@ -1,16 +1,15 @@
 package com.garcia.splitpal.controller;
 
 import com.garcia.splitpal.domain.Payment;
-import com.garcia.splitpal.dto.payment.CreatePaymentDTO;
 import com.garcia.splitpal.dto.payment.PaymentDTO;
 import com.garcia.splitpal.dto.payment.UpdatePaymentDTO;
 import com.garcia.splitpal.service.PaymentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URI;
 import java.util.List;
@@ -26,9 +25,13 @@ public class PaymentController {
     PaymentService paymentService;
 
     @Operation(summary = "Create a payment", description = "Creates a payment and returns its id")
-    @PostMapping
-    public ResponseEntity<String> create(@Valid @RequestBody CreatePaymentDTO body) {
-        UUID id = this.paymentService.create(body);
+    @PostMapping(consumes = { "multipart/form-data" })
+    public ResponseEntity<Void> create(
+            @RequestPart MultipartFile receipt,
+            @RequestPart String splitId,
+            @RequestPart String userId,
+            @RequestPart String total) {
+        UUID id = this.paymentService.create(receipt, splitId, userId, total);
         return ResponseEntity.created(URI.create("payments/" + id.toString())).build();
     }
 
