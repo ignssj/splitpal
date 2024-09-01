@@ -7,10 +7,20 @@ import useThemedStyles from "../../../../hooks/useThemedStyles";
 import { Button, Chip, Dialog, Text } from "react-native-paper";
 import { IModal } from "../../../../types";
 import * as DocumentPicker from "expo-document-picker";
+import usePaymentService from "../../../../services/payments";
+import { useAppSelector } from "../../../../redux/hooks";
+import { SplitDetailsRouteParams } from "../../SplitDetails/types";
+import { useRoute } from "@react-navigation/native";
+import { isError } from "../../../../helpers/ServiceHelper";
+import { ErrorToast, SuccessToast } from "../../../../helpers/ToastHelper";
 
 const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
+  const { create } = usePaymentService();
+  const { split } = useRoute<SplitDetailsRouteParams>().params;
+  const user = useAppSelector((state) => state.user);
   const styles = useThemedStyles(stylesheet);
   const [attachment, setAttachment] = React.useState<DocumentPicker.DocumentPickerAsset>();
+  const [isLoading, setIsLoading] = React.useState(false);
   const [paymentValue, setPaymentValue] = React.useState({
     masked: "",
     raw: 0,
@@ -30,7 +40,18 @@ const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
     setAttachment(file.assets[0]);
   };
 
-  const handleSave = () => {};
+  const handleSave = async () => {
+    if (!attachment) return;
+
+    setIsLoading(true);
+    const paymentCreated = await create({ receipt: attachment.uri, total: paymentValue.raw, user_id: user.id, split_id: split.id });
+    setIsLoading(false);
+
+    if (isError(paymentCreated)) ErrorToast("Erro ao salvar comprovante");
+
+    setVisible(!visible);
+    SuccessToast("Comprovante salvo com sucesso");
+  };
 
   return (
     <Dialog
@@ -51,7 +72,7 @@ const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
             </Chip>
           </Row>
           <MaskedValue onChangeText={handleValueChange} masked={paymentValue.masked} />
-          <Button mode='contained' onPress={handleSave} disabled={!attachment || paymentValue.raw < 10}>
+          <Button mode='contained' onPress={handleSave} disabled={!attachment || paymentValue.raw < 10} loading={isLoading}>
             Salvar
           </Button>
         </Spaced>

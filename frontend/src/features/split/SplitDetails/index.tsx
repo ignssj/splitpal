@@ -2,17 +2,16 @@ import React from "react";
 import Title from "../../../components/Title";
 import Card from "../../../components/Card";
 import Spaced from "../../../components/Spaced";
+import ModalAttachPayment from "../components/ModalAttachPayment";
 import usePayments from "../../../hooks/usePayments";
+import styles from "./styles";
 import { Screen } from "../../../components/Screen";
 import { Rounded } from "../../../components/Rounded";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { SplitDetailsRouteParams } from "./types";
 import { Split } from "../components/Split";
 import { Payment } from "../components/Payment";
 import { FAB } from "../../../components/FAB";
-import { PropsStack } from "../../../infra/navigation/models";
-import ModalAttachPayment from "../components/ModalAttachPayment";
-import styles from "./styles";
 
 const SplitDetails = () => {
   const { split } = useRoute<SplitDetailsRouteParams>().params;
