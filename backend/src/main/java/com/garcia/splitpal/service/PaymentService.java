@@ -6,6 +6,7 @@ import com.garcia.splitpal.dto.payment.PaymentDTO;
 import com.garcia.splitpal.dto.payment.UpdatePaymentDTO;
 import com.garcia.splitpal.exception.BadRequestException;
 import com.garcia.splitpal.exception.NotFoundException;
+import com.garcia.splitpal.mapper.PaymentMapper;
 import com.garcia.splitpal.repository.PaymentRepository;
 import com.garcia.splitpal.repository.SplitRepository;
 import com.garcia.splitpal.repository.UserRepository;
@@ -75,7 +76,7 @@ public class PaymentService {
                                 .and(PaymentSpecification.hasUserID((user_id)))));
         List<Payment> payments = this.paymentRepository.findAll(spec);
         return payments.stream()
-                .map(this::toPaymentDTO)
+                .map(PaymentMapper::toPaymentDTO)
                 .collect(Collectors.toList());
     }
 
@@ -92,11 +93,6 @@ public class PaymentService {
 
     public void deleteById(String id) {
         this.paymentRepository.deleteById(UUID.fromString(id));
-    }
-
-    private PaymentDTO toPaymentDTO(Payment payment) {
-        return new PaymentDTO(payment.getId(), payment.getReceipt(), payment.getTotal(), payment.getUser_id(),
-                payment.getSplit_id(), payment.getCreated_at(), payment.getUpdated_at());
     }
 
     private String uploadReceipt(MultipartFile receipt) {
