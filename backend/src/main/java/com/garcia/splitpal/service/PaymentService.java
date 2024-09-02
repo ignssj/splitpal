@@ -1,6 +1,5 @@
 package com.garcia.splitpal.service;
 
-import com.amazonaws.services.s3.AmazonS3;
 import com.garcia.splitpal.domain.Payment;
 import com.garcia.splitpal.dto.payment.PaymentDTO;
 import com.garcia.splitpal.dto.payment.UpdatePaymentDTO;
@@ -14,14 +13,10 @@ import com.garcia.splitpal.repository.specification.PaymentSpecification;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -39,10 +34,7 @@ public class PaymentService {
     SplitRepository splitRepository;
 
     @Autowired
-    private AmazonS3 s3Client;
-
-    @Value("${aws.bucket.name}")
-    private String bucketName;
+    S3Service s3Service;
 
     public UUID create(MultipartFile receipt, String splitId, String userId, String total) {
         userRepository.findById(UUID.fromString(userId))
@@ -50,7 +42,7 @@ public class PaymentService {
         splitRepository.findById(UUID.fromString(splitId))
                 .orElseThrow(() -> new BadRequestException("Invalid splitId"));
 
-        var receiptUrl = this.uploadReceipt(receipt);
+        var receiptUrl = s3Service.uploadFile(receipt);
         if (receiptUrl == null)
             throw new BadRequestException("Error uploading receipt");
 
@@ -93,27 +85,6 @@ public class PaymentService {
 
     public void deleteById(String id) {
         this.paymentRepository.deleteById(UUID.fromString(id));
-    }
-
-    private String uploadReceipt(MultipartFile receipt) {
-        String imgName = UUID.randomUUID().toString() + "-" + receipt.getOriginalFilename();
-        try {
-            File file = this.convertMultiPartToFile(receipt);
-            s3Client.putObject(bucketName, imgName, file);
-            file.delete();
-            return s3Client.getUrl(bucketName, imgName).toString();
-        } catch (Exception e) {
-            System.out.println("Error uploading image: " + e.getMessage());
-            return null;
-        }
-    }
-
-    private File convertMultiPartToFile(MultipartFile file) throws IOException {
-        File convFile = new File(file.getOriginalFilename());
-        FileOutputStream fos = new FileOutputStream(convFile);
-        fos.write(file.getBytes());
-        fos.close();
-        return convFile;
     }
 
 }
