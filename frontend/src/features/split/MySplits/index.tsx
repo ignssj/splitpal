@@ -1,20 +1,20 @@
 import React from "react";
 import Title from "../../../components/Title";
-import useMySplits from "../../../hooks/useMySplits";
+import useMySplitsViewModel from "./ViewModel";
 import { Screen } from "../../../components/Screen";
 import { Split } from "../components/Split";
 
 const MySplits = () => {
-  const { data, isLoading } = useMySplits();
+  const { state } = useMySplitsViewModel();
+  if (state.isLoading) return <Screen.Loading />;
 
-  if (isLoading) return <Screen.Loading />;
   return (
     <Screen.Root>
       <Screen.Header>
         <Title>Feed</Title>
       </Screen.Header>
-      <Screen.Content loading={isLoading}>
-        <Split.List data={data} messageOnEmpty='Você não organizou nenhum pagamento' />
+      <Screen.Content loading={state.isLoading}>
+        <Split.List data={state.splits} messageOnEmpty='Você não organizou nenhum pagamento' />
       </Screen.Content>
     </Screen.Root>
   );
