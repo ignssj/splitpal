@@ -1,3 +1,5 @@
+import { DocumentPickerAsset } from "expo-document-picker";
+
 export type Payment = {
   id: string;
   receipt: string;
@@ -11,7 +13,7 @@ export type Payment = {
 export type PaymentFilter = Partial<Payment>;
 
 export type CreatePayment = {
-  receipt: string;
+  receipt: DocumentPickerAsset;
   total: number;
   user_id: string;
   split_id: string;

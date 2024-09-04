@@ -17,11 +17,15 @@ const usePaymentService = () => {
   const create = async (payment: T.CreatePayment): HttpResponse<T.Payment> => {
     const form = new FormData();
     form.append("total", payment.total.toString());
-    form.append("user_id", payment.user_id);
-    form.append("split_id", payment.split_id);
-    form.append("receipt", payment.receipt);
+    form.append("userId", payment.user_id);
+    form.append("splitId", payment.split_id);
+    form.append("receipt", {
+      uri: payment.receipt.uri,
+      name: payment.receipt.name,
+      type: "application/pdf",
+    } as any);
     try {
-      const response = await api.post("/payments", payment);
+      const response = await api.post("/payments", form, { headers: { "Content-Type": "multipart/form-data" } });
       return response.data;
     } catch (err) {
       return handleRequestError(err);

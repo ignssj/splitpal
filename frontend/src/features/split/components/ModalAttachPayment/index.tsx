@@ -44,7 +44,7 @@ const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
     if (!attachment) return;
 
     setIsLoading(true);
-    const paymentCreated = await create({ receipt: attachment.uri, total: paymentValue.raw, user_id: user.id, split_id: split.id });
+    const paymentCreated = await create({ receipt: attachment, total: paymentValue.raw, user_id: user.id, split_id: split.id });
     setIsLoading(false);
 
     if (isError(paymentCreated)) ErrorToast("Erro ao salvar comprovante");
