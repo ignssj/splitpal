@@ -1,7 +1,7 @@
 import React from "react";
 import Row from "../../../../../components/Row";
 import styles from "../styles";
-import { View } from "react-native";
+import { Linking, View } from "react-native";
 import { Text } from "react-native-paper";
 import { Payment } from "../../../../../services/payments/types";
 import { formatValue } from "../../../../../helpers/ValueHelper";
@@ -19,12 +19,14 @@ const PaymentItem: React.FC<Payment> = (payment) => {
         <Text>{formatValue(payment.total)}</Text>
       </Row>
       <Row style={styles.row}>
-        <Text>Comprovante: </Text>
-        <Text>{payment.receipt}</Text>
-      </Row>
-      <Row style={styles.row}>
         <Text>Data: </Text>
         <Text>{formatDate(new Date(payment.created_at))}</Text>
+      </Row>
+      <Row style={styles.row}>
+        <Text>Comprovante: </Text>
+        <Text style={styles.link} onPress={() => Linking.openURL(payment.receipt)}>
+          Acessar link
+        </Text>
       </Row>
     </View>
   );

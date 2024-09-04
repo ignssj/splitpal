@@ -9,6 +9,8 @@ const styles = (theme: MD3Theme) =>
       height: 30,
       width: 30,
       borderRadius: 15,
+      position: "absolute",
+      left: 20,
       backgroundColor: theme.colors.primary,
     },
     icon: {

@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "Outfit_300Light",
   },
+  link: {
+    color: "#007bff",
+  },
 });
 
 export default styles;

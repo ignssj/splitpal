@@ -10,7 +10,7 @@ import { Text } from "react-native-paper";
 import Title from "../../../../../components/Title";
 import { useAppSelector } from "../../../../../redux/hooks";
 
-const SplitList: React.FC<ISplitList> = ({ data, messageOnEmpty }) => {
+const SplitList: React.FC<ISplitList> = ({ data }) => {
   const navigation = useNavigation<PropsStack>();
   const userId = useAppSelector((state) => state.user.id);
 
@@ -45,10 +45,10 @@ const SplitList: React.FC<ISplitList> = ({ data, messageOnEmpty }) => {
           contentContainerStyle={styles.listContent}
           ListHeaderComponent={<Title>Participando</Title>}
           ListHeaderComponentStyle={styles.titleContainer}
-          ListEmptyComponent={<Text style={styles.centeredText}>{messageOnEmpty}</Text>}
+          ListEmptyComponent={<Text style={styles.centeredText}>Você não possui participações em Splits</Text>}
         />
       }
-      ListEmptyComponent={<Text style={styles.centeredText}>{messageOnEmpty}</Text>}
+      ListEmptyComponent={<Text style={styles.centeredText}>Você não organizou nenhum Split</Text>}
     />
   );
 };

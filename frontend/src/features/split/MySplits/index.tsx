@@ -14,7 +14,7 @@ const MySplits = () => {
         <Title>Feed</Title>
       </Screen.Header>
       <Screen.Content loading={state.isLoading}>
-        <Split.List data={state.splits} messageOnEmpty='Você não organizou nenhum pagamento' />
+        <Split.List data={state.splits} />
       </Screen.Content>
     </Screen.Root>
   );

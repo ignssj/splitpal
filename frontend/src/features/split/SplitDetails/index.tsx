@@ -17,17 +17,17 @@ const SplitDetails = () => {
     <Screen.Root style={styles.root}>
       <Screen.Header>
         <Rounded.Back />
-        <Title>Detalhes do pagamento</Title>
+        <Title>Detalhes do Split</Title>
       </Screen.Header>
       <Screen.Content style={styles.content}>
         <Spaced gap={15}>
           <Split.Item title='Informações' split={state.split} />
           <Card>
-            <Title>Comprovantes</Title>
+            <Title>Pagamentos efetuados</Title>
             <Payment.List data={state.payments} loading={state.isFetchingPayments} />
           </Card>
         </Spaced>
-        <FAB.New label='Adicionar comprovante' onPress={handlers.openModal} visible />
+        <FAB.New label='Adicionar pagamento' onPress={handlers.openModal} visible />
       </Screen.Content>
       <ModalAttachPayment visible={state.modalVisible} setVisible={setters.setModalVisible} />
     </Screen.Root>
