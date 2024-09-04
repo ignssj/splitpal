@@ -7,8 +7,9 @@ const style = StyleSheet.create({
   },
   row: {
     flex: 0.1,
+    width: '90%',
+    alignSelf: 'center',
     alignItems: "center",
-    justifyContent: "space-between",
   },
 });
 
