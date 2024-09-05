@@ -5,8 +5,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    flex: 1,
+    flex: 0.8,
     marginHorizontal: "5%",
+    gap: 15,
   },
 });
 

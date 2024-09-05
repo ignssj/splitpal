@@ -10,6 +10,7 @@ import { Rounded } from "../../../components/Rounded";
 import { Split } from "../components/Split";
 import { Payment } from "../components/Payment";
 import { FAB } from "../../../components/FAB";
+import { View } from "react-native";
 
 const SplitDetails = () => {
   const { state, handlers, setters } = useSplitDetailsViewModel();
@@ -20,15 +21,13 @@ const SplitDetails = () => {
         <Title>Detalhes do Split</Title>
       </Screen.Header>
       <Screen.Content style={styles.content}>
-        <Spaced gap={15}>
-          <Split.Item title='Informações' split={state.split} />
-          <Card>
-            <Title>Pagamentos efetuados</Title>
-            <Payment.List data={state.payments} loading={state.isFetchingPayments} />
-          </Card>
-        </Spaced>
-        <FAB.New label='Adicionar pagamento' onPress={handlers.openModal} visible />
+        <Split.Item title='Informações' split={state.split} />
+        <Card style={{ flex: 1 }}>
+          <Title>Pagamentos efetuados</Title>
+          <Payment.List data={state.payments} loading={state.isFetchingPayments} />
+        </Card>
       </Screen.Content>
+      <FAB.New label='Adicionar pagamento' onPress={handlers.openModal} visible />
       <ModalAttachPayment visible={state.modalVisible} setVisible={setters.setModalVisible} />
     </Screen.Root>
   );

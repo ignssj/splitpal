@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   itemContainer: {
+    gap: 10,
     borderRadius: 8,
     padding: "5%",
   },

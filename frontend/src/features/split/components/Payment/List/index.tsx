@@ -15,6 +15,7 @@ const PaymentList: React.FC<IPaymentList> = ({ data, loading }) => {
     <FlatList
       data={data}
       keyExtractor={(i) => i.id}
+      style={{ height: "95%" }}
       renderItem={RenderItem}
       contentContainerStyle={styles.listContent}
       ListEmptyComponent={<Text style={styles.centeredText}>Nenhum comprovante disponível</Text>}
