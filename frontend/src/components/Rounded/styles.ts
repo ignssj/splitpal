@@ -4,13 +4,13 @@ import { MD3Theme } from "react-native-paper";
 const styles = (theme: MD3Theme) =>
   StyleSheet.create({
     container: {
+      zIndex: 1,
+      position: "absolute",
       alignItems: "center",
       justifyContent: "center",
-      height: 30,
-      width: 30,
+      padding: 5,
       borderRadius: 15,
-      position: "absolute",
-      left: 20,
+      marginLeft: "5%",
       backgroundColor: theme.colors.primary,
     },
     icon: {

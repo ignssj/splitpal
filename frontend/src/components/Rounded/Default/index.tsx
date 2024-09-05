@@ -1,9 +1,9 @@
 import React from "react";
+import stylesheet from "../styles";
+import useThemedStyles from "../../../hooks/useThemedStyles";
 import { Ionicons } from "@expo/vector-icons";
 import { IRoundedDefault } from "../types";
 import { TouchableOpacity } from "react-native";
-import stylesheet from "../styles";
-import useThemedStyles from "../../../hooks/useThemedStyles";
 
 const RoundedDefault: React.FC<IRoundedDefault> = ({ icon, action }) => {
   const styles = useThemedStyles(stylesheet);
