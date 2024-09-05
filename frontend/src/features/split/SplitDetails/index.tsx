@@ -10,7 +10,6 @@ import { Rounded } from "../../../components/Rounded";
 import { Split } from "../components/Split";
 import { Payment } from "../components/Payment";
 import { FAB } from "../../../components/FAB";
-import { View } from "react-native";
 
 const SplitDetails = () => {
   const { state, handlers, setters } = useSplitDetailsViewModel();
@@ -22,7 +21,7 @@ const SplitDetails = () => {
       </Screen.Header>
       <Screen.Content style={styles.content}>
         <Split.Item title='Informações' split={state.split} />
-        <Card style={{ flex: 1 }}>
+        <Card style={styles.card}>
           <Title>Pagamentos efetuados</Title>
           <Payment.List data={state.payments} loading={state.isFetchingPayments} />
         </Card>

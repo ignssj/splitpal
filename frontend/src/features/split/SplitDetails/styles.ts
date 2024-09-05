@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
     marginHorizontal: "5%",
     gap: 15,
   },
+  card: {
+    flex: 1,
+  },
 });
 
 export default styles;

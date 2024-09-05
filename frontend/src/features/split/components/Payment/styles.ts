@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
   link: {
     color: "#007bff",
   },
+  list: {
+    height: "95%",
+  },
 });
 
 export default styles;
