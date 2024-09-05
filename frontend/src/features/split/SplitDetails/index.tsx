@@ -27,7 +27,7 @@ const SplitDetails = () => {
           <Payment.List data={state.payments} loading={state.isFetchingPayments} />
         </Card>
       </Screen.Content>
-      <FAB.New label='Adicionar pagamento' onPress={handlers.openModal} visible />
+      <FAB.New label='Adicionar pagamento' onPress={handlers.openModal} visible bottom={20} />
       <ModalAttachPayment visible={state.modalVisible} setVisible={setters.setModalVisible} />
     </Screen.Root>
   );

@@ -1,5 +1,7 @@
 export interface IFab {
-  label?: string;
   visible: boolean;
   onPress: () => void;
+  label?: string;
+  right?: number;
+  bottom?: number;
 }
