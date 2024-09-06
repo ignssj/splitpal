@@ -17,6 +17,8 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Toast from "react-native-toast-message";
 import { toastConfig } from "./src/components/ToastFeedback";
+import "react-native-reanimated";
+import "react-native-gesture-handler";
 
 const App = () => {
   const colorScheme = useColorScheme();
