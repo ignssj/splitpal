@@ -6,14 +6,12 @@ import { Split } from "../components/Split";
 
 const MySplits = () => {
   const { state } = useMySplitsViewModel();
-  if (state.isLoading) return <Screen.Loading />;
-
   return (
     <Screen.Root>
       <Screen.Header>
         <Title>Feed</Title>
       </Screen.Header>
-      <Screen.Content loading={state.isLoading}>
+      <Screen.Content>
         <Split.List data={state.splits} />
       </Screen.Content>
     </Screen.Root>

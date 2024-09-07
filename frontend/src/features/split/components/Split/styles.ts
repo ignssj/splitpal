@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "Outfit_300Light",
   },
+  loadingContainer: {
+    gap: 20,
+    alignItems: "center",
+    marginTop: "5%",
+  },
 });
 
 export default styles;

@@ -1,5 +1,7 @@
 import React, { useCallback } from "react";
 import SplitItem from "../Item";
+import Title from "../../../../../components/Title";
+import Loading from "../Loading";
 import styles from "../styles";
 import { FlatList, TouchableOpacity } from "react-native";
 import { ISplitList } from "../types";
@@ -7,7 +9,6 @@ import { Split } from "../../../../../services/splits/types";
 import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../../../../infra/navigation/models";
 import { Text } from "react-native-paper";
-import Title from "../../../../../components/Title";
 import { useAppSelector } from "../../../../../redux/hooks";
 
 const SplitList: React.FC<ISplitList> = ({ data }) => {
@@ -26,6 +27,8 @@ const SplitList: React.FC<ISplitList> = ({ data }) => {
     ),
     [data]
   );
+
+  if (!data) return <Loading />;
 
   const organizedByMe = data.filter((split) => split.participants.some((p) => userId === p.userId && p.organizer));
   const participating = data.filter((split) => split.participants.some((p) => userId === p.userId && !p.organizer));
