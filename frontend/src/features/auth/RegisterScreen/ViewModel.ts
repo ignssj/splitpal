@@ -1,24 +1,19 @@
 import { useNavigation } from "@react-navigation/native";
 import useAuthService from "../../../services/auth";
 import { PropsStack } from "../../../infra/navigation/models";
-import { useState } from "react";
 import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
 import { isError } from "../../../helpers/ServiceHelper";
+import { RegisterRequest } from "../../../services/auth/types";
 
 const useRegisterViewModel = () => {
   const navigation = useNavigation<PropsStack>();
   const { register } = useAuthService();
 
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-
-  const handleEmailChange = (value: string) => setEmail(value);
-  const handlePasswordChange = (value: string) => setPassword(value);
-
   const navigateToLogin = () => navigation.navigate("LoginScreen");
 
-  const handleSignup = async () => {
-    const response = await register({ username: email, password });
+  const handleSignup = async (form: RegisterRequest) => {
+    console.log(form);
+    const response = await register({ ...form });
     if (isError(response)) return ErrorToast("Problema ao cadastrar usuário!");
 
     SuccessToast("Usuário cadastrado com sucesso!");
@@ -26,13 +21,11 @@ const useRegisterViewModel = () => {
   };
 
   return {
-    state: {
-      email,
-      password,
+    signupInitialValue: {
+      username: "",
+      password: "",
     },
     handlers: {
-      handleEmailChange,
-      handlePasswordChange,
       handleSignup,
       navigateToLogin,
     },
