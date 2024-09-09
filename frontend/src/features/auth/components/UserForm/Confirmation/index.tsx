@@ -3,10 +3,10 @@ import Input from "../../../../../components/Input";
 import { IUserFormPassword } from "../types";
 import { TextInput } from "react-native-paper";
 
-const UserPassword: React.FC<IUserFormPassword> = ({ value, visible, toggleVisibility, onChange }) => {
+const UserPasswordConfirmation: React.FC<IUserFormPassword> = ({ value, visible, onChange, toggleVisibility }) => {
   return (
     <Input
-      label='Senha'
+      label='Confirme a senha'
       value={value}
       onChangeText={onChange}
       secureTextEntry={!visible}
@@ -15,4 +15,4 @@ const UserPassword: React.FC<IUserFormPassword> = ({ value, visible, toggleVisib
   );
 };
 
-export default UserPassword;
+export default UserPasswordConfirmation;
