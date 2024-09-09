@@ -3,17 +3,24 @@ import useAuthService from "../../../services/auth";
 import { PropsStack } from "../../../infra/navigation/models";
 import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
 import { isError } from "../../../helpers/ServiceHelper";
-import { RegisterRequest } from "../../../services/auth/types";
+import { useState } from "react";
+import { IUserSchemaType } from "../../../validation/user";
 
 const useRegisterViewModel = () => {
   const navigation = useNavigation<PropsStack>();
+  const [hide, setHide] = useState<boolean>(true);
   const { register } = useAuthService();
+
+  const togglePasswordVisibility = () => {
+    setHide((prev) => !prev);
+  };
 
   const navigateToLogin = () => navigation.navigate("LoginScreen");
 
-  const handleSignup = async (form: RegisterRequest) => {
-    console.log(form);
-    const response = await register({ ...form });
+  const handleSignup = async (form: IUserSchemaType) => {
+    if (form.password !== form.confirmation) return ErrorToast("As senhas não conferem!");
+
+    const response = await register({ username: form.username, password: form.password });
     if (isError(response)) return ErrorToast("Problema ao cadastrar usuário!");
 
     SuccessToast("Usuário cadastrado com sucesso!");
@@ -24,10 +31,15 @@ const useRegisterViewModel = () => {
     signupInitialValue: {
       username: "",
       password: "",
+      confirmation: "",
+    },
+    state: {
+      hide,
     },
     handlers: {
       handleSignup,
       navigateToLogin,
+      togglePasswordVisibility,
     },
   };
 };
