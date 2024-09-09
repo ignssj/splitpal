@@ -8,7 +8,7 @@ import { Button, Text } from "react-native-paper";
 import { UserForm } from "../components/UserForm";
 import { Screen } from "../../../components/Screen";
 import { Formik } from "formik";
-import { userSchema } from "../../../validation/user";
+import { signupSchema } from "../../../schemas/signup";
 
 const RegisterScreen = () => {
   const styles = useThemedStyles(stylesheet);
@@ -17,7 +17,7 @@ const RegisterScreen = () => {
     <Screen.Root>
       <Image source={require("../../../../assets/logo.png")} style={styles.logo} />
       <Text style={styles.title}>Cadastro</Text>
-      <Formik initialValues={signupInitialValue} validationSchema={userSchema} onSubmit={(values) => handlers.handleSignup({ ...values })}>
+      <Formik initialValues={signupInitialValue} validationSchema={signupSchema} onSubmit={(values) => handlers.handleSignup({ ...values })}>
         {({ handleChange, handleSubmit, values, errors, isValid }) => (
           <UserForm.Root>
             <UserForm.Email value={values.username} onChange={handleChange("username")} />

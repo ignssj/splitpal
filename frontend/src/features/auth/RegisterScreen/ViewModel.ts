@@ -1,10 +1,9 @@
-import { useNavigation } from "@react-navigation/native";
 import useAuthService from "../../../services/auth";
+import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../../infra/navigation/models";
 import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
 import { isError } from "../../../helpers/ServiceHelper";
 import { useState } from "react";
-import { IUserSchemaType } from "../../../validation/user";
 
 const useRegisterViewModel = () => {
   const navigation = useNavigation<PropsStack>();
@@ -18,8 +17,6 @@ const useRegisterViewModel = () => {
   const navigateToLogin = () => navigation.navigate("LoginScreen");
 
   const handleSignup = async (form: IUserSchemaType) => {
-    if (form.password !== form.confirmation) return ErrorToast("As senhas não conferem!");
-
     const response = await register({ username: form.username, password: form.password });
     if (isError(response)) return ErrorToast("Problema ao cadastrar usuário!");
 
