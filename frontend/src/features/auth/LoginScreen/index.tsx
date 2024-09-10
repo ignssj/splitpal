@@ -16,7 +16,12 @@ const LoginScreen = () => {
       <Text style={styles.title}>Login</Text>
       <UserForm.Root>
         <UserForm.Email value={state.email} onChange={handlers.handleEmailChange} />
-        <UserForm.Password value={state.password} onChange={handlers.handlePasswordChange} />
+        <UserForm.Password
+          value={state.password}
+          onChange={handlers.handlePasswordChange}
+          visible={!state.hidePassword}
+          toggleVisibility={handlers.togglePasswordVisibility}
+        />
         <Button mode='contained' onPress={handlers.handleLogin}>
           Entrar
         </Button>
