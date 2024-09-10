@@ -4,6 +4,7 @@ import { useAppDispatch } from "../../../redux/hooks";
 import { useState } from "react";
 import { isError } from "../../../helpers/ServiceHelper";
 import { authenticate } from "../../../redux/slices/usersSlice";
+import { ILoginForm } from "../../../types/Login";
 import useAuthService from "../../../services/auth";
 import useStorage from "../../../hooks/useStorage";
 
@@ -13,23 +14,14 @@ const useLoginViewModel = () => {
   const { write } = useStorage();
   const { login } = useAuthService();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
-
-  const handleEmailChange = (string: string) => {
-    setEmail(string);
-  };
-  const handlePasswordChange = (string: string) => {
-    setPassword(string);
-  };
 
   const togglePasswordVisibility = () => {
     setHidePassword((prev) => !prev);
   };
 
-  const handleLogin = async () => {
-    const authResponse = await login({ username: email, password: password });
+  const handleLogin = async (loginForm: ILoginForm) => {
+    const authResponse = await login({ ...loginForm });
     if (isError(authResponse)) {
       return alert("Email ou senha incorretos!");
     }
@@ -46,13 +38,13 @@ const useLoginViewModel = () => {
 
   return {
     state: {
-      email,
-      password,
+      loginInitialValue: {
+        username: "",
+        password: "",
+      },
       hidePassword,
     },
     handlers: {
-      handleEmailChange,
-      handlePasswordChange,
       handleLogin,
       navigateToRegister,
       togglePasswordVisibility,

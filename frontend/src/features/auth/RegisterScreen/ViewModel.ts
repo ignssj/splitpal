@@ -4,6 +4,7 @@ import { PropsStack } from "../../../infra/navigation/models";
 import { ErrorToast, SuccessToast } from "../../../helpers/ToastHelper";
 import { isError } from "../../../helpers/ServiceHelper";
 import { useState } from "react";
+import { ISignupForm } from "../../../types/Signup";
 
 const useRegisterViewModel = () => {
   const navigation = useNavigation<PropsStack>();
@@ -16,7 +17,7 @@ const useRegisterViewModel = () => {
 
   const navigateToLogin = () => navigation.navigate("LoginScreen");
 
-  const handleSignup = async (form: IUserSchemaType) => {
+  const handleSignup = async (form: ISignupForm) => {
     const response = await register({ username: form.username, password: form.password });
     if (isError(response)) return ErrorToast("Problema ao cadastrar usuário!");
 
