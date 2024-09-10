@@ -7,6 +7,9 @@ import useCreateSplitViewModel from "./ViewModel";
 import styles from "./styles";
 import { Button } from "react-native-paper";
 import { Screen } from "../../../components/Screen";
+import { Formik } from "formik";
+import { splitSchema } from "../../../schemas/split";
+import FormError from "../../../components/FormError";
 
 const CreateSplit = () => {
   const { state, handlers } = useCreateSplitViewModel();
@@ -16,15 +19,22 @@ const CreateSplit = () => {
         <Title>Novo pagamento</Title>
       </Screen.Header>
       <Screen.Content style={styles.content}>
-        <Card>
-          <Input label='Nome' value={state.splitForm.name} onChangeText={handlers.handleNameChange} />
-          <Input label='Categoria' value={state.splitForm.category} onChangeText={handlers.handleCategoryChange} />
-          <Input label='Valor' value={state.splitForm.total} keyboardType='decimal-pad' onChangeText={handlers.handleValueChange} />
-          <Input label='QR Code' value={state.splitForm.qrcode} onChangeText={handlers.handleQRCodeChange} />
-          <Button mode='contained' onPress={handlers.handleCreate} loading={state.isLoading}>
-            Criar
-          </Button>
-        </Card>
+        <Formik initialValues={state.initialSplitValue} validationSchema={splitSchema} onSubmit={(values) => handlers.handleCreate(values)}>
+          {({ values, isSubmitting, errors, isValid, handleChange, handleSubmit }) => (
+            <Card>
+              <Input label='Nome' value={values.name} onChangeText={handleChange("name")} />
+              {errors.name && <FormError>{errors.name}</FormError>}
+              <Input label='Categoria' value={values.category} onChangeText={handleChange("category")} />
+              <Input label='Valor' value={values.total} keyboardType='decimal-pad' onChangeText={handleChange("total")} />
+              {errors.total && <FormError>{errors.total}</FormError>}
+              <Input label='QR Code' value={values.qrcode} onChangeText={handleChange("qrcode")} />
+              {errors.qrcode && <FormError>{errors.qrcode}</FormError>}
+              <Button mode='contained' onPress={() => handleSubmit()} loading={isSubmitting} disabled={!isValid}>
+                Criar
+              </Button>
+            </Card>
+          )}
+        </Formik>
         <Button onPress={() => handlers.setModalVisible(true)}>Quero ingressar em um pagamento</Button>
       </Screen.Content>
       <ModalJoinSplit visible={state.modalVisible} setVisible={handlers.setModalVisible} />
