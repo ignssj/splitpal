@@ -10,6 +10,7 @@ import { Screen } from "../../../components/Screen";
 import { Formik } from "formik";
 import { splitSchema } from "../../../schemas/split";
 import FormError from "../../../components/FormError";
+import MaskedValue from "../../../components/MaskedValue";
 
 const CreateSplit = () => {
   const { state, handlers } = useCreateSplitViewModel();
@@ -25,7 +26,7 @@ const CreateSplit = () => {
               <Input label='Nome' value={values.name} onChangeText={handleChange("name")} />
               {errors.name && <FormError>{errors.name}</FormError>}
               <Input label='Categoria' value={values.category} onChangeText={handleChange("category")} />
-              <Input label='Valor' value={values.total} keyboardType='decimal-pad' onChangeText={handleChange("total")} />
+              <MaskedValue masked={values.total} onChangeText={handleChange("total")} />
               {errors.total && <FormError>{errors.total}</FormError>}
               <Input label='QR Code' value={values.qrcode} onChangeText={handleChange("qrcode")} />
               {errors.qrcode && <FormError>{errors.qrcode}</FormError>}
