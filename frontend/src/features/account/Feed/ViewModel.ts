@@ -1,6 +1,6 @@
 import useMySplits from "../../../hooks/useMySplits";
 
-const useMySplitsViewModel = () => {
+const useFeedViewModel = () => {
   const { data, isLoading } = useMySplits();
 
   return {
@@ -11,4 +11,4 @@ const useMySplitsViewModel = () => {
   };
 };
 
-export default useMySplitsViewModel;
+export default useFeedViewModel;

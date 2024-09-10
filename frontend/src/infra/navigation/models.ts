@@ -7,7 +7,7 @@ export type PropsNavigationStack = {
   HomeScreen: undefined;
   Tab: undefined;
   CreateSplit: undefined;
-  MySplits: undefined;
+  Feed: undefined;
   SplitDetails: { split: Split };
   MyData: undefined;
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import CreateSplit from "../../../features/split/CreateSplit";
-import MySplits from "../../../features/split/MySplits";
 import LoginScreen from "../../../features/auth/LoginScreen";
 import MyData from "../../../features/account/MyData";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -9,6 +8,7 @@ import { Alert, useColorScheme } from "react-native";
 import { darkTheme, lightTheme } from "../../theme";
 import { useAppDispatch } from "../../../redux/hooks";
 import { logout } from "../../../redux/slices/usersSlice";
+import Feed from "../../../features/account/Feed";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +33,7 @@ export default function TabRoutes() {
     >
       <Tab.Screen
         name='Inicio'
-        component={MySplits}
+        component={Feed}
         options={{
           tabBarIcon: ({ focused }) => <Ionicons name='home' size={24} color={focused ? colorOnFocus : colorOnBlur} />,
         }}

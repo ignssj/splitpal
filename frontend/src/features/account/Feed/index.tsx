@@ -1,11 +1,11 @@
 import React from "react";
 import Title from "../../../components/Title";
-import useMySplitsViewModel from "./ViewModel";
+import useFeedViewModel from "./ViewModel";
 import { Screen } from "../../../components/Screen";
-import { Split } from "../components/Split";
+import { Split } from "../../split/components/Split";
 
-const MySplits = () => {
-  const { state } = useMySplitsViewModel();
+const Feed = () => {
+  const { state } = useFeedViewModel();
   return (
     <Screen.Root>
       <Screen.Header>
@@ -18,4 +18,4 @@ const MySplits = () => {
   );
 };
 
-export default MySplits;
+export default Feed;

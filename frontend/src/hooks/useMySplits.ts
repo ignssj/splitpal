@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { isError } from "../helpers/ServiceHelper";
 import { useRefetchOnFocus } from "./useRefetchOnFocus";
 import { useAppSelector } from "../redux/hooks";
-import { UserParticipation } from "../services/users/types";
 import { GetSplit } from "../services/splits/types";
 
 const useMySplits = () => {
