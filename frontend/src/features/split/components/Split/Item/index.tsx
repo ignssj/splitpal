@@ -15,7 +15,7 @@ const SplitItem: React.FC<ISplitItem> = ({ split, title }) => {
       </Row>
       <Row style={styles.row}>
         <Text style={styles.title}>Categoria: </Text>
-        <Text>{split.category}</Text>
+        <Text>{split.category || "Geral"}</Text>
       </Row>
       <Row style={styles.row}>
         <Text style={styles.title}>Valor: </Text>
