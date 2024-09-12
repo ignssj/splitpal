@@ -9,7 +9,7 @@ import { Ionicons } from "@expo/vector-icons";
 const ListedButton: React.FC<IListedButton> = ({ title, onPress, icon }) => {
   const theme = useTheme();
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity testID='ListedButton' onPress={onPress}>
       <View style={styles.container}>
         <Row style={styles.row}>
           {icon}

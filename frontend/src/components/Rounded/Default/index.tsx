@@ -8,7 +8,7 @@ import { TouchableOpacity } from "react-native";
 const RoundedDefault: React.FC<IRoundedDefault> = ({ icon, action }) => {
   const styles = useThemedStyles(stylesheet);
   return (
-    <TouchableOpacity onPress={action} style={styles.container}>
+    <TouchableOpacity testID='RoundedDefault' onPress={action} style={styles.container}>
       <Ionicons name={icon} size={20} color={styles.icon.color} />
     </TouchableOpacity>
   );

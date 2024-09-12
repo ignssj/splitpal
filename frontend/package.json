@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "lint": "eslint .",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
-    "test": "jest"
+    "test": "jest --silent"
   },
   "dependencies": {
     "@expo-google-fonts/outfit": "^0.2.3",
