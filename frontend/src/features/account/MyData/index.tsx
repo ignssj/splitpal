@@ -5,6 +5,8 @@ import Spaced from "../../../components/Spaced";
 import useMyDataViewModel from "./ViewModel";
 import { Screen } from "../../../components/Screen";
 import { Button } from "react-native-paper";
+import { Formik } from "formik";
+import { updateUserSchema } from "../../../schemas/updateUser";
 
 const MyData = () => {
   const { state, handlers } = useMyDataViewModel();
@@ -14,14 +16,18 @@ const MyData = () => {
         <Title>Meus dados</Title>
       </Screen.Header>
       <Screen.Content>
-        <Spaced gap={15}>
-          <Input label='Email' value={state.newEmail} onChangeText={handlers.handleEmailChange} />
-          <Input label='Senha atual' value={state.currentPassword} onChangeText={handlers.handleCurrentPasswordChange} />
-          <Input label='Nova senha' value={state.newPassword} onChangeText={handlers.handleNewPasswordChange} />
-          <Button mode='contained' disabled={state.isButtonDisabled} onPress={handlers.handleUpdate}>
-            Atualizar dados
-          </Button>
-        </Spaced>
+        <Formik initialValues={state.initialValues} onSubmit={(values) => handlers.handleUpdate(values)} validationSchema={updateUserSchema}>
+          {({ values, isValid, handleChange, handleSubmit }) => (
+            <Spaced gap={15}>
+              <Input label='Email' value={values.newEmail} onChangeText={handleChange("newEmail")} />
+              <Input label='Senha atual' value={values.currentPassword} onChangeText={handleChange("currentPassword")} />
+              <Input label='Nova senha' value={values.newPassword} onChangeText={handleChange("newPassword")} />
+              <Button mode='contained' onPress={() => handleSubmit()} disabled={!isValid}>
+                Atualizar dados
+              </Button>
+            </Spaced>
+          )}
+        </Formik>
       </Screen.Content>
     </Screen.Root>
   );
