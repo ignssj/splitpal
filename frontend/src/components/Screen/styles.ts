@@ -9,6 +9,9 @@ const style = StyleSheet.create({
     flex: 0.1,
     alignItems: "center",
   },
+  activity: {
+    flex: 1,
+  },
 });
 
 export default style;

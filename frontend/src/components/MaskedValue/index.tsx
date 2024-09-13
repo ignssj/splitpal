@@ -6,6 +6,7 @@ import { IMaskedInput } from "./types";
 const MaskedValue: React.FC<IMaskedInput> = ({ masked, onChangeText }) => {
   return (
     <TextInputMask
+      testID='MaskedValue'
       type='money'
       value={masked}
       onChangeText={onChangeText}

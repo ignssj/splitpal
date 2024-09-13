@@ -1,11 +1,11 @@
 import React from "react";
 import { Skeleton as MotiSkeleton } from "moti/skeleton";
-import { useColorScheme } from "react-native";
+import { useColorScheme, View } from "react-native";
 import { ISkeleton } from "./types";
 
 const Skeleton: React.FC<ISkeleton> = (props) => {
   const theme = useColorScheme();
-  if (!theme) return;
+  if (!theme) return <View />;
 
   return <MotiSkeleton {...props} colorMode={theme} />;
 };

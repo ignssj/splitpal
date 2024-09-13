@@ -6,7 +6,7 @@ import { View } from "react-native";
 
 const Title: React.FC<ITitle> = ({ children }) => {
   return (
-    <View style={{ flexGrow: 1, alignItems: "center" }}>
+    <View style={styles.container}>
       <Text style={styles.title}>{children}</Text>
     </View>
   );

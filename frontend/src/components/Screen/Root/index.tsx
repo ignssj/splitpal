@@ -7,7 +7,9 @@ import View from "../../View";
 const ScreenRoot: React.FC<IScreenRoot> = ({ children, style }) => {
   return (
     <View>
-      <SafeAreaView style={style || styles.container}>{children}</SafeAreaView>
+      <SafeAreaView testID='SafeAreaView' style={style || styles.container}>
+        {children}
+      </SafeAreaView>
     </View>
   );
 };
