@@ -1,10 +1,10 @@
 import React from "react";
-import Card from "../../../../../components/Card";
-import Row from "../../../../../components/Row";
 import styles from "../styles";
 import { Text } from "react-native-paper";
 import { ISplitItem } from "../types";
-import { formatValue } from "../../../../../helpers/ValueHelper";
+import Card from "../../Card";
+import Row from "../../Row";
+import { formatValue } from "../../../helpers/ValueHelper";
 
 const SplitItem: React.FC<ISplitItem> = ({ split, title }) => {
   return (
