@@ -1,15 +1,15 @@
 import React from "react";
-import Row from "../../../../../components/Row";
+import Row from "../../Row";
 import styles from "../styles";
 import { Linking, View } from "react-native";
 import { Text } from "react-native-paper";
-import { Payment } from "../../../../../services/payments/types";
-import { formatValue } from "../../../../../helpers/ValueHelper";
-import { formatDate } from "../../../../../helpers/DateHelper";
+import { formatValue } from "../../../helpers/ValueHelper";
+import { Payment } from "../../../services/payments/types";
+import { formatDate } from "../../../helpers/DateHelper";
 
 const PaymentItem: React.FC<Payment> = (payment) => {
   return (
-    <View style={styles.itemContainer}>
+    <View testID='PaymentItem' style={styles.itemContainer}>
       <Row style={styles.row}>
         <Text>Usuário: </Text>
         <Text>{payment.user_id.substring(24)}</Text>

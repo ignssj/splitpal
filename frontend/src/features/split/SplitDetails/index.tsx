@@ -1,15 +1,14 @@
 import React from "react";
 import Title from "../../../components/Title";
 import Card from "../../../components/Card";
-import Spaced from "../../../components/Spaced";
 import ModalAttachPayment from "../components/ModalAttachPayment";
 import useSplitDetailsViewModel from "./ViewModel";
 import styles from "./styles";
 import { Screen } from "../../../components/Screen";
 import { Rounded } from "../../../components/Rounded";
-import { Split } from "../components/Split";
-import { Payment } from "../components/Payment";
 import { FAB } from "../../../components/FAB";
+import { Payment } from "../../../components/Payment";
+import { Split } from "../../../components/Split";
 
 const SplitDetails = () => {
   const { state, handlers, setters } = useSplitDetailsViewModel();

@@ -3,9 +3,9 @@ import PaymentItem from "../Item";
 import styles from "../styles";
 import { Text } from "react-native-paper";
 import { IPaymentList } from "../types";
-import { Payment } from "../../../../../services/payments/types";
-import { Screen } from "../../../../../components/Screen";
 import { FlatList } from "react-native";
+import { Screen } from "../../Screen";
+import { Payment } from "../../../services/payments/types";
 
 const PaymentList: React.FC<IPaymentList> = ({ data, loading }) => {
   const RenderItem = useCallback(({ item }: { item: Payment }) => <PaymentItem {...item} />, []);

@@ -1,15 +1,15 @@
 import React, { useCallback } from "react";
 import SplitItem from "../Item";
-import Title from "../../../../../components/Title";
 import Loading from "../Loading";
+import Title from "../../Title";
 import styles from "../styles";
 import { FlatList, TouchableOpacity } from "react-native";
 import { ISplitList } from "../types";
-import { Split } from "../../../../../services/splits/types";
 import { useNavigation } from "@react-navigation/native";
-import { PropsStack } from "../../../../../infra/navigation/models";
 import { Text } from "react-native-paper";
-import { useAppSelector } from "../../../../../redux/hooks";
+import { useAppSelector } from "../../../redux/hooks";
+import { PropsStack } from "../../../infra/navigation/models";
+import { Split, SplitParticipant } from "../../../services/splits/types";
 
 const SplitList: React.FC<ISplitList> = ({ data }) => {
   const navigation = useNavigation<PropsStack>();
@@ -30,10 +30,11 @@ const SplitList: React.FC<ISplitList> = ({ data }) => {
 
   if (!data) return <Loading />;
 
-  const organizedByMe = data.filter((split) => split.participants.some((p) => userId === p.userId && p.organizer));
-  const participating = data.filter((split) => split.participants.some((p) => userId === p.userId && !p.organizer));
+  const organizedByMe = data.filter((split) => split.participants.some((p: SplitParticipant) => userId === p.userId && p.organizer));
+  const participating = data.filter((split) => split.participants.some((p: SplitParticipant) => userId === p.userId && !p.organizer));
   return (
     <FlatList
+      testID='OrganizingList'
       data={organizedByMe}
       keyExtractor={(item) => item.id}
       renderItem={RenderItem}
@@ -42,6 +43,7 @@ const SplitList: React.FC<ISplitList> = ({ data }) => {
       contentContainerStyle={styles.listContent}
       ListFooterComponent={
         <FlatList
+          testID='ParticipatingList'
           data={participating}
           keyExtractor={(item) => item.id}
           renderItem={RenderItem}

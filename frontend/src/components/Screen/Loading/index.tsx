@@ -6,7 +6,7 @@ import View from "../../View";
 
 const ScreenLoading: React.FC<IScreenLoading> = ({ style }) => {
   return (
-    <View>
+    <View testID='ScreenLoading'>
       <ActivityIndicator testID='ActivityIndicator' animating size={"large"} style={style || styles.activity} />
     </View>
   );

@@ -1,5 +1,4 @@
 import { Payment } from "../payments/types";
-import { User } from "../users/types";
 
 export interface Split {
   id: string;

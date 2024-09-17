@@ -2,7 +2,7 @@ import React from "react";
 import Title from "../../../components/Title";
 import useFeedViewModel from "./ViewModel";
 import { Screen } from "../../../components/Screen";
-import { Split } from "../../split/components/Split";
+import { Split } from "../../../components/Split";
 
 const Feed = () => {
   const { state } = useFeedViewModel();

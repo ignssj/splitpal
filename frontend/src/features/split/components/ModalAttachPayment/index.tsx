@@ -4,15 +4,15 @@ import Spaced from "../../../../components/Spaced";
 import MaskedValue from "../../../../components/MaskedValue";
 import stylesheet from "./styles";
 import useThemedStyles from "../../../../hooks/useThemedStyles";
-import { Button, Chip, Dialog, Text } from "react-native-paper";
-import { IModal } from "../../../../types";
 import * as DocumentPicker from "expo-document-picker";
 import usePaymentService from "../../../../services/payments";
+import { Button, Chip, Dialog, Text } from "react-native-paper";
 import { useAppSelector } from "../../../../redux/hooks";
 import { SplitDetailsRouteParams } from "../../SplitDetails/types";
 import { useRoute } from "@react-navigation/native";
 import { isError } from "../../../../helpers/ServiceHelper";
 import { ErrorToast, SuccessToast } from "../../../../helpers/ToastHelper";
+import { IModal } from "../../../../types/Modal";
 
 const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
   const { create } = usePaymentService();
