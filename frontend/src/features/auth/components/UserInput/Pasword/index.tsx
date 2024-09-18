@@ -10,7 +10,7 @@ const UserPassword: React.FC<IUserFormPassword> = ({ value, visible, toggleVisib
       value={value}
       onChangeText={onChange}
       secureTextEntry={!visible}
-      right={<TextInput.Icon icon={visible ? "eye" : "eye-off"} size={24} onPress={toggleVisibility} />}
+      right={<TextInput.Icon testID='VisibilityButton' icon={visible ? "eye" : "eye-off"} size={24} onPress={toggleVisibility} />}
     />
   );
 };

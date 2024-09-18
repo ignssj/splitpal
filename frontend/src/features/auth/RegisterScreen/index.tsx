@@ -5,7 +5,7 @@ import useThemedStyles from "../../../hooks/useThemedStyles";
 import useRegisterViewModel from "./ViewModel";
 import { Image } from "react-native";
 import { Button, Text } from "react-native-paper";
-import { UserForm } from "../components/UserForm";
+import { UserInput } from "../components/UserInput";
 import { Screen } from "../../../components/Screen";
 import { Formik } from "formik";
 import { signupSchema } from "../../../schemas/signup";
@@ -19,17 +19,17 @@ const RegisterScreen = () => {
       <Text style={styles.title}>Cadastro</Text>
       <Formik initialValues={signupInitialValue} validationSchema={signupSchema} onSubmit={(values) => handlers.handleSignup({ ...values })}>
         {({ handleChange, handleSubmit, values, errors, isValid }) => (
-          <UserForm.Root>
-            <UserForm.Email value={values.username} onChange={handleChange("username")} />
+          <UserInput.Root>
+            <UserInput.Email value={values.username} onChange={handleChange("username")} />
             {errors.username && <FormError>{errors.username}</FormError>}
-            <UserForm.Password
+            <UserInput.Password
               value={values.password}
               onChange={handleChange("password")}
               visible={state.hide}
               toggleVisibility={handlers.togglePasswordVisibility}
             />
             {errors.password && <FormError>{errors.password}</FormError>}
-            <UserForm.Confirmation
+            <UserInput.Confirmation
               value={values.confirmation}
               onChange={handleChange("confirmation")}
               visible={state.hide}
@@ -40,7 +40,7 @@ const RegisterScreen = () => {
               Cadastrar
             </Button>
             <Button onPress={handlers.navigateToLogin}>Já tem uma conta? Faça login</Button>
-          </UserForm.Root>
+          </UserInput.Root>
         )}
       </Formik>
     </Screen.Root>
