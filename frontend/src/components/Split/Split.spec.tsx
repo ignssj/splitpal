@@ -1,14 +1,10 @@
 import { screen, render } from "@testing-library/react-native";
 import { GetSplit } from "../../services/splits/types";
-import { NavigationContainer } from "@react-navigation/native";
-import { Provider } from "react-redux";
 import SplitItem from "./Item";
 import SplitList from "./List";
-import configureStore from "redux-mock-store";
+import { MOCKED_REDUX_STATE, renderWithMocks } from "../../helpers/TestHelper";
 
 describe("Split", () => {
-  const MY_USER_ID = "1234";
-  const mockStore = configureStore([]);
   const mockedSplit: GetSplit = {
     id: "1",
     category: "Fun",
@@ -21,7 +17,7 @@ describe("Split", () => {
       {
         id: "mocked-participation",
         organizer: true,
-        userId: MY_USER_ID,
+        userId: MOCKED_REDUX_STATE.user.id,
         splitId: "4321",
         createdAt: new Date("2023-12-05T00:00:00-0300").toUTCString(),
         updatedAt: new Date("2023-12-06T00:00:00-0300").toUTCString(),
@@ -65,24 +61,9 @@ describe("Split", () => {
   });
 
   describe("List", () => {
-    const initialState = {
-      user: {
-        id: MY_USER_ID,
-        username: "mocked-user",
-        token: "mocked-token",
-      },
-    };
-    const store = mockStore(initialState);
-
     const renderComponent = (split?: GetSplit) => {
       const data = split ? [split] : undefined;
-      render(
-        <Provider store={store}>
-          <NavigationContainer>
-            <SplitList data={data!} />
-          </NavigationContainer>
-        </Provider>
-      );
+      renderWithMocks(<SplitList data={data!} />);
     };
 
     it("should render a list of splits organized by user", () => {
