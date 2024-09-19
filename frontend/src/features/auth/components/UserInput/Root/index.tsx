@@ -1,9 +1,13 @@
 import React from "react";
 import Spaced from "../../../../../components/Spaced";
-import { ViewProps } from "react-native";
+import { View, ViewProps } from "react-native";
 
 const UserRoot: React.FC<ViewProps> = ({ children }) => {
-  return <Spaced gap={10}>{children}</Spaced>;
+  return (
+    <View testID='UserRoot'>
+      <Spaced gap={10}>{children}</Spaced>;
+    </View>
+  );
 };
 
 export default UserRoot;
