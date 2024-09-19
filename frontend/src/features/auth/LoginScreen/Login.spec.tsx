@@ -7,30 +7,11 @@ jest.mock("./ViewModel");
 describe("Login", () => {
   let handleLoginMock = jest.fn();
   let handleNavigationMock = jest.fn();
-  jest.mocked(useLoginViewModel).mockReturnValue({
-    state: {
-      loginInitialValue: {
-        username: "johndoe",
-        password: "fakepassword",
-      },
-      hidePassword: false,
-    },
-    handlers: {
-      handleLogin: handleLoginMock,
-      togglePasswordVisibility: jest.fn(),
-      navigateToRegister: handleNavigationMock,
-    },
-  });
-
-  const renderComponent = (initialState: { username: string; password: string }) => {
-    const handleLoginMock = jest.fn();
-    const handleNavigationMock = jest.fn();
+  const mockUseLoginViewModel = (loginInitialValue: { username: string; password: string }) => {
+    jest.clearAllMocks();
     jest.mocked(useLoginViewModel).mockReturnValue({
       state: {
-        loginInitialValue: {
-          username: "johndoe",
-          password: "fakepassword",
-        },
+        loginInitialValue,
         hidePassword: false,
       },
       handlers: {
@@ -39,9 +20,11 @@ describe("Login", () => {
         navigateToRegister: handleNavigationMock,
       },
     });
-
-    return render(<LoginScreen />);
   };
+
+  beforeEach(() => {
+    mockUseLoginViewModel({ username: "", password: "" });
+  });
 
   it("should render a UserInput", () => {
     render(<LoginScreen />);
@@ -51,6 +34,7 @@ describe("Login", () => {
   });
 
   it('should call "handleLogin" when the button is pressed', async () => {
+    mockUseLoginViewModel({ username: "johndoe", password: "fakepassword" });
     render(<LoginScreen />);
 
     const button = screen.getByText("Entrar");
