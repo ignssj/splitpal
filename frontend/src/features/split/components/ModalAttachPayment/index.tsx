@@ -2,56 +2,15 @@ import React from "react";
 import Row from "../../../../components/Row";
 import Spaced from "../../../../components/Spaced";
 import MaskedValue from "../../../../components/MaskedValue";
-import stylesheet from "./styles";
 import useThemedStyles from "../../../../hooks/useThemedStyles";
-import * as DocumentPicker from "expo-document-picker";
-import usePaymentService from "../../../../services/payments";
+import useModalAttachPaymentViewModel from "./ViewModel";
+import stylesheet from "./styles";
 import { Button, Chip, Dialog, Text } from "react-native-paper";
-import { useAppSelector } from "../../../../redux/hooks";
-import { SplitDetailsRouteParams } from "../../SplitDetails/types";
-import { useRoute } from "@react-navigation/native";
-import { isError } from "../../../../helpers/ServiceHelper";
-import { ErrorToast, SuccessToast } from "../../../../helpers/ToastHelper";
 import { IModal } from "../../../../types/Modal";
 
 const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
-  const { create } = usePaymentService();
-  const { split } = useRoute<SplitDetailsRouteParams>().params;
-  const user = useAppSelector((state) => state.user);
   const styles = useThemedStyles(stylesheet);
-  const [attachment, setAttachment] = React.useState<DocumentPicker.DocumentPickerAsset>();
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [paymentValue, setPaymentValue] = React.useState({
-    masked: "",
-    raw: 0,
-  });
-
-  const handleValueChange = (masked: string, raw?: string) => {
-    setPaymentValue({
-      masked,
-      raw: raw ? parseInt(raw) : 0,
-    });
-  };
-
-  const handleAttach = async () => {
-    const file = await DocumentPicker.getDocumentAsync({ type: "application/pdf", multiple: false });
-    if (file.canceled) return;
-
-    setAttachment(file.assets[0]);
-  };
-
-  const handleSave = async () => {
-    if (!attachment) return;
-
-    setIsLoading(true);
-    const paymentCreated = await create({ receipt: attachment, total: paymentValue.raw, user_id: user.id, split_id: split.id });
-    setIsLoading(false);
-
-    if (isError(paymentCreated)) ErrorToast("Erro ao salvar comprovante");
-
-    setVisible(!visible);
-    SuccessToast("Comprovante salvo com sucesso");
-  };
+  const { state, handlers } = useModalAttachPaymentViewModel();
 
   return (
     <Dialog
@@ -67,12 +26,17 @@ const ModalAttachPayment: React.FC<IModal> = ({ visible, setVisible }) => {
         <Spaced gap={20}>
           <Row style={styles.row}>
             <Text>Comprovante: </Text>
-            <Chip icon='attachment' onPress={handleAttach}>
-              {attachment ? attachment.name : "Clique para anexar"}
+            <Chip icon='attachment' onPress={handlers.handleAttach}>
+              {state.attachment ? state.attachment.name : "Clique para anexar"}
             </Chip>
           </Row>
-          <MaskedValue onChangeText={handleValueChange} masked={paymentValue.masked} />
-          <Button mode='contained' onPress={handleSave} disabled={!attachment || paymentValue.raw < 10} loading={isLoading}>
+          <MaskedValue onChangeText={handlers.handleValueChange} masked={state.paymentValue.masked} />
+          <Button
+            mode='contained'
+            onPress={() => handlers.handleSave(setVisible)}
+            disabled={!state.attachment || state.paymentValue.raw < 10}
+            loading={state.isLoading}
+          >
             Salvar
           </Button>
         </Spaced>
