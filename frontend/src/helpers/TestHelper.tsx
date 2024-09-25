@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { ReactNode } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { render } from "@testing-library/react-native";
+import { PaperProvider } from "react-native-paper";
 
 export const MOCKED_REDUX_STATE = {
   user: {
@@ -16,8 +17,10 @@ const store = mockStore(MOCKED_REDUX_STATE);
 
 export const renderWithMocks = (children: ReactNode) => {
   render(
-    <Provider store={store}>
-      <NavigationContainer>{children}</NavigationContainer>
-    </Provider>
+    <PaperProvider>
+      <Provider store={store}>
+        <NavigationContainer>{children}</NavigationContainer>
+      </Provider>
+    </PaperProvider>
   );
 };
