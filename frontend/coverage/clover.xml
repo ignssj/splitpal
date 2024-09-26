@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1727386532365" clover="3.2.0">
+  <project timestamp="1727386532366" name="All files">
+    <metrics statements="402" coveredstatements="228" conditionals="86" coveredconditionals="46" methods="143" coveredmethods="82" elements="631" coveredelements="356" complexity="0" loc="402" ncloc="402" packages="50" files="88" classes="88"/>
+    <package name="assets">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="logo.png" path="/Users/igngarcia/Projects/splitpal/frontend/assets/logo.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Card">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Card/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="28" type="stmt"/>
+        <line num="11" count="28" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Card/styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="28" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.FAB">
+      <metrics statements="5" coveredstatements="5" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <file name="New.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/FAB/New.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="7" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/FAB/index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/FAB/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.FormError">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/FormError/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="13" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/FormError/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Input">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Input/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="7" count="161" type="stmt"/>
+        <line num="8" count="157" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Input/styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="5" count="157" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ListedButton">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/ListedButton/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/ListedButton/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.MaskedValue">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/MaskedValue/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="21" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Payment">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Payment/index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Payment/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Payment.Item">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Payment/Item/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="9" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Payment.List">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Payment/List/index.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="13" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Rounded">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Rounded/index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Rounded/styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Rounded.Back">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Rounded/Back/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Rounded.Default">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Rounded/Default/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="9" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Row">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Row/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="12" type="stmt"/>
+        <line num="7" count="92" type="stmt"/>
+        <line num="8" count="92" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Row/styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="5" count="92" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Screen">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Screen/index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="8" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Screen/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Screen.Content">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Screen/Content/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="7" count="17" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="src.components.Screen.Header">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Screen/Header/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Screen.Loading">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Screen/Loading/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Screen.Root">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Screen/Root/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="8" count="26" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Skeleton">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Skeleton/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Spaced">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Spaced/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="71" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Split">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Split/index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Split/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Split.Item">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Split/Item/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Split.List">
+      <metrics statements="13" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="11" coveredmethods="9"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Split/List/index.tsx">
+        <metrics statements="13" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="11" coveredmethods="9"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="31" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Split.Loading">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Split/Loading/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Title">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Title/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="35" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/Title/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.View">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/View/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="50" type="stmt"/>
+        <line num="9" count="50" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/components/View/styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="5" count="47" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.account.Feed">
+      <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/account/Feed/ViewModel.ts">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/account/Feed/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.account.MyData">
+      <metrics statements="15" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="4"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/account/MyData/ViewModel.ts">
+        <metrics statements="9" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/account/MyData/index.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.auth.LoginScreen">
+      <metrics statements="29" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="10" coveredmethods="5"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/LoginScreen/ViewModel.ts">
+        <metrics statements="19" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/LoginScreen/index.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/LoginScreen/styles.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.auth.RegisterScreen">
+      <metrics statements="23" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="10" coveredmethods="5"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/RegisterScreen/ViewModel.ts">
+        <metrics statements="13" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/RegisterScreen/index.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/RegisterScreen/styles.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.auth.components.UserInput">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/components/UserInput/index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.auth.components.UserInput.Confirmation">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/components/UserInput/Confirmation/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.auth.components.UserInput.Email">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/components/UserInput/Email/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="23" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.auth.components.UserInput.Pasword">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/components/UserInput/Pasword/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="26" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.auth.components.UserInput.Root">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/auth/components/UserInput/Root/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="21" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.split.CreateSplit">
+      <metrics statements="19" coveredstatements="9" conditionals="10" coveredconditionals="6" methods="7" coveredmethods="5"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/CreateSplit/ViewModel.ts">
+        <metrics statements="11" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/CreateSplit/index.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="5"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="12" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/CreateSplit/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.split.SplitDetails">
+      <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/SplitDetails/ViewModel.ts">
+        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/SplitDetails/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/SplitDetails/styles.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.split.components.ModalAttachPayment">
+      <metrics statements="30" coveredstatements="18" conditionals="12" coveredconditionals="4" methods="9" coveredmethods="5"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/components/ModalAttachPayment/ViewModel.ts">
+        <metrics statements="22" coveredstatements="11" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/components/ModalAttachPayment/index.tsx">
+        <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="2"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
+        <line num="13" count="9" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/components/ModalAttachPayment/styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.split.components.ModalJoinSplit">
+      <metrics statements="25" coveredstatements="15" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="5"/>
+      <file name="ViewModel.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/components/ModalJoinSplit/ViewModel.ts">
+        <metrics statements="17" coveredstatements="8" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/components/ModalJoinSplit/index.tsx">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+      <file name="styles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/features/split/components/ModalJoinSplit/styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.helpers">
+      <metrics statements="19" coveredstatements="12" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="3"/>
+      <file name="DateHelper.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/helpers/DateHelper.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+      </file>
+      <file name="ServiceHelper.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/helpers/ServiceHelper.ts">
+        <metrics statements="8" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="10" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="10" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+      <file name="TestHelper.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/helpers/TestHelper.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="15" type="stmt"/>
+      </file>
+      <file name="ToastHelper.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/helpers/ToastHelper.ts">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+      <file name="ValueHelper.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/helpers/ValueHelper.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="19" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks">
+      <metrics statements="37" coveredstatements="10" conditionals="10" coveredconditionals="0" methods="15" coveredmethods="2"/>
+      <file name="useMySplits.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/hooks/useMySplits.ts">
+        <metrics statements="10" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+      </file>
+      <file name="usePayments.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/hooks/usePayments.ts">
+        <metrics statements="10" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+      </file>
+      <file name="useRefetchOnFocus.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/hooks/useRefetchOnFocus.ts">
+        <metrics statements="8" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="4" count="2" type="cond" truecount="0" falsecount="2"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+      <file name="useStorage.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/hooks/useStorage.ts">
+        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+      </file>
+      <file name="useThemedStyles.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/hooks/useThemedStyles.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="19" type="stmt"/>
+        <line num="8" count="365" type="stmt"/>
+        <line num="9" count="361" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.redux">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="hooks.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/redux/hooks.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="5" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.redux.slices.usersSlice">
+      <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/redux/slices/usersSlice/index.ts">
+        <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.schemas">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="login.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/schemas/login.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="signup.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/schemas/signup.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="split.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/schemas/split.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="updateUser.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/schemas/updateUser.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services">
+      <metrics statements="6" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/services/index.ts">
+        <metrics statements="6" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="0"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services.auth">
+      <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/igngarcia/Projects/splitpal/frontend/src/services/auth/index.ts">
+        <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services.payments">
+      <metrics statements="18" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/services/payments/index.tsx">
+        <metrics statements="18" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services.splits">
+      <metrics statements="23" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/services/splits/index.tsx">
+        <metrics statements="23" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services.users">
+      <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/igngarcia/Projects/splitpal/frontend/src/services/users/index.tsx">
+        <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
