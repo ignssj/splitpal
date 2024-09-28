@@ -2,10 +2,12 @@ package com.garcia.splitpal.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-public class CreateUserDTO{
+@AllArgsConstructor
+public class CreateUserDTO {
     @NotBlank(message = "Username is mandatory")
     @Size(min = 5, max = 20, message = "Username must have 5~20 characters")
     private String username;
