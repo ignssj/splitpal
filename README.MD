@@ -2,24 +2,69 @@
 
 **SplitPal** is a user-friendly online tool designed to make splitting expenses quick and easy with friends and family.
 
-## Features
+---
 
-### For Organizers
+## 🚀 Features
 
-- **Create a Private Split**: Organizers can set up a private split to divide a payment among participants.
-- **Share Access Link**: Share a link to the split so participants can join and contribute.
-- **Link PIX Code**: Attach a PIX code to receive payments directly.
+- **Create an Account**: Sign up to access the application and manage your splits.
+- **Create a Split**: Organize a private split to divide payments among participants.
+- **Join an Existing Split**: Participate by joining an ongoing event.
+- **Get Your Organized Splits**: View splits you've created.
+- **Get Your Participations**: Check the splits you've joined.
+- **Update Account Data**: Keep your profile up to date.
+- **Upload Payment Receipts**: Easily attach receipts for verification.
+- **Check Split Payments**: Track the payments for your splits.
 
-### For Users
+---
 
-- **Pay Your Share**: Users can pay their portion of the split directly through the app.
-- **Create an Account**: Users can sign up to access the application and manage their splits.
-- **Join a Split**: Users can participate in a split by joining an existing event.
+## 🛠 Tech Stack
 
-## Getting Started
+### Backend
+- **Java 18**
+- **Spring Boot**
+- **PostgreSQL/H2**
+- **JUnit5/Mockito**
+- **Swagger**
+
+### Frontend
+- **React Native/Expo Go**
+- **Paper/Redux/Formik/Yup/React Query**
+- **Jest/Testing Library**
+
+### Infrastructure
+- **AWS** - EC2/S3
+- **Docker**
+
+---
+
+## 📋 Prerequisites
+
+- **NodeJS**
+- **Docker**
+- **Android Studio** or **Xcode**
+
+---
+
+## 🏁 Getting Started
 
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/ignssj/splitpal.git
    cd splitpal
+   ```
+
+2. **Run the Backend**:
+   ```bash
+   cd splitpal/backend
+   // create a .env file and then
+   docker-compose up -d --build
+   ```
+
+3. **Run the Frontend**:
+   ```bash
+   cd splitpal/frontend
+   # On Android
+   npx expo android
+   # On iOS (Mac only)
+   npx expo ios
    ```
