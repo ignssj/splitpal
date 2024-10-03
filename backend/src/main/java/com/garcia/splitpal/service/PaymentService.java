@@ -52,9 +52,9 @@ public class PaymentService {
         payment.setSplit_id(UUID.fromString(splitId));
         payment.setUser_id(UUID.fromString(userId));
 
-        paymentRepository.save(payment);
+        var entity = paymentRepository.save(payment);
 
-        return payment.getId();
+        return entity.getId();
     }
 
     public Optional<Payment> getPaymentById(String id) {
