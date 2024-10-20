@@ -1,6 +1,6 @@
 # SplitPal
 
-**SplitPal** is a user-friendly online tool designed to make splitting expenses quick and easy with friends and family.
+**SplitPal** is a user-friendly online tool designed to make splitting expenses quick and easy.
 
 ---
 
